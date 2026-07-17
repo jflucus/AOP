@@ -1,0 +1,170 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../config';
+
+const ways = [
+  {
+    icon: '🙌',
+    title: 'Volunteer',
+    body: 'Tutor, help at events, or lend a professional skill. All volunteers with unsupervised contact with minors complete our youth-protection screening before working with scholars.',
+    cta: 'Volunteer with us',
+  },
+  {
+    icon: '🧑‍🏫',
+    title: 'Become a Mentor',
+    body: 'Coach a sport, guide college and career readiness, or mentor one-on-one. Mentors are trained in positive youth development and mandated-reporter standards.',
+    cta: 'Mentor a scholar',
+  },
+  {
+    icon: '🤝',
+    title: 'Become a Community Partner',
+    body: 'Schools, employers, and community organizations power our model — referrals, space, worksite tours, job shadows, and paid internships. We sign MOUs that specify supervision and youth-protection terms.',
+    cta: 'Partner with AOP',
+  },
+  {
+    icon: '⭐',
+    title: 'Join the Founding Board',
+    body: 'We are building a founding board with coverage across finance, legal, education, athletics, fundraising, and community. Help govern a rigorous, evidence-based organization from day one.',
+    cta: 'Explore board service',
+  },
+];
+---
+
+<Base title="Get Involved" description="Volunteer, become a mentor, become a community partner, or join the founding board of AOP Foundation.">
+  <PageHero
+    eyebrow="Get Involved"
+    title="Build a scholar's future with us"
+    intro="AOP grows through people and partnerships. Here's how you can help NYC student-athletes reach college, aid, and a career of purpose."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2">
+        {ways.map((w) => (
+          <article class="card involve">
+            <div class="card__icon">{w.icon}</div>
+            <h3>{w.title}</h3>
+            <p>{w.body}</p>
+            <a class="btn btn--ghost" href="#interest">{w.cta}</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Interest form -->
+  <section class="section section--alt" id="interest">
+    <div class="container narrow">
+      <p class="eyebrow">Express interest</p>
+      <h2>Tell us how you'd like to help</h2>
+      <p class="lead">
+        Share your details and we'll follow up. Volunteers and mentors will be routed into our screening
+        workflow before any contact with scholars.
+      </p>
+
+      <form
+        class="form"
+        action={`https://formsubmit.co/${site.email}`}
+        method="POST"
+      >
+        <!-- FormSubmit config: no-JS friendly. Replace action with your form handler if preferred. -->
+        <input type="hidden" name="_subject" value="New Get Involved submission — AOP website" />
+        <input type="text" name="_honey" style="display:none" />
+
+        <div class="form__row">
+          <label>
+            Full name
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+        </div>
+        <div class="form__row">
+          <label>
+            Phone (optional)
+            <input type="tel" name="phone" autocomplete="tel" />
+          </label>
+          <label>
+            I'm interested in
+            <select name="interest" required>
+              <option value="">Choose one…</option>
+              <option>Volunteering</option>
+              <option>Becoming a mentor</option>
+              <option>Becoming a community partner</option>
+              <option>Joining the founding board</option>
+              <option>Something else</option>
+            </select>
+          </label>
+        </div>
+        <label>
+          Message
+          <textarea name="message" rows="5" placeholder="Tell us a little about your interest, skills, or organization."></textarea>
+        </label>
+        <button class="btn btn--gold" type="submit">Submit interest</button>
+        <p class="form__note">
+          By submitting you agree to be contacted by AOP Foundation. We never share your information.
+        </p>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .involve {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .involve .btn {
+    margin-top: auto;
+  }
+  .narrow {
+    max-width: 720px;
+  }
+  .form {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1.1rem;
+  }
+  .form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+  .form label {
+    display: grid;
+    gap: 0.35rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--navy);
+  }
+  .form input,
+  .form select,
+  .form textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+  }
+  .form input:focus,
+  .form select:focus,
+  .form textarea:focus {
+    border-color: var(--gold);
+    outline: none;
+  }
+  .form__note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  @media (max-width: 560px) {
+    .form__row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

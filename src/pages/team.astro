@@ -1,0 +1,136 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { founder, mentors } from '../data';
+
+function initials(name: string) {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .slice(0, 2)
+    .join('');
+}
+---
+
+<Base title="Our Team" description="Meet the founder, founding mentors, board, and advisory council of AOP Foundation.">
+  <PageHero
+    eyebrow="Our Team"
+    title="The people preparing our scholars"
+    intro="Founder, founding mentors, board, and advisory council — educators, coaches, and community leaders committed to every AOP scholar."
+  />
+
+  <!-- Founder -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">Meet the Founder</p>
+      <div class="founder">
+        <div class="avatar avatar--lg" aria-hidden="true">{initials(founder.name)}</div>
+        <div>
+          <h2>{founder.name}</h2>
+          <p class="role">{founder.role}</p>
+          <p>{founder.bio}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mentors -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="eyebrow">Meet Our Founding Mentors</p>
+      <h2>Coaches and mentors trained in positive youth development</h2>
+      <div class="grid grid--2" style="margin-top:2rem;">
+        {mentors.map((m) => (
+          <article class="card mentor">
+            <div class="avatar" aria-hidden="true">{initials(m.name)}</div>
+            <div>
+              <h3>{m.name}</h3>
+              <p class="role">{m.role}</p>
+              <p class="focus">{m.focus}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Board & Advisory -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2" style="gap:3rem; align-items:start;">
+        <div>
+          <p class="eyebrow">Founding Board</p>
+          <h2>Governance &amp; oversight</h2>
+          <p>
+            AOP is governed by a founding board of directors with skills coverage across finance/audit,
+            legal, education, athletics, fundraising, and community — with an independent treasurer separate
+            from the Board Chair. The board reviews our North Star outcomes dashboard quarterly.
+          </p>
+          <p class="note">Board roster is being finalized as part of our formation sprint. Interested in serving?
+            <a href="/get-involved/">Join the founding board.</a></p>
+        </div>
+        <div>
+          <p class="eyebrow">Advisory Council</p>
+          <h2>Guidance from the field</h2>
+          <p>
+            Our advisory council brings expertise in college advising, financial aid, youth protection, and
+            employer partnerships to keep AOP's model rigorous and evidence-based.
+          </p>
+          <p class="note">Advisory council members will be announced soon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .founder {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  .avatar {
+    flex: 0 0 auto;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.03em;
+  }
+  .avatar--lg {
+    width: 130px;
+    height: 130px;
+    font-size: 2.8rem;
+  }
+  .role {
+    color: var(--gold-dark);
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+  }
+  .mentor {
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+  .mentor .focus {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  .note {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+  @media (max-width: 560px) {
+    .founder {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
+</style>

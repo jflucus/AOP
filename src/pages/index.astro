@@ -1,0 +1,262 @@
+---
+import Base from '../layouts/Base.astro';
+import { outcomes, programs } from '../data';
+import { site } from '../config';
+---
+
+<Base>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow">Promise. Preparation. Purpose.</p>
+        <h1>Preparing students for college, careers, leadership, and life through athletics and education.</h1>
+        <p class="lead">
+          AOP Foundation equips NYC student-athletes and students with athletic aspirations with
+          academic support, athletic development, mentorship, leadership training, and postsecondary planning.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--gold" href="/donate/">Support a Scholar</a>
+          <a class="btn btn--ghost" href="/get-involved/">Get Involved</a>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <div class="hero__logo-panel">
+          <img src="/brand/logo-primary.png" alt="" width="983" height="918" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="section">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">The Three Promise Outcomes</p>
+        <h2>We measure ourselves on outcomes, not activity</h2>
+        <p class="lead">
+          Everything AOP does is organized around three measurable outcomes — the metrics by which
+          we hold ourselves accountable and report to funders.
+        </p>
+      </div>
+      <div class="grid grid--3" style="margin-top:2.5rem;">
+        {outcomes.map((o) => (
+          <article class="card">
+            <div class="card__icon">{o.icon}</div>
+            <h3>{o.title}</h3>
+            <p>{o.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission strip -->
+  <section class="section section--navy">
+    <div class="container center">
+      <p class="eyebrow">Our Mission</p>
+      <p class="mission">
+        To prepare student-athletes and students with athletic aspirations for success in college and
+        beyond — developing their academic achievement, athletic performance, leadership, and character,
+        while helping families identify <strong>affordable</strong> education pathways aligned with each
+        student's passions, talents, and career goals.
+      </p>
+      <a class="btn btn--ghost" href="/about/">More about AOP</a>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">Our Programs</p>
+        <h2>Four programs, one integrated model</h2>
+      </div>
+      <div class="grid grid--2" style="margin-top:2.5rem;">
+        {programs.map((p) => (
+          <a class="card program-card" href={`/programs/#${p.slug}`}>
+            <div class="card__icon">{p.icon}</div>
+            <span class="card__tag">Drives: {p.drives}</span>
+            <h3>{p.name}</h3>
+            <p>{p.tagline}</p>
+          </a>
+        ))}
+      </div>
+      <div class="center" style="margin-top:2rem;">
+        <a class="btn btn--navy" href="/programs/">Explore all programs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Evidence band -->
+  <section class="section">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">Built on evidence</p>
+        <h2>Our design follows what research shows works</h2>
+      </div>
+      <div class="grid grid--3 stats" style="margin-top:2rem;">
+        <div class="stat">
+          <span class="stat__num">55%</span>
+          <p>Bachelor's completion under intensive advising (vs. 47%) in a multi-site RCT including NYC.</p>
+        </div>
+        <div class="stat">
+          <span class="stat__num">84%</span>
+          <p>More likely to enroll immediately in college when a senior completes the FAFSA.</p>
+        </div>
+        <div class="stat">
+          <span class="stat__num">~2%</span>
+          <p>Of high school athletes receive athletic scholarships — so we build the plan on aid, honestly.</p>
+        </div>
+      </div>
+      <p class="disclaimer center">
+        Figures from Bottom Line (Barr &amp; Castleman RCT), NCAN, and the NCAA. Sources are listed on our
+        <a href="/about/#evidence">About</a> page and verified before use in funder materials.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section section--navy cta-band">
+    <div class="container center">
+      <h2>Help a young person turn talent into a future</h2>
+      <p class="lead">
+        Your support funds tutoring, athletic equipment, leadership workshops, college visits, mentoring,
+        and scholarship assistance for NYC student-athletes.
+      </p>
+      <div class="hero__cta center-cta">
+        <a class="btn btn--gold" href="/donate/">Donate</a>
+        <a class="btn btn--ghost" href="/get-involved/">Volunteer or Mentor</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    background: linear-gradient(160deg, var(--navy) 0%, #071a37 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 82% 20%, rgba(198, 139, 33, 0.22), transparent 45%);
+    pointer-events: none;
+  }
+  .hero__inner {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    align-items: center;
+    gap: 2.5rem;
+    padding-block: clamp(3rem, 8vw, 6rem);
+    position: relative;
+  }
+  .hero__copy h1 {
+    color: #fff;
+  }
+  .hero__copy .lead {
+    color: #c9d6e8;
+  }
+  .hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.8rem;
+  }
+  .hero__art {
+    display: grid;
+    place-items: center;
+  }
+  .hero__logo-panel {
+    background: #fff;
+    border-radius: 20px;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    width: min(100%, 400px);
+  }
+  .hero__logo-panel img {
+    width: 100%;
+    height: auto;
+  }
+  /* Ghost button on the navy hero needs light treatment */
+  .hero .btn--ghost {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
+  .hero .btn--ghost:hover {
+    background: #fff;
+    color: var(--navy);
+  }
+
+  .mission {
+    font-family: var(--font-body);
+    font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    font-weight: 500;
+    max-width: 46ch;
+    margin-inline: auto;
+    color: #eaf0f8;
+    line-height: 1.4;
+  }
+  .mission strong {
+    color: var(--gold-light);
+  }
+
+  .program-card {
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+    display: block;
+  }
+  .program-card:hover {
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .stat {
+    text-align: center;
+    padding: 1rem;
+  }
+  .stat__num {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 4.4rem);
+    color: var(--navy);
+    line-height: 1;
+    display: block;
+  }
+  .stat p {
+    color: var(--text-muted);
+    max-width: 30ch;
+    margin-inline: auto;
+  }
+  .disclaimer {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 2rem;
+    max-width: 60ch;
+    margin-inline: auto;
+  }
+  .center-cta {
+    justify-content: center;
+  }
+
+  @media (max-width: 860px) {
+    .hero__inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .hero__cta {
+      justify-content: center;
+    }
+    .hero__art {
+      order: -1;
+    }
+    .hero__logo-panel {
+      width: 240px;
+      margin-inline: auto;
+    }
+  }
+</style>

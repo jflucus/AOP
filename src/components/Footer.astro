@@ -1,0 +1,120 @@
+---
+import { nav, site } from '../config';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <div class="footer__logo-badge">
+        <img src="/brand/logo-primary.png" alt={`${site.legalName} logo`} width="983" height="918" />
+      </div>
+      <p class="footer__motto">{site.motto}</p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer">
+      <h3>Explore</h3>
+      <ul>
+        {nav.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="footer__contact">
+      <h3>Contact</h3>
+      <p>
+        <a href={`mailto:${site.email}`}>{site.email}</a><br />
+        {site.location}
+      </p>
+      <a class="btn btn--gold" href="/donate/">Donate</a>
+    </div>
+  </div>
+
+  <div class="footer__legal">
+    <div class="container">
+      <p>
+        &copy; {year} {site.legalName} ({site.publicName}). {site.tagline}
+      </p>
+      <p class="footer__fineprint">
+        AOP Foundation is launching under fiscal sponsorship; 501(c)(3) status pending.
+        Contributions are tax-deductible to the extent allowed by law once confirmed with the fiscal sponsor.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--navy);
+    color: #c3d0e2;
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2.5rem;
+    padding-block: 3.5rem 2.5rem;
+  }
+  .footer__logo-badge {
+    display: inline-block;
+    background: #fff;
+    border-radius: 14px;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .footer__logo-badge img {
+    width: 150px;
+    height: auto;
+    display: block;
+  }
+  .footer__motto {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--gold-light);
+    font-size: 1.1rem;
+  }
+  .site-footer h3 {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.9rem;
+  }
+  .footer__nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    columns: 2;
+  }
+  .footer__nav li {
+    margin-bottom: 0.5rem;
+  }
+  .site-footer a {
+    color: #c3d0e2;
+  }
+  .site-footer a:hover {
+    color: #fff;
+  }
+  .footer__contact .btn {
+    margin-top: 0.6rem;
+    color: #fff;
+  }
+  .footer__legal {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-block: 1.5rem;
+    font-size: 0.85rem;
+    color: #9aa8b6;
+  }
+  .footer__fineprint {
+    margin-top: 0.5rem;
+    font-size: 0.78rem;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 760px) {
+    .footer__grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

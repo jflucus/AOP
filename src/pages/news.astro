@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+
+// Add entries here as news and events happen. Newest first.
+const posts: { date: string; tag: string; title: string; body: string }[] = [
+  {
+    date: 'September 1, 2026',
+    tag: 'Milestone',
+    title: 'AOP Foundation launches its pilot cohort',
+    body: 'Our first scholars begin with a kickoff event, pre-season athletic training, and senior advising intake — the start of a program built around college acceptance, scholarship attainment, and career readiness.',
+  },
+];
+---
+
+<Base title="News & Events" description="Announcements, milestones, and upcoming events from AOP Foundation.">
+  <PageHero
+    eyebrow="News & Events"
+    title="What's happening at AOP"
+    intro="Milestones, family events, and announcements as we launch and grow. Check back for FAFSA nights, worksite tours, and community events."
+  />
+
+  <section class="section">
+    <div class="container narrow">
+      {posts.length === 0 ? (
+        <div class="empty card">
+          <h3>Announcements coming soon</h3>
+          <p>We're in our formation sprint. Follow along here for launch news and upcoming family events.</p>
+        </div>
+      ) : (
+        <div class="posts">
+          {posts.map((p) => (
+            <article class="post card">
+              <div class="post__meta">
+                <span class="card__tag">{p.tag}</span>
+                <time>{p.date}</time>
+              </div>
+              <h3>{p.title}</h3>
+              <p>{p.body}</p>
+            </article>
+          ))}
+        </div>
+      )}
+
+      <div class="subscribe">
+        <h2>Stay in the loop</h2>
+        <p>Want launch news and event invites? Send us a note and we'll add you to our updates.</p>
+        <a class="btn btn--gold" href="/contact/">Get updates</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .narrow {
+    max-width: 760px;
+  }
+  .posts {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .post__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.6rem;
+  }
+  .post__meta time {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .subscribe {
+    margin-top: 3rem;
+    text-align: center;
+    background: var(--sky);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+  }
+  .subscribe h2 {
+    margin-top: 0;
+  }
+</style>

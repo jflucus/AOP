@@ -1,0 +1,135 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../config';
+
+const supports = [
+  ['📚', 'Tutoring & academic support'],
+  ['🏈', 'Athletic equipment'],
+  ['⭐', 'Leadership workshops'],
+  ['🎓', 'Scholarship assistance'],
+  ['🚌', 'College visits'],
+  ['🧑‍🏫', 'Mentoring'],
+  ['💼', 'Career exploration'],
+];
+
+const hasRealDonateUrl = !site.donateUrl.startsWith('#');
+---
+
+<Base title="Donate" description="Support tutoring, athletic equipment, leadership workshops, scholarship assistance, college visits, mentoring, and career exploration.">
+  <PageHero
+    eyebrow="Donate"
+    title="Invest in a young person's promise"
+    intro="Your gift funds the tutoring, mentoring, equipment, and college guidance that turn talent and drive into college acceptance, financial aid, and a career of purpose."
+  />
+
+  <section class="section">
+    <div class="container grid grid--2" style="gap:3rem; align-items:start;">
+      <div>
+        <p class="eyebrow">Where your gift goes</p>
+        <h2>Every dollar is stewarded transparently</h2>
+        <ul class="support-list">
+          {supports.map(([icon, label]) => (
+            <li><span aria-hidden="true">{icon}</span> {label}</li>
+          ))}
+        </ul>
+        <p class="benchmark">
+          For reference, the intensive one-on-one advising model AOP is built on runs about
+          <strong>$4,000 per student per year</strong> — and independent research ties it to higher college
+          completion. We track cost-per-scholar and report it to our supporters.
+        </p>
+      </div>
+
+      <aside class="donate-box" id="donate-info">
+        <h3>Give to AOP Foundation</h3>
+        {hasRealDonateUrl ? (
+          <>
+            <p>Make a secure one-time or recurring gift through our fiscal sponsor.</p>
+            <a class="btn btn--gold btn--block" href={site.donateUrl} target="_blank" rel="noopener">
+              Donate securely
+            </a>
+          </>
+        ) : (
+          <>
+            <p class="notice">
+              <strong>Our online donation page is being set up.</strong> In Year 1, AOP receives gifts through
+              a fiscal sponsor so your contribution is handled compliantly and is tax-deductible.
+            </p>
+            <p>To give now or pledge support, email us and we'll send secure giving instructions:</p>
+            <a class="btn btn--gold btn--block" href={`mailto:${site.email}?subject=I'd like to donate to AOP Foundation`}>
+              Email us to give
+            </a>
+          </>
+        )}
+        <p class="donate-box__fine">
+          {site.legalName} is launching under fiscal sponsorship; 501(c)(3) status pending. Gifts are
+          tax-deductible to the extent allowed by law once confirmed with the fiscal sponsor.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--navy cta-band">
+    <div class="container center">
+      <h2>Other ways to give</h2>
+      <p class="lead">Equipment, in-kind services, employer sponsorships, and volunteer time all move scholars forward.</p>
+      <a class="btn btn--ghost" href="/get-involved/">See ways to get involved</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .support-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 0.6rem;
+  }
+  .support-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .support-list span {
+    font-size: 1.3rem;
+  }
+  .benchmark {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    border-left: 3px solid var(--gold);
+    padding-left: 1rem;
+  }
+  .donate-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 96px;
+  }
+  .donate-box h3 {
+    margin-top: 0;
+  }
+  .btn--block {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 1rem 0;
+  }
+  .notice {
+    background: var(--sky);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+  }
+  .donate-box__fine {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+</style>

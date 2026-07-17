@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+
+const types = [
+  {
+    title: 'Schools',
+    body: 'MOUs covering student referrals, program space, and FERPA-compliant transcript data-sharing — with future 21st Century Community Learning Center partnership in view.',
+  },
+  {
+    title: 'Employers',
+    body: 'Signed work-based learning agreements for worksite tours, job shadows, informational interviews, and paid internships — with clear supervision and youth-protection terms.',
+  },
+  {
+    title: 'Colleges',
+    body: 'Campus-visit agreements, admissions-office relationships, and opportunity-program (HEOP/EOP/SEEK) liaison contacts that open real pathways for our scholars.',
+  },
+  {
+    title: 'Community & City Programs',
+    body: 'Summer Youth Employment Program (SYEP) providers, NYC Parks facility agreements, and community organizations that extend our reach.',
+  },
+];
+---
+
+<Base title="Partners" description="AOP Foundation partners with schools, employers, colleges, and community organizations across NYC.">
+  <PageHero
+    eyebrow="Partners"
+    title="It takes a network to launch a scholar"
+    intro="AOP's model runs on partnerships. We build formal, youth-protection-first relationships across NYC to give scholars real opportunities."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2">
+        {types.map((t) => (
+          <article class="card">
+            <h3>{t.title}</h3>
+            <p>{t.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <p class="eyebrow">Founding support</p>
+      <h2>Building our founding coalition</h2>
+      <p class="lead">
+        We're actively developing relationships with in-kind, foundation, and civic partners who share our
+        commitment to expanding access for NYC's student-athletes. Partner logos and named commitments will
+        be featured here as agreements are signed.
+      </p>
+      <div class="logo-row" aria-hidden="true">
+        <div class="logo-placeholder">Your organization</div>
+        <div class="logo-placeholder">Partner</div>
+        <div class="logo-placeholder">Partner</div>
+        <div class="logo-placeholder">Partner</div>
+      </div>
+      <a class="btn btn--navy" href="/get-involved/">Become a partner</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .logo-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .logo-placeholder {
+    height: 90px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    border: 1px dashed var(--gray-blue);
+    border-radius: var(--radius);
+    color: var(--gray-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+</style>

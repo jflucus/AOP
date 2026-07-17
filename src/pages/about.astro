@@ -1,0 +1,147 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { values, outcomes } from '../data';
+---
+
+<Base title="About AOP" description="AOP Foundation is a sports-based youth development organization for NYC, built on the evidence.">
+  <PageHero
+    eyebrow="About AOP"
+    title="Talent and drive, used as a launchpad"
+    intro="A New York City where every young person — regardless of income or ZIP code — uses their talent and drive in sport as a launchpad to college acceptance, a fully funded education, and a career of purpose."
+  />
+
+  <section class="section">
+    <div class="container grid grid--2" style="align-items:start; gap:3rem;">
+      <div>
+        <p class="eyebrow">Mission</p>
+        <p class="lead" style="color:var(--text);">
+          AOP Foundation prepares student-athletes and students with athletic aspirations for success in
+          college and beyond. We combine rigorous academics, athletic development, intensive one-on-one
+          advising, and real-world career preparation so that every AOP scholar graduates high school
+          accepted to a best-fit college, with a financial aid package their family can afford, and with the
+          professional skills and networks to launch a career.
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow">Vision</p>
+        <p class="lead" style="color:var(--text);">
+          A future where every student graduates with the academic preparation, leadership skills, athletic
+          opportunities, and financial knowledge needed to pursue an affordable and fulfilling postsecondary
+          pathway.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="eyebrow">Why AOP exists</p>
+      <h2>The barriers are real — and specific to NYC</h2>
+      <div class="grid grid--2" style="margin-top:2rem;">
+        <div class="card">
+          <h3>A completion gap by income</h3>
+          <p>Students from New York's highest-poverty high schools complete postsecondary credentials on
+          time at roughly 20% vs. 45% for the lowest-poverty schools — a 25-point gap.</p>
+        </div>
+        <div class="card">
+          <h3>FAFSA is the choke point</h3>
+          <p>Seniors who complete the FAFSA are far more likely to enroll — yet nationally only about 59% of
+          the class of 2026 completed it. We treat FAFSA completion as a headline goal.</p>
+        </div>
+        <div class="card">
+          <h3>The athletic-scholarship myth</h3>
+          <p>Only about 2% of high school athletes receive athletic scholarships. Families who bank on
+          recruiting often under-invest in academics and aid strategy. Our design corrects this.</p>
+        </div>
+        <div class="card">
+          <h3>Access tracks income</h3>
+          <p>Children from the lowest-income homes play sports at roughly half the rate of the highest-income
+          group. We use the pull of athletics to drive participation and retention.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes detail -->
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">The Three Promise Outcomes</p>
+      <h2>What we hold ourselves accountable to</h2>
+      <div class="grid grid--3" style="margin-top:2rem;">
+        {outcomes.map((o) => (
+          <article class="card">
+            <div class="card__icon">{o.icon}</div>
+            <h3>{o.title}</h3>
+            <p>{o.detail}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section section--alt">
+    <div class="container">
+      <p class="eyebrow">Core Values</p>
+      <h2>Promise. Preparation. Purpose.</h2>
+      <div class="grid grid--4" style="margin-top:2rem;">
+        {values.map(([name, desc]) => (
+          <div class="value">
+            <h3>{name}</h3>
+            <p>{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Evidence -->
+  <section class="section" id="evidence">
+    <div class="container">
+      <p class="eyebrow">Evidence base</p>
+      <h2>Practices validated by rigorous research</h2>
+      <p class="lead">
+        AOP is a sports-based youth development organization built on the evidence: intensive college
+        advising (validated by RCT), FAFSA/aid completion campaigns, long-duration mentoring, and
+        career-academy-style work-based learning (validated by RCT).
+      </p>
+      <ul class="checklist source-list">
+        <li>Barr &amp; Castleman, "The Bottom Line on College Advising" (EdWorkingPaper 21-481 / NBER w33921) — multi-site RCT including NYC.</li>
+        <li>National College Attainment Network (NCAN), "Why FAFSA?" — FAFSA completion and enrollment.</li>
+        <li>NCAA, "Scholarships" / Recruiting Facts — share of HS athletes receiving athletic scholarships (~2%).</li>
+        <li>Kemple (MDRC, 2008), "Career Academies: Long-Term Impacts on Labor Market Outcomes."</li>
+        <li>NYS HESC / NYSED — TAP, Excelsior Scholarship, HEOP/EOP/SEEK program rules.</li>
+      </ul>
+      <p class="disclaimer">All statistics are flagged for verification against primary sources before use in funder materials.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .value h3 {
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+  .value p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+  }
+  .value {
+    border-left: 3px solid var(--gold);
+    padding-left: 1rem;
+  }
+  .source-list {
+    margin-top: 1.5rem;
+    max-width: 75ch;
+  }
+  .source-list li {
+    color: var(--text-muted);
+  }
+  .disclaimer {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+  }
+</style>

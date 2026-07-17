@@ -1,0 +1,323 @@
+/* ============================================================
+   AOP Foundation — Global styles
+   Brand: Navy #0A2245 · Gold #C68B21 (from Logo Production Kit)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Brand palette */
+  --navy: #0a2245;
+  --navy-800: #0f2c56;
+  --navy-700: #16386b;
+  --gold: #c68b21;
+  --gold-dark: #9e7120;
+  --gold-light: #d4a33c;
+  --sky: #f2f5f8;
+  --gray-blue: #9aa8b6;
+
+  /* Semantic tokens */
+  --bg: #ffffff;
+  --bg-alt: var(--sky);
+  --text: #1a2233;
+  --text-muted: #4a5568;
+  --border: #e2e8f0;
+
+  /* Type */
+  --font-display: 'Anton', system-ui, sans-serif;
+  --font-body: 'Archivo', system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --maxw: 1140px;
+  --radius: 12px;
+  --shadow: 0 6px 24px rgba(10, 34, 69, 0.08);
+  --shadow-lg: 0 14px 40px rgba(10, 34, 69, 0.14);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--navy-700);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.1;
+  color: var(--navy);
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.section {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+
+.section--alt {
+  background: var(--bg-alt);
+}
+
+.section--navy {
+  background: var(--navy);
+  color: #dbe4f0;
+}
+.section--navy h1,
+.section--navy h2,
+.section--navy h3 {
+  color: #fff;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+  color: var(--gold-dark);
+  margin: 0 0 0.6rem;
+}
+.section--navy .eyebrow {
+  color: var(--gold-light);
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 60ch;
+}
+.section--navy .lead {
+  color: #c3d0e2;
+}
+
+.center {
+  text-align: center;
+}
+.center .lead {
+  margin-inline: auto;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, color 0.15s ease;
+  text-decoration: none;
+}
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.btn--gold {
+  background: var(--gold);
+  color: #fff;
+}
+.btn--gold:hover {
+  background: var(--gold-dark);
+}
+.btn--navy {
+  background: var(--navy);
+  color: #fff;
+}
+.btn--navy:hover {
+  background: var(--navy-800);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn--ghost:hover {
+  background: var(--navy);
+  color: #fff;
+}
+.section--navy .btn--ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.section--navy .btn--ghost:hover {
+  background: #fff;
+  color: var(--navy);
+}
+
+/* ---------- Cards & grids ---------- */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+.grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+.grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+  height: 100%;
+}
+.card h3 {
+  color: var(--navy);
+}
+.card__tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-dark);
+  background: rgba(198, 139, 33, 0.1);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.9rem;
+}
+
+.card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--navy);
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+ul.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.checklist li {
+  position: relative;
+  padding-left: 1.7rem;
+  margin-bottom: 0.6rem;
+}
+ul.checklist li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.35em;
+  width: 0.9rem;
+  height: 0.5rem;
+  border-left: 2.5px solid var(--gold);
+  border-bottom: 2.5px solid var(--gold);
+  transform: rotate(-45deg);
+}
+
+/* ---------- Utility ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--gold);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  z-index: 200;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

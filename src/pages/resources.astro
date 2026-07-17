@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Base title="Student & Family Resources" description="Guides for NYC families: the NY Aid Stack, the Recruiting Reality Guide, FAFSA help, and the college & career calendar.">
+  <PageHero
+    eyebrow="Student & Family Resources"
+    title="Straight answers on college, aid, and recruiting"
+    intro="We tell families the truth about athletic recruiting odds, college costs, and financial aid — and we build the plan on facts. Guides will be available in English and Spanish."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2">
+        <article class="card">
+          <span class="card__tag">Guide</span>
+          <h3>The New York Aid Stack</h3>
+          <p>How the pieces fit together, in order: FAFSA → TAP → Excelsior → HEOP/EOP/SEEK → the DREAM Act
+            pathway for undocumented scholars. What each covers, who qualifies, and when to apply.</p>
+          <p class="soon">Guide coming soon · EN / ES</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">Guide</span>
+          <h3>The Recruiting Reality Guide</h3>
+          <p>Only about 2% of high school athletes receive athletic scholarships. This guide explains how to
+            use sport as a source of discipline and admissions differentiation while maximizing merit- and
+            need-based aid as the real financial plan.</p>
+          <p class="soon">Guide coming soon · EN / ES</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">Checklist</span>
+          <h3>FAFSA &amp; FSA ID Help</h3>
+          <p>Create your FSA ID early — a broken or missing FSA ID is the #1 completion blocker. We host Family
+            FAFSA Nights with hands-on help and verification support.</p>
+          <p class="soon">Checklist coming soon</p>
+        </article>
+        <article class="card">
+          <span class="card__tag">Calendar</span>
+          <h3>College &amp; Career Calendar</h3>
+          <p>Month-by-month milestones: enrollment and orientation, FAFSA season, application deadlines,
+            scholarship windows, award-letter comparison, and summer internships.</p>
+          <p class="soon">Calendar coming soon</p>
+        </article>
+      </div>
+
+      <div class="callout">
+        <h2>Program families: you're not doing this alone</h2>
+        <p>
+          Every AOP scholar has a named advisor from 10th grade who stays with them to and through their
+          first year of college. If your student is enrolled and you have a question about aid, applications,
+          or recruiting, reach your advisor directly or <a href="/contact/">contact us</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .soon {
+    color: var(--gold-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  .callout {
+    margin-top: 2.5rem;
+    background: var(--sky);
+    border-radius: var(--radius);
+    padding: 2rem;
+    border-left: 5px solid var(--gold);
+  }
+  .callout h2 {
+    margin-top: 0;
+  }
+</style>

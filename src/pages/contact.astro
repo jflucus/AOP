@@ -1,0 +1,133 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../config';
+---
+
+<Base title="Contact" description="Get in touch with AOP Foundation.">
+  <PageHero
+    eyebrow="Contact"
+    title="Let's talk"
+    intro="Questions about our programs, partnering, giving, or enrolling a student? We'd love to hear from you."
+  />
+
+  <section class="section">
+    <div class="container grid grid--2" style="gap:3rem; align-items:start;">
+      <div>
+        <p class="eyebrow">Reach us</p>
+        <h2>Get in touch</h2>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-list__label">Email</span>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </li>
+          <li>
+            <span class="contact-list__label">Location</span>
+            {site.location}
+          </li>
+          <li>
+            <span class="contact-list__label">We serve</span>
+            {site.serviceArea}
+          </li>
+        </ul>
+        <p class="note">
+          For families interested in enrolling a student, mention your student's grade and sport and we'll
+          connect you with the right person on our team.
+        </p>
+      </div>
+
+      <div>
+        <form class="form" action={`https://formsubmit.co/${site.email}`} method="POST">
+          <input type="hidden" name="_subject" value="New contact form submission — AOP website" />
+          <input type="text" name="_honey" style="display:none" />
+
+          <label>
+            Name
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label>
+            I'm reaching out as a…
+            <select name="role">
+              <option value="">Choose one…</option>
+              <option>Parent / family</option>
+              <option>Student</option>
+              <option>Prospective volunteer or mentor</option>
+              <option>School or employer partner</option>
+              <option>Funder / donor</option>
+              <option>Media</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="6" required></textarea>
+          </label>
+          <button class="btn btn--gold" type="submit">Send message</button>
+          <p class="form__note">We never share your information.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+    display: grid;
+    gap: 1.1rem;
+  }
+  .contact-list li {
+    display: grid;
+    gap: 0.15rem;
+  }
+  .contact-list__label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    color: var(--gold-dark);
+  }
+  .note {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+  .form {
+    display: grid;
+    gap: 1.1rem;
+  }
+  .form label {
+    display: grid;
+    gap: 0.35rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--navy);
+  }
+  .form input,
+  .form select,
+  .form textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+  }
+  .form input:focus,
+  .form select:focus,
+  .form textarea:focus {
+    border-color: var(--gold);
+    outline: none;
+  }
+  .form__note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+</style>
