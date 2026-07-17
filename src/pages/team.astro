@@ -42,7 +42,11 @@ function initials(name: string) {
       <div class="grid grid--2" style="margin-top:2rem;">
         {mentors.map((m) => (
           <article class="card mentor">
-            <div class="avatar" aria-hidden="true">{initials(m.name)}</div>
+            {m.photo ? (
+              <img class="avatar avatar--photo" src={m.photo} alt={`${m.name}, ${m.role}`} width="600" height="600" loading="lazy" />
+            ) : (
+              <div class="avatar" aria-hidden="true">{initials(m.name)}</div>
+            )}
             <div>
               <h3>{m.name}</h3>
               <p class="role">{m.role}</p>
@@ -106,6 +110,10 @@ function initials(name: string) {
     width: 130px;
     height: 130px;
     font-size: 2.8rem;
+  }
+  .avatar--photo {
+    object-fit: cover;
+    object-position: center 30%;
   }
   .role {
     color: var(--gold-dark);

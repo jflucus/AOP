@@ -92,7 +92,12 @@ export const founder = {
   bio: 'Educator, department chair, coach, and mentor committed to preparing students for success through academics, athletics, leadership, and postsecondary planning.',
 };
 
-export const mentors = [
+export const mentors: {
+  name: string;
+  role: string;
+  focus: string;
+  photo?: string;
+}[] = [
   {
     name: 'Joseph Flucus',
     role: 'Football & Track & Field Mentor',
@@ -107,6 +112,7 @@ export const mentors = [
     name: 'Najee',
     role: 'Girls Flag Football Mentor',
     focus: 'Athletic Development · Character · Leadership',
+    photo: '/team/najee.jpg',
   },
   {
     name: 'Ibrahima',
