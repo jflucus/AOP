@@ -116,6 +116,7 @@ export const mentors: {
     name: 'Amauris Olivo',
     role: 'Girls Softball Mentor',
     focus: 'Leadership · Teamwork · Confidence',
+    photo: '/team/amauris.jpg',
   },
   {
     name: 'Najee Ashbourne',
