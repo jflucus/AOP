@@ -6,27 +6,17 @@ import { site } from '../config';
 const ways = [
   {
     icon: '🙌',
-    title: 'Volunteer',
-    body: 'Tutor, help at events, or lend a professional skill. All volunteers with unsupervised contact with minors complete our youth-protection screening before working with scholars.',
-    cta: 'Volunteer with us',
-  },
-  {
-    icon: '🧑‍🏫',
     title: 'Join the Team',
-    body: 'Coach a sport, guide college and career readiness, or mentor one-on-one. Mentors are trained in positive youth development and mandated-reporter standards.',
-    cta: 'Join',
+    body: 'Coaches, mentors, volunteers, community partners, and founding board members all move our scholars forward. Tutor or help at events, coach a sport or mentor one-on-one, partner your school or business for work-based learning, or help govern AOP as a founding board member. Everyone with unsupervised contact with minors completes our youth-protection screening first.',
+    cta: 'Join the Team',
+    href: '#interest',
   },
   {
-    icon: '🤝',
-    title: 'Become a Community Partner',
-    body: 'Schools, employers, and community organizations power our model through referrals, space, worksite tours, job shadows, and paid internships. We sign MOUs that specify supervision and youth-protection terms.',
-    cta: 'Partner with AOP',
-  },
-  {
-    icon: '⭐',
-    title: 'Join the Founding Board',
-    body: 'We are building a founding board with coverage across finance, legal, education, athletics, fundraising, and community. Help govern a rigorous, evidence-based organization from day one.',
-    cta: 'Explore board service',
+    icon: '🎓',
+    title: 'Students: Become an AOP Scholar',
+    body: 'Are you an NYC student-athlete, or a student with athletic aspirations, who wants academic support, mentorship, leadership training, and a real plan for college and career? Apply to join Athletes of Promise.',
+    cta: 'Apply now',
+    href: '/apply/',
   },
 ];
 ---
@@ -46,7 +36,7 @@ const ways = [
             <div class="card__icon">{w.icon}</div>
             <h3>{w.title}</h3>
             <p>{w.body}</p>
-            <a class="btn btn--ghost" href="#interest">{w.cta}</a>
+            <a class="btn btn--ghost" href={w.href}>{w.cta}</a>
           </article>
         ))}
       </div>
@@ -92,9 +82,10 @@ const ways = [
             <select name="interest" required>
               <option value="">Choose one…</option>
               <option>Volunteering</option>
-              <option>Becoming a mentor</option>
-              <option>Becoming a community partner</option>
-              <option>Joining the founding board</option>
+              <option>Coaching a sport</option>
+              <option>Mentoring</option>
+              <option>Community partnership (school or business)</option>
+              <option>Founding board service</option>
               <option>Something else</option>
             </select>
           </label>
