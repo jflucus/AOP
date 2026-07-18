@@ -87,9 +87,13 @@ export const programs = [
 ];
 
 export const founder = {
-  name: 'Joseph Flucus',
+  name: 'Joseph L. Flucus',
   role: 'Founder & Board Chair',
-  bio: 'Educator, department chair, coach, and mentor committed to preparing students for success through academics, athletics, leadership, and postsecondary planning.',
+  bio: [
+    'Joseph L. Flucus is an instructional leader with 19 years of service in the New York City Department of Education, all of it dedicated to Bronx students and families. At the Careers in Sports High School he serves as Science Department Chair, mentoring program coordinator, and Coordinator of Student Activities — building a career at the intersection of rigorous academics, whole-child support, and school culture.',
+    'Since 2016 he has built and led the STEER Mentoring Program, supporting more than 100 student-athletes with a sustained 90% college acceptance rate; across his mentoring programs he has reached over 400 students. Under his department leadership, Regents pass rates improved 15% year over year. A former Track and Field scholarship athlete at Binghamton University, he has coached track and football since 2006, using athletics as a vehicle for accountability, academic eligibility, and leadership development.',
+    'Joe holds a Master of Arts in Educational Leadership from Bank Street College of Education (School Building Leadership), a Master of Science in Science Education from The City College of New York, and a Bachelor of Arts in Chemistry from Binghamton University. A National Aspiring Principals Fellow, he expects his School Building Leader certification in August 2026, and is committed to equity, culturally responsive-sustaining education, and whole-child support for every learner.',
+  ],
 };
 
 export const mentors: {

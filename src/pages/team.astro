@@ -28,7 +28,7 @@ function initials(name: string) {
         <div>
           <h2>{founder.name}</h2>
           <p class="role">{founder.role}</p>
-          <p>{founder.bio}</p>
+          {founder.bio.map((para) => <p>{para}</p>)}
         </div>
       </div>
     </div>
@@ -91,7 +91,13 @@ function initials(name: string) {
   .founder {
     display: flex;
     gap: 2rem;
-    align-items: center;
+    align-items: flex-start;
+  }
+  .founder h2 {
+    margin-top: 0;
+  }
+  .founder p:last-child {
+    margin-bottom: 0;
   }
   .avatar {
     flex: 0 0 auto;
