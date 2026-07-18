@@ -7,7 +7,7 @@ export const outcomes = [
     summary:
       'Every AOP senior applies to a balanced list of best-fit colleges and is accepted to at least one affordable option.',
     detail:
-      'We follow the intensive-advising model validated by randomized controlled trials: low advisor-to-student ratios, advising that begins before senior year and continues to and through college, and a deliberate focus on college “match” — the factor research shows drives degree completion.',
+      'We follow the intensive-advising model validated by randomized controlled trials: low advisor-to-student ratios, advising that begins before senior year and continues to and through college, and a deliberate focus on college “match,” which research shows drives degree completion.',
   },
   {
     title: 'Scholarship Attainment',
@@ -15,7 +15,7 @@ export const outcomes = [
     summary:
       'Every family completes the FAFSA and the full New York aid stack, and every scholar builds a scholarship pipeline beyond athletics.',
     detail:
-      'FAFSA completion is one of the strongest predictors of college enrollment. We treat athletics honestly — only about 2% of high school athletes receive athletic scholarships — so we use sport for discipline and differentiation while maximizing merit- and need-based aid as the real financial plan.',
+      'FAFSA completion is one of the strongest predictors of college enrollment. We are honest with families, because only about 2% of high school athletes receive athletic scholarships. We use sport for discipline and differentiation while maximizing merit- and need-based aid as the real financial plan.',
   },
   {
     title: 'Career Readiness',
@@ -23,7 +23,7 @@ export const outcomes = [
     summary:
       'Every scholar progresses through a structured work-based learning continuum: awareness, exploration, and preparation.',
     detail:
-      'Speakers and worksite tours, job shadows and mock interviews, resumes, internships, and industry credentials — mirroring the career-academy model whose randomized evaluation found sustained earnings gains lasting years beyond high school.',
+      'Speakers and worksite tours, job shadows and mock interviews, resumes, internships, and industry credentials, mirroring the career-academy model whose randomized evaluation found sustained earnings gains lasting years beyond high school.',
   },
 ];
 
@@ -51,7 +51,7 @@ export const programs = [
     points: [
       'Structured coaching in our founding sports by mentors trained in positive youth development.',
       'Participation conditioned on academic engagement.',
-      'Honest recruiting education for families — the ~2% reality.',
+      'Honest recruiting education for families about the ~2% reality.',
       'Recruiting-track support where warranted: highlight film, coach outreach, eligibility registration.',
       'Equipment provided so cost is never a barrier.',
     ],
@@ -93,11 +93,11 @@ export const founder = {
     'Joseph Flucus is an educator, mentor, coach, and youth advocate dedicated to preparing the next generation for success in college, careers, leadership, and life.',
     'For nearly two decades, Joseph has served students in New York City Public Schools, where he has built a reputation for developing young people both inside and outside the classroom. Throughout his career, he has taught science, led academic initiatives, mentored students, and coached football and track & field, helping student-athletes grow as scholars, competitors, and leaders.',
     'As Founder of Athletes of Promise Foundation (AOP Foundation), Joseph created the organization to address a challenge he witnessed repeatedly throughout his career: talented students often lacked access to the academic support, mentorship, college guidance, and financial aid knowledge needed to reach their full potential. He believes that while athletics can open doors, education, leadership, and character create lifelong opportunities.',
-    'Joseph’s vision is to ensure that every student graduates with a personalized plan for life after high school — whether that path leads to a four-year university, community college, trade school, apprenticeship, military service, entrepreneurship, or a meaningful career aligned with their passions and talents.',
+    'Joseph’s vision is to ensure that every student graduates with a personalized plan for life after high school, whether that path leads to a four-year university, community college, trade school, apprenticeship, military service, entrepreneurship, or a meaningful career aligned with their passions and talents.',
     'Under his leadership, AOP Foundation is committed to developing the whole student through four pillars: Academic Excellence, Athletic Development, Leadership & Character, and College & Career Success. The foundation partners with families, schools, mentors, and community organizations to provide opportunities that empower students to thrive academically, athletically, and personally.',
     'Joseph believes that every young person has untapped potential. Through mentorship, education, and opportunity, he is committed to helping students discover their promise, prepare for success, and lead lives of purpose and service.',
   ],
-  quote: 'Success isn’t measured only by the games we win — it’s measured by the lives we impact.',
+  quote: 'Success isn’t measured only by the games we win, it’s measured by the lives we impact.',
   photo: '/team/joe.jpg',
 };
 
