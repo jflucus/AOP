@@ -87,13 +87,17 @@ export const programs = [
 ];
 
 export const founder = {
-  name: 'Joseph L. Flucus',
+  name: 'Joseph Flucus',
   role: 'Founder & Board Chair',
   bio: [
-    'Joseph L. Flucus is an instructional leader with 19 years of service in the New York City Department of Education, all of it dedicated to Bronx students and families. At the Careers in Sports High School he serves as Science Department Chair, mentoring program coordinator, and Coordinator of Student Activities — building a career at the intersection of rigorous academics, whole-child support, and school culture.',
-    'Since 2016 he has built and led the STEER Mentoring Program, supporting more than 100 student-athletes with a sustained 90% college acceptance rate; across his mentoring programs he has reached over 400 students. Under his department leadership, Regents pass rates improved 15% year over year. A former Track and Field scholarship athlete at Binghamton University, he has coached track and football since 2006, using athletics as a vehicle for accountability, academic eligibility, and leadership development.',
-    'Joe holds a Master of Arts in Educational Leadership from Bank Street College of Education (School Building Leadership), a Master of Science in Science Education from The City College of New York, and a Bachelor of Arts in Chemistry from Binghamton University. A National Aspiring Principals Fellow, he expects his School Building Leader certification in August 2026, and is committed to equity, culturally responsive-sustaining education, and whole-child support for every learner.',
+    'Joseph Flucus is an educator, mentor, coach, and youth advocate dedicated to preparing the next generation for success in college, careers, leadership, and life.',
+    'For nearly two decades, Joseph has served students in New York City Public Schools, where he has built a reputation for developing young people both inside and outside the classroom. Throughout his career, he has taught science, led academic initiatives, mentored students, and coached football and track & field, helping student-athletes grow as scholars, competitors, and leaders.',
+    'As Founder of Athletes of Promise Foundation (AOP Foundation), Joseph created the organization to address a challenge he witnessed repeatedly throughout his career: talented students often lacked access to the academic support, mentorship, college guidance, and financial aid knowledge needed to reach their full potential. He believes that while athletics can open doors, education, leadership, and character create lifelong opportunities.',
+    'Joseph’s vision is to ensure that every student graduates with a personalized plan for life after high school — whether that path leads to a four-year university, community college, trade school, apprenticeship, military service, entrepreneurship, or a meaningful career aligned with their passions and talents.',
+    'Under his leadership, AOP Foundation is committed to developing the whole student through four pillars: Academic Excellence, Athletic Development, Leadership & Character, and College & Career Success. The foundation partners with families, schools, mentors, and community organizations to provide opportunities that empower students to thrive academically, athletically, and personally.',
+    'Joseph believes that every young person has untapped potential. Through mentorship, education, and opportunity, he is committed to helping students discover their promise, prepare for success, and lead lives of purpose and service.',
   ],
+  quote: 'Success isn’t measured only by the games we win — it’s measured by the lives we impact.',
 };
 
 export const mentors: {

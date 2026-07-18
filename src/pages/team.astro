@@ -29,6 +29,10 @@ function initials(name: string) {
           <h2>{founder.name}</h2>
           <p class="role">{founder.role}</p>
           {founder.bio.map((para) => <p>{para}</p>)}
+          <blockquote class="founder-quote">
+            {founder.quote}
+            <cite>— {founder.name}</cite>
+          </blockquote>
         </div>
       </div>
     </div>
@@ -98,6 +102,24 @@ function initials(name: string) {
   }
   .founder p:last-child {
     margin-bottom: 0;
+  }
+  .founder-quote {
+    margin: 1.5rem 0 0;
+    padding: 1rem 0 1rem 1.5rem;
+    border-left: 4px solid var(--gold);
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  .founder-quote cite {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--gold-dark);
   }
   .avatar {
     flex: 0 0 auto;
