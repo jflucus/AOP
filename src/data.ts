@@ -113,12 +113,12 @@ export const mentors: {
     focus: 'Leadership · Academic Accountability · College Readiness',
   },
   {
-    name: 'Amauris',
+    name: 'Amauris Olivo',
     role: 'Girls Softball Mentor',
     focus: 'Leadership · Teamwork · Confidence',
   },
   {
-    name: 'Najee',
+    name: 'Najee Ashbourne',
     role: 'Girls Flag Football Mentor',
     focus: 'Athletic Development · Character · Leadership',
     photo: '/team/najee.jpg',
@@ -136,7 +136,7 @@ export const mentors: {
     photo: '/team/andre.jpg',
   },
   {
-    name: 'Jesus',
+    name: 'Jesus Medina',
     role: 'Career Readiness Coach',
     focus: 'Career Exploration · Resume & Interview Prep · Professional Skills · Goal Setting',
     photo: '/team/jesus.jpg',
