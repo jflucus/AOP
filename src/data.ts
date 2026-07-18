@@ -111,6 +111,7 @@ export const mentors: {
     name: 'Joseph Flucus',
     role: 'Football & Track & Field Mentor',
     focus: 'Leadership · Academic Accountability · College Readiness',
+    photo: '/team/joe.jpg',
   },
   {
     name: 'Amauris Olivo',
