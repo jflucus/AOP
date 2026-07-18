@@ -24,7 +24,11 @@ function initials(name: string) {
     <div class="container">
       <p class="eyebrow">Meet the Founder</p>
       <div class="founder">
-        <div class="avatar avatar--lg" aria-hidden="true">{initials(founder.name)}</div>
+        {founder.photo ? (
+          <img class="avatar avatar--lg avatar--photo" src={founder.photo} alt={`${founder.name}, ${founder.role}`} width="400" height="400" />
+        ) : (
+          <div class="avatar avatar--lg" aria-hidden="true">{initials(founder.name)}</div>
+        )}
         <div>
           <h2>{founder.name}</h2>
           <p class="role">{founder.role}</p>

@@ -98,6 +98,7 @@ export const founder = {
     'Joseph believes that every young person has untapped potential. Through mentorship, education, and opportunity, he is committed to helping students discover their promise, prepare for success, and lead lives of purpose and service.',
   ],
   quote: 'Success isn’t measured only by the games we win — it’s measured by the lives we impact.',
+  photo: '/team/joe.jpg',
 };
 
 export const mentors: {
