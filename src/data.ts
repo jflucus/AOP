@@ -134,6 +134,12 @@ export const mentors: {
     focus: 'Speed · Agility · Strength & Conditioning · Injury Prevention',
     photo: '/team/andre.jpg',
   },
+  {
+    name: 'Jesus',
+    role: 'Career Readiness Coach',
+    focus: 'Career Exploration · Resume & Interview Prep · Professional Skills · Goal Setting',
+    photo: '/team/jesus.jpg',
+  },
 ];
 
 export const values = [
