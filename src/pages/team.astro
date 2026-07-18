@@ -47,7 +47,7 @@ function initials(name: string) {
     <div class="container">
       <p class="eyebrow">Meet Our Founding Mentors</p>
       <h2>Coaches and mentors trained in positive youth development</h2>
-      <div class="grid grid--2" style="margin-top:2rem;">
+      <div class="grid grid--2 team-grid" style="margin-top:2rem;">
         {mentors.map((m) => (
           <article class="card mentor">
             {m.photo ? (
@@ -151,6 +151,10 @@ function initials(name: string) {
     color: var(--gold-dark);
     font-weight: 700;
     margin: 0 0 0.5rem;
+  }
+  /* Equal-height rows so a lone card in the last row matches the others */
+  .team-grid {
+    grid-auto-rows: 1fr;
   }
   .mentor {
     display: flex;
