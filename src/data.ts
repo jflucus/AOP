@@ -143,6 +143,12 @@ export const mentors: {
     focus: 'Career Exploration · Resume & Interview Prep · Professional Skills · Goal Setting',
     photo: '/team/jesus.jpg',
   },
+  {
+    name: 'Tommy Valerio',
+    role: 'STEM Coach',
+    focus: 'Science · Technology · Engineering · Math',
+    photo: '/team/tommy.jpg',
+  },
 ];
 
 export const values = [
