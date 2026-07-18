@@ -124,7 +124,7 @@ export const mentors: {
     photo: '/team/najee.jpg',
   },
   {
-    name: 'Ibrahima',
+    name: 'Ibrahima Badji',
     role: 'Career & College Readiness Coach',
     focus:
       'College Planning · Career Exploration · Scholarships & Financial Aid · Resume & Interview Prep · Goal Setting',
