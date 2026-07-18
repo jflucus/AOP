@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { outcomes, programs } from '../data';
+import { outcomes, successModel } from '../data';
 import { site } from '../config';
 ---
 
@@ -70,21 +70,24 @@ import { site } from '../config';
   <section class="section section--alt">
     <div class="container">
       <div class="center">
-        <p class="eyebrow">Our Programs</p>
-        <h2>Four programs, one integrated model</h2>
+        <p class="eyebrow">Our Program</p>
+        <h2>The AOP Scholar-Athlete Success Model</h2>
+        <p class="lead">
+          One signature program with seven integrated phases, and a trained mentor with every scholar the whole way.
+        </p>
       </div>
-      <div class="grid grid--2" style="margin-top:2.5rem;">
-        {programs.map((p) => (
-          <a class="card program-card" href={`/programs/#${p.slug}`}>
-            <div class="card__icon">{p.icon}</div>
-            <span class="card__tag">Drives: {p.drives}</span>
-            <h3>{p.name}</h3>
-            <p>{p.tagline}</p>
-          </a>
+      <ol class="model-steps">
+        {successModel.map((phase) => (
+          <li>
+            <a href={`/programs/#${phase.slug}`}>
+              <span class="model-steps__num">{phase.n}</span>
+              <span class="model-steps__name">{phase.name}</span>
+            </a>
+          </li>
         ))}
-      </div>
+      </ol>
       <div class="center" style="margin-top:2rem;">
-        <a class="btn btn--navy" href="/programs/">Explore all programs</a>
+        <a class="btn btn--navy" href="/programs/">Explore the model</a>
       </div>
     </div>
   </section>
@@ -215,6 +218,46 @@ import { site } from '../config';
     text-decoration: none;
     transform: translateY(-3px);
     box-shadow: var(--shadow-lg);
+  }
+
+  .model-steps {
+    list-style: none;
+    counter-reset: none;
+    margin: 2.5rem auto 0;
+    padding: 0;
+    max-width: 760px;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .model-steps a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    color: var(--navy);
+    font-weight: 600;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .model-steps a:hover {
+    text-decoration: none;
+    transform: translateX(3px);
+    box-shadow: var(--shadow);
+  }
+  .model-steps__num {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: var(--font-display);
+    display: grid;
+    place-items: center;
+    font-size: 1.1rem;
   }
 
   .stat {

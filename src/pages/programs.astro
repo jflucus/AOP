@@ -1,84 +1,203 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { programs } from '../data';
+import { successModel, modelOutcomes } from '../data';
 ---
 
-<Base title="Our Programs" description="AOP's four programs: Academic Success Academy, Athletic Excellence Institute, College & Career Success Center, and Leadership Institute.">
+<Base title="Our Program" description="The AOP Scholar-Athlete Success Model: one signature program with seven integrated phases, from school partnership through college and career transition.">
   <PageHero
-    eyebrow="Our Programs"
-    title="Four programs, one integrated model"
-    intro="Each program is re-anchored to the outcomes it drives, with a named owner and a metric. Every requirement is measured from Week 1."
+    eyebrow="Our Program"
+    title="The AOP Scholar-Athlete Success Model"
+    intro="AOP is not a collection of separate programs. It is one signature model with seven integrated phases that carry a student from recruitment through college and career, with a trained mentor at their side the entire way."
   />
 
+  <!-- Priority population -->
   <section class="section">
     <div class="container">
-      <div class="program-list">
-        {programs.map((p, i) => (
-          <article class="program" id={p.slug}>
-            <div class="program__head">
-              <div class="card__icon program__icon">{p.icon}</div>
-              <div>
-                <span class="card__tag">Drives: {p.drives}</span>
-                <h2>{p.name}</h2>
-                <p class="program__tagline">{p.tagline}</p>
-              </div>
+      <p class="lead" style="max-width:70ch;">
+        AOP Foundation partners with schools to identify and support student-athletes and students with
+        athletic aspirations, with a particular focus on expanding opportunities for students from
+        historically underserved communities who face barriers to educational, athletic, and career success.
+      </p>
+    </div>
+  </section>
+
+  <!-- The Mentor Advantage -->
+  <section class="section section--navy">
+    <div class="container">
+      <p class="eyebrow">The Mentor Advantage</p>
+      <h2>Every scholar has one trained adult in their corner</h2>
+      <p class="lead">
+        Each student is paired with a trained adult mentor who serves as coach, advocate, connector, and
+        accountability partner throughout the year. That relationship is the engine of the model, and it is
+        what sets AOP apart.
+      </p>
+    </div>
+  </section>
+
+  <!-- The seven phases -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">How it works</p>
+        <h2>Seven integrated phases</h2>
+      </div>
+
+      <div class="phases">
+        {successModel.map((phase) => (
+          <article class="phase" id={phase.slug}>
+            <div class="phase__num" aria-hidden="true">{phase.n}</div>
+            <div class="phase__body">
+              <h3>{phase.name}</h3>
+              <p class="phase__summary">{phase.summary}</p>
+
+              {phase.points && (
+                <ul class="checklist">
+                  {phase.points.map((pt) => <li>{pt}</li>)}
+                </ul>
+              )}
+
+              {phase.tracks && (
+                <div class="tracks">
+                  {phase.tracks.map((t) => (
+                    <div class="track">
+                      <h4>{t.name}</h4>
+                      <ul>
+                        {t.items.map((i) => <li>{i}</li>)}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-            <ul class="checklist program__points">
-              {p.points.map((pt) => <li>{pt}</li>)}
-            </ul>
           </article>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- Measurable outcomes -->
+  <section class="section">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">Measurable Outcomes</p>
+        <h2>How we define and report success</h2>
+        <p class="lead">
+          Every phase has an owner and a metric. These are the outcomes we track, report to funders, and use
+          to improve.
+        </p>
+      </div>
+      <div class="grid grid--3 outcomes" style="margin-top:2rem;">
+        {modelOutcomes.map((o) => (
+          <div class="card outcome">
+            <h3>{o.area}</h3>
+            <ul class="checklist">
+              {o.items.map((i) => <li>{i}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="section section--navy cta-band">
     <div class="container center">
-      <h2>Want to bring these programs to your school or community?</h2>
+      <h2>Bring the model to your school or support a scholar</h2>
       <p class="lead">We partner with schools, employers, and community organizations across NYC.</p>
-      <a class="btn btn--gold" href="/get-involved/">Become a Partner</a>
+      <div class="cta-row">
+        <a class="btn btn--gold" href="/get-involved/">Partner with AOP</a>
+        <a class="btn btn--ghost" href="/apply/">Apply as a student</a>
+      </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .program-list {
+  .phases {
+    margin-top: 2.5rem;
     display: grid;
-    gap: 2rem;
+    gap: 1.25rem;
+    max-width: 900px;
+    margin-inline: auto;
   }
-  .program {
+  .phase {
+    display: flex;
+    gap: 1.5rem;
     background: #fff;
     border: 1px solid var(--border);
-    border-left: 5px solid var(--gold);
     border-radius: var(--radius);
-    padding: 2rem;
+    padding: 1.75rem;
     box-shadow: var(--shadow);
   }
-  .program__head {
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-    margin-bottom: 1.2rem;
-  }
-  .program__icon {
+  .phase__num {
     flex: 0 0 auto;
-    margin-bottom: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    display: grid;
+    place-items: center;
+    line-height: 1;
   }
-  .program h2 {
-    margin: 0.3rem 0 0.2rem;
+  .phase__body {
+    flex: 1;
   }
-  .program__tagline {
+  .phase__body h3 {
+    color: var(--navy);
+    margin: 0.3rem 0 0.4rem;
+    font-size: 1.3rem;
+  }
+  .phase__summary {
     color: var(--text-muted);
+    margin-bottom: 0.9rem;
+  }
+  .tracks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.1rem;
+    margin-top: 1.2rem;
+  }
+  .track {
+    background: var(--sky);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .track h4 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .track ul {
     margin: 0;
+    padding-left: 1.1rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
   }
-  .program__points {
-    max-width: 80ch;
+  .track li {
+    margin-bottom: 0.2rem;
   }
+  .outcome h3 {
+    color: var(--navy);
+  }
+  .cta-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
   @media (max-width: 560px) {
-    .program__head {
+    .phase {
       flex-direction: column;
-      gap: 0.8rem;
+      gap: 1rem;
+      padding: 1.4rem;
     }
   }
 </style>

@@ -161,3 +161,93 @@ export const values = [
   ['Evidence', 'We adopt practices validated by rigorous research and measure what matters.'],
   ['Family & Community', 'We partner with families and neighborhoods, not around them.'],
 ];
+
+// The AOP Scholar-Athlete Success Model — one signature program, seven integrated phases.
+export const successModel = [
+  {
+    n: 1,
+    slug: 'school-partnership',
+    name: 'School Partnership',
+    summary: 'AOP partners with schools that share a commitment to expanding opportunities for students.',
+    points: [
+      'The school appoints an AOP Site Coordinator.',
+      'Teachers, coaches, counselors, and administrators nominate staff members interested in serving as mentors.',
+      'Mentors complete AOP training before working with students.',
+    ],
+  },
+  {
+    n: 2,
+    slug: 'student-recruitment',
+    name: 'Student Recruitment',
+    summary: 'Students are identified through coaches, counselors, teachers, administrators, and self-referral.',
+    points: [
+      'Applicants complete an application, essay, and transcript, with two recommendations, family information, athletic goals, and career interests.',
+      'We prioritize students who demonstrate potential while facing barriers to opportunity, focusing on opportunity rather than defining students by deficits.',
+    ],
+  },
+  {
+    n: 3,
+    slug: 'individual-success-plan',
+    name: 'Individual Success Plan',
+    summary: 'Every student completes assessments and builds a personalized annual development plan with their mentor.',
+    points: [
+      'Assessments span academic readiness, athletic development, leadership skills, mental wellness, college knowledge, career interests, financial literacy, and life skills.',
+      'The mentor and student use the results to set goals and create a personalized annual plan.',
+    ],
+  },
+  {
+    n: 4,
+    slug: 'mentorship-coaching',
+    name: 'Mentorship & Coaching',
+    summary: 'Each mentor supports three to four students year-round, with weekly check-ins.',
+    points: [
+      'Weekly check-ins cover grades, attendance, behavior, athletic goals, leadership development, and personal challenges.',
+      'The mentor becomes the primary point of accountability, and a coach, advocate, and connector.',
+    ],
+  },
+  {
+    n: 5,
+    slug: 'leadership-academy',
+    name: 'Leadership Academy',
+    summary: 'A structured curriculum across seven tracks, not isolated workshops.',
+    tracks: [
+      { name: 'Academic Excellence', items: ['Study skills', 'Time management', 'SAT/ACT preparation'] },
+      { name: 'College Readiness', items: ['Applications', 'FAFSA', 'Scholarships', 'Campus visits'] },
+      { name: 'Career Development', items: ['Resume writing', 'Interview skills', 'Networking', 'LinkedIn'] },
+      { name: 'Leadership', items: ['Public speaking', 'Teamwork', 'Service learning'] },
+      { name: 'Health & Wellness', items: ['Mental health', 'Nutrition', 'Recovery', 'Sports psychology'] },
+      { name: 'Athletic Performance', items: ['Speed', 'Strength', 'Injury prevention', 'Recruiting education'] },
+      { name: 'Financial Literacy', items: ['Budgeting', 'Credit', 'Investing', 'Entrepreneurship'] },
+    ],
+  },
+  {
+    n: 6,
+    slug: 'opportunity-fund',
+    name: 'Opportunity Fund',
+    summary: 'Mentors request support so resources reach students fairly and consistently.',
+    points: [
+      'Requests can cover athletic equipment, tutoring, rehabilitation, transportation, college visits, enrichment experiences, testing fees, and leadership conferences.',
+      'The mentor provides the rationale, and AOP reviews each request using clear criteria so resources are allocated fairly and consistently.',
+    ],
+  },
+  {
+    n: 7,
+    slug: 'college-career-transition',
+    name: 'College & Career Transition',
+    summary: 'AOP supports each scholar through the move to college and career, and stays connected into the first year.',
+    points: [
+      'Application, financial aid, and decision support through senior year.',
+      'Internships, summer employment, and industry credentials that build a real career on-ramp.',
+      '"To-and-through" check-ins that continue into the first year after high school.',
+    ],
+  },
+];
+
+// Measurable outcomes by area — how AOP defines and reports success.
+export const modelOutcomes = [
+  { area: 'Academic', items: ['GPA improvement', 'Attendance', 'Graduation rate'] },
+  { area: 'Athletic', items: ['Team participation', 'Athletic performance goals', 'College recruitment'] },
+  { area: 'College', items: ['FAFSA completion', 'College applications', 'Scholarships earned'] },
+  { area: 'Career', items: ['Summer employment', 'Internships', 'Certifications'] },
+  { area: 'Leadership', items: ['Community service', 'Leadership roles', 'Public speaking'] },
+];
