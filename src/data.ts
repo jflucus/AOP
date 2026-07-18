@@ -130,6 +130,7 @@ export const mentors: {
     role: 'Career & College Readiness Coach',
     focus:
       'College Planning · Career Exploration · Scholarships & Financial Aid · Resume & Interview Prep · Goal Setting',
+    photo: '/team/ibrahima.jpg',
   },
   {
     name: 'Andre Cohen',
