@@ -124,6 +124,12 @@ export const mentors: {
     focus:
       'College Planning · Career Exploration · Scholarships & Financial Aid · Resume & Interview Prep · Goal Setting',
   },
+  {
+    name: 'Andre Cohen',
+    role: 'Speed & Conditioning Trainer',
+    focus: 'Speed · Agility · Strength & Conditioning · Injury Prevention',
+    photo: '/team/andre.jpg',
+  },
 ];
 
 export const values = [
