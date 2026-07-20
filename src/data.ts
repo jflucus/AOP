@@ -152,6 +152,31 @@ export const mentors: {
   },
 ];
 
+export const board: {
+  name: string;
+  role: string;
+  photo?: string;
+}[] = [
+  {
+    name: 'Joseph Flucus',
+    role: 'Founder & CEO',
+    photo: '/team/joe.jpg',
+  },
+  {
+    name: 'Craig Joseph',
+    role: 'Board Member',
+  },
+  {
+    name: 'Tommy Valerio',
+    role: 'Board Member',
+    photo: '/team/tommy.jpg',
+  },
+  {
+    name: 'George Febles',
+    role: 'Board Member',
+  },
+];
+
 export const values = [
   ['Promise', 'We see and invest in the potential of every young person.'],
   ['Preparation', 'Effort, dosage, and multi-year commitment drive outcomes.'],
