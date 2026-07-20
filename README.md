@@ -22,7 +22,7 @@ src/
   data.ts           Program, outcome, values, and people content
   layouts/Base.astro
   components/        Header, Footer, PageHero
-  pages/            One file per route (index, about, programs, team, resources,
+  pages/            One file per route (index, about, programs, team, resources, apply,
                     get-involved, donate, partners, news, contact, 404)
   styles/global.css Brand design system (Navy #0A2245 / Gold #C68B21)
 ```
