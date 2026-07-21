@@ -29,8 +29,34 @@ import { site } from '../config';
     </div>
   </section>
 
-  <!-- Outcomes -->
+  <!-- Scholar Spotlight -->
   <section class="section">
+    <div class="container">
+      <div class="spotlight">
+        <img
+          class="spotlight__photo"
+          src="/news/davon-sneed-psal-2026.jpg"
+          alt="Davon Sneed on the podium with his bronze medal at the PSAL Varsity City Championships"
+          width="675"
+          height="900"
+          loading="eager"
+        />
+        <div>
+          <p class="eyebrow">Scholar Spotlight</p>
+          <h2>Davon Sneed, 3rd place, PSAL Varsity City Championships</h2>
+          <p class="lead">
+            AOP scholar-athlete Davon Sneed earned a bronze medal in the 400m Hurdles at Icahn Stadium,
+            competing for the Mott Haven Mavericks. It's proof of what mentorship, discipline, and our
+            Athletic Excellence Institute build together.
+          </p>
+          <a class="btn btn--navy" href="/news/">Read the full story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="section section--alt">
     <div class="container">
       <div class="center">
         <p class="eyebrow">The Three Promise Outcomes</p>
@@ -195,6 +221,22 @@ import { site } from '../config';
     color: var(--navy);
   }
 
+  .spotlight {
+    display: grid;
+    grid-template-columns: minmax(200px, 260px) 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .spotlight__photo {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+  }
+  .spotlight h2 {
+    margin-top: 0.3rem;
+  }
+
   .mission {
     font-family: var(--font-body);
     font-size: clamp(1.25rem, 2.6vw, 1.7rem);
@@ -300,6 +342,14 @@ import { site } from '../config';
     }
     .hero__logo-panel {
       width: 240px;
+      margin-inline: auto;
+    }
+    .spotlight {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .spotlight__photo {
+      max-width: 260px;
       margin-inline: auto;
     }
   }
