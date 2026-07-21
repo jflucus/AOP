@@ -59,6 +59,9 @@ function initials(name: string) {
               <h3>{m.name}</h3>
               <p class="role">{m.role}</p>
               <p class="focus">{m.focus}</p>
+              {m.bio && (
+                <a class="mentor-bio-link" href={`/team/${m.slug}/`}>Read full bio &rarr;</a>
+              )}
             </div>
           </article>
         ))}
@@ -178,6 +181,13 @@ function initials(name: string) {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin: 0;
+  }
+  .mentor-bio-link {
+    display: inline-block;
+    margin-top: 0.6rem;
+    color: var(--gold-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
   }
   .note {
     color: var(--text-muted);

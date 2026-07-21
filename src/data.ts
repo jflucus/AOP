@@ -102,18 +102,22 @@ export const founder = {
 };
 
 export const mentors: {
+  slug: string;
   name: string;
   role: string;
   focus: string;
   photo?: string;
+  bio?: string[];
 }[] = [
   {
+    slug: 'najee-ashbourne',
     name: 'Najee Ashbourne',
     role: 'Girls Flag Football Mentor',
     focus: 'Athletic Development · Character · Leadership',
     photo: '/team/najee.jpg',
   },
   {
+    slug: 'ibrahima-badji',
     name: 'Ibrahima Badji',
     role: 'Career & College Readiness Coach',
     focus:
@@ -121,36 +125,48 @@ export const mentors: {
     photo: '/team/ibrahima.jpg',
   },
   {
+    slug: 'andre-cohen',
     name: 'Andre Cohen',
     role: 'Speed & Conditioning Trainer',
     focus: 'Speed · Agility · Strength & Conditioning · Injury Prevention',
     photo: '/team/andre.jpg',
   },
   {
+    slug: 'joseph-flucus',
     name: 'Joseph Flucus',
     role: 'Football & Track & Field Mentor',
     focus: 'Leadership · Academic Accountability · College Readiness',
     photo: '/team/joe.jpg',
   },
   {
+    slug: 'jesus-medina',
     name: 'Jesus Medina',
     role: 'Career Readiness Coach',
     focus: 'Career Exploration · Resume & Interview Prep · Professional Skills · Goal Setting',
     photo: '/team/jesus.jpg',
   },
   {
+    slug: 'amauris-olivo',
     name: 'Amauris Olivo',
     role: 'Girls Softball Mentor',
     focus: 'Leadership · Teamwork · Confidence',
     photo: '/team/amauris.jpg',
+    bio: [
+      'Amauris Olivo is an educator, coach, and mentor dedicated to empowering young people through education, athletics, and leadership development. He is entering his eighth year as a Physical Education teacher and has served as a Dean for the past four years, helping lead school safety, student discipline, and student support initiatives. He is also an active member of his school’s Crisis Team, Building Response Team, and RPET Team, collaborating to foster a safe, supportive, and inclusive learning environment.',
+      'Amauris earned a Master of Education in Coaching and Sports Administration from Concordia University Texas and a Bachelor of Science from SUNY Cortland. Throughout his career, he has focused on expanding opportunities for students beyond the classroom. He founded his school’s softball program, which compiled an impressive 54–14 overall record and captured two division championships in its first five seasons. He also launched the school’s boys’ and girls’ cross-country program, creating new pathways for student-athletes to grow and compete.',
+      'Outside of school, Amauris has coached baseball with several youth organizations and served as the Softball Director for the 2025 Future Stars Summer Camp at SUNY Purchase College. His coaching philosophy extends far beyond competition, emphasizing character, accountability, resilience, and teamwork.',
+      'As a member of the AOP Foundation, Amauris is committed to helping student-athletes realize their full potential. He believes athletics provide a powerful platform for teaching lifelong values and preparing young people for success in college, careers, and life. His mission is to ensure every student he mentors gains the confidence, discipline, and leadership skills needed to become a successful adult and a positive force in their community.',
+    ],
   },
   {
+    slug: 'sabrina-saint-jour',
     name: 'Sabrina Saint Jour',
     role: 'Certified Mental Health Coach',
     focus: 'Mental Wellness · Emotional Resilience · Coping Skills',
     photo: '/team/sabrina.jpg',
   },
   {
+    slug: 'tommy-valerio',
     name: 'Tommy Valerio',
     role: 'STEM Coach',
     focus: 'Science · Technology · Engineering · Math',
