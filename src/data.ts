@@ -108,18 +108,6 @@ export const mentors: {
   photo?: string;
 }[] = [
   {
-    name: 'Joseph Flucus',
-    role: 'Football & Track & Field Mentor',
-    focus: 'Leadership · Academic Accountability · College Readiness',
-    photo: '/team/joe.jpg',
-  },
-  {
-    name: 'Amauris Olivo',
-    role: 'Girls Softball Mentor',
-    focus: 'Leadership · Teamwork · Confidence',
-    photo: '/team/amauris.jpg',
-  },
-  {
     name: 'Najee Ashbourne',
     role: 'Girls Flag Football Mentor',
     focus: 'Athletic Development · Character · Leadership',
@@ -139,22 +127,34 @@ export const mentors: {
     photo: '/team/andre.jpg',
   },
   {
+    name: 'Joseph Flucus',
+    role: 'Football & Track & Field Mentor',
+    focus: 'Leadership · Academic Accountability · College Readiness',
+    photo: '/team/joe.jpg',
+  },
+  {
     name: 'Jesus Medina',
     role: 'Career Readiness Coach',
     focus: 'Career Exploration · Resume & Interview Prep · Professional Skills · Goal Setting',
     photo: '/team/jesus.jpg',
   },
   {
-    name: 'Tommy Valerio',
-    role: 'STEM Coach',
-    focus: 'Science · Technology · Engineering · Math',
-    photo: '/team/tommy.jpg',
+    name: 'Amauris Olivo',
+    role: 'Girls Softball Mentor',
+    focus: 'Leadership · Teamwork · Confidence',
+    photo: '/team/amauris.jpg',
   },
   {
     name: 'Sabrina Saint Jour',
     role: 'Certified Mental Health Coach',
     focus: 'Mental Wellness · Emotional Resilience · Coping Skills',
     photo: '/team/sabrina.jpg',
+  },
+  {
+    name: 'Tommy Valerio',
+    role: 'STEM Coach',
+    focus: 'Science · Technology · Engineering · Math',
+    photo: '/team/tommy.jpg',
   },
 ];
 
