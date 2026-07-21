@@ -1,5 +1,23 @@
 // Program, outcome, and people content — sourced from the AOP PRD/FRD/Vision & Blueprint.
 
+// Homepage scholar spotlights — short highlight cards linking to the full News & Events post.
+export const spotlights = [
+  {
+    photo: '/news/davon-sneed-psal-2026.jpg',
+    alt: 'Davon Sneed on the podium with his bronze medal at the PSAL Varsity City Championships',
+    title: 'Davon Sneed, 3rd place, PSAL Varsity City Championships',
+    blurb:
+      "AOP scholar-athlete Davon Sneed earned a bronze medal in the 400m Hurdles at Icahn Stadium, competing for the Mott Haven Mavericks. It's proof of what mentorship, discipline, and our Athletic Excellence Institute build together.",
+  },
+  {
+    photo: '/news/jennifer-bonilla-city-tech-2026.jpg',
+    alt: 'Mentor Amauris Olivo and mentee Jennifer Bonilla at Gregorio Luperón High School for Science & Mathematics',
+    title: 'Jennifer Bonilla is headed to City Tech for Radiologic Technology',
+    blurb:
+      'AOP mentee Jennifer Bonilla closed out her senior softball season batting .435 with 3 home runs, 16 RBIs, and 12 stolen bases, then hit .875 in the playoffs. This fall she continues her journey at New York City College of Technology.',
+  },
+];
+
 export const outcomes = [
   {
     title: 'College Acceptance',
