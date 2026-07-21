@@ -29,8 +29,33 @@ import { site } from '../config';
     </div>
   </section>
 
-  <!-- Outcomes -->
+  <!-- Scholar Spotlight -->
   <section class="section">
+    <div class="container">
+      <div class="spotlight">
+        <img
+          class="spotlight__photo"
+          src="/news/davon-sneed-psal-2026.jpg"
+          alt="Davon Sneed on the podium with his bronze medal at the PSAL Varsity City Championships"
+          width="900"
+          height="675"
+          loading="eager"
+        />
+        <div class="spotlight__copy">
+          <p class="eyebrow">Scholar Spotlight</p>
+          <h2>Davon Sneed, 3rd place, PSAL Varsity City Championships</h2>
+          <p class="lead">
+            AOP scholar-athlete Davon Sneed earned a bronze medal in the 400m Hurdles at Icahn Stadium,
+            competing for the Mott Haven Mavericks. It's proof of what mentorship, discipline, and our
+            Athletic Excellence Institute build together.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="section section--alt">
     <div class="container">
       <div class="center">
         <p class="eyebrow">The Three Promise Outcomes</p>
@@ -195,6 +220,26 @@ import { site } from '../config';
     color: var(--navy);
   }
 
+  .spotlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  .spotlight__photo {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+  }
+  .spotlight__copy h2 {
+    margin-top: 0.3rem;
+  }
+
   .mission {
     font-family: var(--font-body);
     font-size: clamp(1.25rem, 2.6vw, 1.7rem);
@@ -301,6 +346,9 @@ import { site } from '../config';
     .hero__logo-panel {
       width: 240px;
       margin-inline: auto;
+    }
+    .spotlight__photo {
+      max-width: 260px;
     }
   }
 </style>

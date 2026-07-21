@@ -3,12 +3,19 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 
 // Add entries here as news and events happen. Newest first.
-const posts: { date: string; tag: string; title: string; body: string }[] = [
+const posts: { date: string; tag: string; title: string; body: string; photo?: string }[] = [
   {
     date: 'September 1, 2026',
     tag: 'Milestone',
     title: 'AOP Foundation launches its pilot cohort',
     body: 'Our first scholars begin with a kickoff event, pre-season athletic training, and senior advising intake, the start of a program built around college acceptance, scholarship attainment, and career readiness.',
+  },
+  {
+    date: 'May 24, 2026',
+    tag: 'Scholar Spotlight',
+    title: 'Davon Sneed takes 3rd in the 400m Hurdles at PSAL Varsity City Championships',
+    body: 'AOP scholar-athlete Davon Sneed earned a bronze medal in the 400m Hurdles at the PSAL Varsity City Championships at Icahn Stadium, competing for the Mott Haven Mavericks. Davon’s podium finish reflects the training, discipline, and mentorship at the center of our Athletic Excellence Institute, where athletic development goes hand in hand with academic accountability.',
+    photo: '/news/davon-sneed-psal-2026.jpg',
   },
 ];
 ---
@@ -31,6 +38,7 @@ const posts: { date: string; tag: string; title: string; body: string }[] = [
         <div class="posts">
           {posts.map((p) => (
             <article class="post card">
+              {p.photo && <img class="post__photo" src={p.photo} alt={p.title} loading="lazy" />}
               <div class="post__meta">
                 <span class="card__tag">{p.tag}</span>
                 <time>{p.date}</time>
@@ -58,6 +66,13 @@ const posts: { date: string; tag: string; title: string; body: string }[] = [
   .posts {
     display: grid;
     gap: 1.5rem;
+  }
+  .post__photo {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
   }
   .post__meta {
     display: flex;
