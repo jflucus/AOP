@@ -150,6 +150,12 @@ export const mentors: {
     focus: 'Science · Technology · Engineering · Math',
     photo: '/team/tommy.jpg',
   },
+  {
+    name: 'Sabrina Saint Jour',
+    role: 'Certified Mental Health Coach',
+    focus: 'Mental Wellness · Emotional Resilience · Coping Skills',
+    photo: '/team/sabrina.jpg',
+  },
 ];
 
 export const board: {
