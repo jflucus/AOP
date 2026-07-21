@@ -102,6 +102,7 @@ export const founder = {
 };
 
 export const mentors: {
+  slug: string;
   name: string;
   role: string;
   focus: string;
@@ -109,12 +110,14 @@ export const mentors: {
   bio?: string[];
 }[] = [
   {
+    slug: 'najee-ashbourne',
     name: 'Najee Ashbourne',
     role: 'Girls Flag Football Mentor',
     focus: 'Athletic Development · Character · Leadership',
     photo: '/team/najee.jpg',
   },
   {
+    slug: 'ibrahima-badji',
     name: 'Ibrahima Badji',
     role: 'Career & College Readiness Coach',
     focus:
@@ -122,24 +125,28 @@ export const mentors: {
     photo: '/team/ibrahima.jpg',
   },
   {
+    slug: 'andre-cohen',
     name: 'Andre Cohen',
     role: 'Speed & Conditioning Trainer',
     focus: 'Speed · Agility · Strength & Conditioning · Injury Prevention',
     photo: '/team/andre.jpg',
   },
   {
+    slug: 'joseph-flucus',
     name: 'Joseph Flucus',
     role: 'Football & Track & Field Mentor',
     focus: 'Leadership · Academic Accountability · College Readiness',
     photo: '/team/joe.jpg',
   },
   {
+    slug: 'jesus-medina',
     name: 'Jesus Medina',
     role: 'Career Readiness Coach',
     focus: 'Career Exploration · Resume & Interview Prep · Professional Skills · Goal Setting',
     photo: '/team/jesus.jpg',
   },
   {
+    slug: 'amauris-olivo',
     name: 'Amauris Olivo',
     role: 'Girls Softball Mentor',
     focus: 'Leadership · Teamwork · Confidence',
@@ -152,12 +159,14 @@ export const mentors: {
     ],
   },
   {
+    slug: 'sabrina-saint-jour',
     name: 'Sabrina Saint Jour',
     role: 'Certified Mental Health Coach',
     focus: 'Mental Wellness · Emotional Resilience · Coping Skills',
     photo: '/team/sabrina.jpg',
   },
   {
+    slug: 'tommy-valerio',
     name: 'Tommy Valerio',
     role: 'STEM Coach',
     focus: 'Science · Technology · Engineering · Math',

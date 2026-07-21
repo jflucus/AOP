@@ -1,0 +1,104 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import { mentors } from '../../data';
+
+export function getStaticPaths() {
+  return mentors
+    .filter((m) => m.bio)
+    .map((m) => ({ params: { slug: m.slug }, props: { mentor: m } }));
+}
+
+const { mentor } = Astro.props;
+
+function initials(name: string) {
+  return name
+    .split(' ')
+    .map((n) => n[0])
+    .slice(0, 2)
+    .join('');
+}
+---
+
+<Base title={mentor.name} description={`${mentor.name}, ${mentor.role} at AOP Foundation.`}>
+  <PageHero eyebrow="Our Team" title={mentor.name} intro={mentor.role} />
+
+  <section class="section">
+    <div class="container narrow">
+      <a class="back-link" href="/team/">&larr; Back to Team</a>
+      <div class="mentor-header">
+        {mentor.photo ? (
+          <img class="avatar avatar--lg avatar--photo" src={mentor.photo} alt={`${mentor.name}, ${mentor.role}`} width="600" height="600" />
+        ) : (
+          <div class="avatar avatar--lg" aria-hidden="true">{initials(mentor.name)}</div>
+        )}
+        <div>
+          <h2>{mentor.name}</h2>
+          <p class="role">{mentor.role}</p>
+          <p class="focus">{mentor.focus}</p>
+        </div>
+      </div>
+      {mentor.bio?.map((para) => <p>{para}</p>)}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .narrow {
+    max-width: 760px;
+  }
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    color: var(--gold-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .mentor-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  .mentor-header h2 {
+    margin: 0;
+  }
+  .avatar {
+    flex: 0 0 auto;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.03em;
+  }
+  .avatar--lg {
+    width: 130px;
+    height: 130px;
+    font-size: 2.8rem;
+  }
+  .avatar--photo {
+    object-fit: cover;
+    object-position: center 30%;
+  }
+  .role {
+    color: var(--gold-dark);
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+  }
+  .focus {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+  }
+  @media (max-width: 560px) {
+    .mentor-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
