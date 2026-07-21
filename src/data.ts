@@ -88,7 +88,7 @@ export const programs = [
 
 export const founder = {
   name: 'Joseph Flucus',
-  role: 'Founder & Board Chair',
+  role: 'Founder/CEO',
   bio: [
     'Joseph Flucus is an educator, mentor, coach, and youth advocate dedicated to preparing the next generation for success in college, careers, leadership, and life.',
     'For nearly two decades, Joseph has served students in New York City Public Schools, where he has built a reputation for developing young people both inside and outside the classroom. Throughout his career, he has taught science, led academic initiatives, mentored students, and coached football and track & field, helping student-athletes grow as scholars, competitors, and leaders.',
