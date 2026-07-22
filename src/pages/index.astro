@@ -103,6 +103,9 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
             <div class="card__icon">{o.icon}</div>
             <h3>{o.title}</h3>
             <p>{o.summary}</p>
+            {o.title === 'College Acceptance' && (
+              <a class="outcome-link" href="/college-acceptances/">See every school our scholars got into &rarr;</a>
+            )}
           </article>
         ))}
       </div>
@@ -131,9 +134,6 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
             </figcaption>
           </figure>
         ))}
-      </div>
-      <div class="center" style="margin-top:2rem;">
-        <a class="btn btn--navy" href="/college-acceptances/">See every school our scholars got into</a>
       </div>
     </div>
   </section>
@@ -340,6 +340,14 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     margin: 0;
     color: var(--text-muted);
     font-size: 0.95rem;
+  }
+
+  .outcome-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    color: var(--gold-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
   }
 
   .mission {

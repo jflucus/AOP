@@ -1,29 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { commitments, acceptedSchools, totalScholarshipsEarned } from '../data';
+import { collegeAcceptances, acceptedSchools, totalScholarshipsEarned } from '../data';
 
 const formattedTotal = `$${totalScholarshipsEarned.toLocaleString('en-US')}`;
 
-const schools = acceptedSchools.map((school) => {
-  const students = commitments.filter((c) => c.school === school);
-  const scholarshipTotal = students.reduce((sum, s) => sum + s.scholarship, 0);
-  return {
-    school,
-    count: students.length,
-    scholarshipTotal,
-  };
-});
+const schools = acceptedSchools.map((school) => ({
+  school,
+  students: collegeAcceptances.filter((c) => c.school === school).map((c) => c.name),
+}));
 ---
 
 <Base
   title="College Acceptances"
-  description="Every school AOP Foundation scholars have been accepted to, and the scholarships they've earned along the way."
+  description="Every school AOP Foundation scholars have been accepted to."
 >
   <PageHero
     eyebrow="College Acceptances"
     title="Every school our scholars have gotten into"
-    intro={`So far, AOP scholars have earned ${formattedTotal} in college scholarships across these schools.`}
+    intro={`So far, our scholars have earned ${formattedTotal} in college scholarships along the way.`}
   />
 
   <section class="section">
@@ -32,10 +27,7 @@ const schools = acceptedSchools.map((school) => {
         {schools.map((s) => (
           <article class="card school-card">
             <h3>{s.school}</h3>
-            <p class="school-card__count">
-              {s.count} {s.count === 1 ? 'scholar' : 'scholars'} accepted
-            </p>
-            <p class="school-card__scholarship">${s.scholarshipTotal.toLocaleString('en-US')} in scholarships</p>
+            <p class="school-card__students">{s.students.join(', ')}</p>
           </article>
         ))}
       </div>
@@ -56,12 +48,7 @@ const schools = acceptedSchools.map((school) => {
   .school-card h3 {
     margin: 0 0 0.5rem;
   }
-  .school-card__count {
-    color: var(--gold-dark);
-    font-weight: 700;
-    margin: 0 0 0.3rem;
-  }
-  .school-card__scholarship {
+  .school-card__students {
     color: var(--text-muted);
     margin: 0;
   }

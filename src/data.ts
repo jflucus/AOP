@@ -52,8 +52,14 @@ export const commitments = [
 
 export const totalScholarshipsEarned = commitments.reduce((sum, c) => sum + c.scholarship, 0);
 
+// Every scholar's college acceptance, for the full list on /college-acceptances/.
+export const collegeAcceptances = [
+  ...commitments.map((c) => ({ name: c.name, school: c.school })),
+  { name: 'Davon Sneed', school: 'SUNY Cortland' },
+];
+
 // Unique schools our scholars have been accepted to, in first-committed order.
-export const acceptedSchools = [...new Set(commitments.map((c) => c.school))];
+export const acceptedSchools = [...new Set(collegeAcceptances.map((c) => c.school))];
 
 export const outcomes = [
   {
