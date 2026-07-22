@@ -3,18 +3,43 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 
 // Add entries here as news and events happen. Newest first.
-const posts: { date: string; tag: string; title: string; body: string; photo?: string }[] = [
+const posts: {
+  date: string;
+  tag: string;
+  title: string;
+  meta?: string[];
+  body: string[];
+  photo?: string;
+}[] = [
   {
     date: 'September 1, 2026',
     tag: 'Milestone',
     title: 'AOP Foundation launches its pilot cohort',
-    body: 'Our first scholars begin with a kickoff event, pre-season athletic training, and senior advising intake, the start of a program built around college acceptance, scholarship attainment, and career readiness.',
+    body: [
+      'Our first scholars begin with a kickoff event, pre-season athletic training, and senior advising intake, the start of a program built around college acceptance, scholarship attainment, and career readiness.',
+    ],
+  },
+  {
+    date: 'July 2026',
+    tag: 'Scholar Spotlight',
+    title: 'Jennifer Bonilla is headed to City Tech for Radiologic Technology',
+    meta: [
+      'Gregorio Luperón High School for Science & Mathematics',
+      'Future College: New York City College of Technology (City Tech) – Radiologic Technology (Fall 2026)',
+    ],
+    body: [
+      'Jennifer exemplifies the dedication, perseverance, and leadership we strive to develop at AOP Foundation. A standout varsity catcher, she concluded her senior season with an outstanding .435 batting average, 3 home runs, 16 RBIs, and 12 stolen bases in just 10 regular-season games, helping lead her team with consistent offensive production. She elevated her game even further in the playoffs, batting .875.',
+      'This fall, Jennifer will continue her academic journey at City Tech, where she will pursue a degree in Radiologic Technology. We are proud to celebrate her achievement and look forward to seeing the impact she will make both in healthcare and in her community.',
+    ],
+    photo: '/news/jennifer-bonilla-city-tech-2026.jpg',
   },
   {
     date: 'May 24, 2026',
     tag: 'Scholar Spotlight',
     title: 'Davon Sneed takes 3rd in the 400m Hurdles at PSAL Varsity City Championships',
-    body: 'AOP scholar-athlete Davon Sneed earned a bronze medal in the 400m Hurdles at the PSAL Varsity City Championships at Icahn Stadium, competing for the Mott Haven Mavericks. Davon’s podium finish reflects the training, discipline, and mentorship at the center of our Athletic Excellence Institute, where athletic development goes hand in hand with academic accountability.',
+    body: [
+      'AOP scholar-athlete Davon Sneed earned a bronze medal in the 400m Hurdles at the PSAL Varsity City Championships at Icahn Stadium, competing for the Mott Haven Mavericks. Davon’s podium finish reflects the training, discipline, and mentorship at the center of our Athletic Excellence Institute, where athletic development goes hand in hand with academic accountability.',
+    ],
     photo: '/news/davon-sneed-psal-2026.jpg',
   },
 ];
@@ -44,7 +69,12 @@ const posts: { date: string; tag: string; title: string; body: string; photo?: s
                 <time>{p.date}</time>
               </div>
               <h3>{p.title}</h3>
-              <p>{p.body}</p>
+              {p.meta && (
+                <div class="post__details">
+                  {p.meta.map((line) => <p>{line}</p>)}
+                </div>
+              )}
+              {p.body.map((para) => <p>{para}</p>)}
             </article>
           ))}
         </div>
@@ -66,6 +96,15 @@ const posts: { date: string; tag: string; title: string; body: string; photo?: s
   .posts {
     display: grid;
     gap: 1.5rem;
+  }
+  .post__details {
+    margin: 0.6rem 0 1rem;
+  }
+  .post__details p {
+    color: var(--gold-dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
   }
   .post__photo {
     display: block;

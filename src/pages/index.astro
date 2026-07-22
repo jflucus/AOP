@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { outcomes, successModel } from '../data';
+import { outcomes, successModel, spotlights } from '../data';
 import { site } from '../config';
 ---
 
@@ -32,24 +32,22 @@ import { site } from '../config';
   <!-- Scholar Spotlight -->
   <section class="section">
     <div class="container">
-      <div class="spotlight">
-        <img
-          class="spotlight__photo"
-          src="/news/davon-sneed-psal-2026.jpg"
-          alt="Davon Sneed on the podium with his bronze medal at the PSAL Varsity City Championships"
-          width="900"
-          height="675"
-          loading="eager"
-        />
-        <div class="spotlight__copy">
-          <p class="eyebrow">Scholar Spotlight</p>
-          <h2>Davon Sneed, 3rd place, PSAL Varsity City Championships</h2>
-          <p class="lead">
-            AOP scholar-athlete Davon Sneed earned a bronze medal in the 400m Hurdles at Icahn Stadium,
-            competing for the Mott Haven Mavericks. It's proof of what mentorship, discipline, and our
-            Athletic Excellence Institute build together.
-          </p>
-        </div>
+      <div class="center">
+        <p class="eyebrow">Scholar Spotlight</p>
+        <h2>Proof of what mentorship builds</h2>
+      </div>
+      <div class="grid grid--2 spotlight-grid" style="margin-top:2.5rem;">
+        {spotlights.map((s) => (
+          <div class="spotlight">
+            <div class="spotlight__photo-wrap">
+              <img class="spotlight__photo" src={s.photo} alt={s.alt} loading="lazy" />
+            </div>
+            <div class="spotlight__copy">
+              <h3>{s.title}</h3>
+              <p class="lead">{s.blurb}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -220,24 +218,40 @@ import { site } from '../config';
     color: var(--navy);
   }
 
+  .spotlight-grid {
+    align-items: start;
+  }
   .spotlight {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.5rem;
-    max-width: 640px;
-    margin-inline: auto;
+    gap: 1.2rem;
+  }
+  .spotlight__photo-wrap {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
   }
   .spotlight__photo {
     width: 100%;
-    max-width: 320px;
-    height: auto;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
   }
-  .spotlight__copy h2 {
-    margin-top: 0.3rem;
+  .spotlight__copy {
+    max-width: 34ch;
+    margin-inline: auto;
+  }
+  .spotlight__copy h3 {
+    margin: 0 0 0.5rem;
+  }
+  .spotlight__copy .lead {
+    max-width: none;
   }
 
   .mission {
@@ -347,7 +361,7 @@ import { site } from '../config';
       width: 240px;
       margin-inline: auto;
     }
-    .spotlight__photo {
+    .spotlight__photo-wrap {
       max-width: 260px;
     }
   }
