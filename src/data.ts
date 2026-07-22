@@ -214,6 +214,7 @@ export const board: {
   {
     name: 'George Febles',
     role: 'Board Member',
+    photo: '/team/george.jpg',
   },
 ];
 
