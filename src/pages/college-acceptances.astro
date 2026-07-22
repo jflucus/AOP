@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { commitments, acceptedSchools, totalScholarshipsEarned } from '../data';
+
+const formattedTotal = `$${totalScholarshipsEarned.toLocaleString('en-US')}`;
+
+const schools = acceptedSchools.map((school) => {
+  const students = commitments.filter((c) => c.school === school);
+  const scholarshipTotal = students.reduce((sum, s) => sum + s.scholarship, 0);
+  return {
+    school,
+    count: students.length,
+    scholarshipTotal,
+  };
+});
+---
+
+<Base
+  title="College Acceptances"
+  description="Every school AOP Foundation scholars have been accepted to, and the scholarships they've earned along the way."
+>
+  <PageHero
+    eyebrow="College Acceptances"
+    title="Every school our scholars have gotten into"
+    intro={`So far, AOP scholars have earned ${formattedTotal} in college scholarships across these schools.`}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--3">
+        {schools.map((s) => (
+          <article class="card school-card">
+            <h3>{s.school}</h3>
+            <p class="school-card__count">
+              {s.count} {s.count === 1 ? 'scholar' : 'scholars'} accepted
+            </p>
+            <p class="school-card__scholarship">${s.scholarshipTotal.toLocaleString('en-US')} in scholarships</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="callout">
+        <h2>Help us add the next school to this list</h2>
+        <p>
+          Every acceptance here started with a mentor, a plan, and consistent support. Your donation funds
+          the advising, test prep, and application help that gets the next scholar on this list.
+        </p>
+        <a class="btn btn--gold" href="/donate/">Donate</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .school-card h3 {
+    margin: 0 0 0.5rem;
+  }
+  .school-card__count {
+    color: var(--gold-dark);
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+  }
+  .school-card__scholarship {
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .callout {
+    margin-top: 2.5rem;
+    background: var(--sky);
+    border-radius: var(--radius);
+    padding: 2rem;
+    border-left: 5px solid var(--gold);
+  }
+  .callout h2 {
+    margin-top: 0;
+  }
+</style>

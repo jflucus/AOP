@@ -52,6 +52,9 @@ export const commitments = [
 
 export const totalScholarshipsEarned = commitments.reduce((sum, c) => sum + c.scholarship, 0);
 
+// Unique schools our scholars have been accepted to, in first-committed order.
+export const acceptedSchools = [...new Set(commitments.map((c) => c.school))];
+
 export const outcomes = [
   {
     title: 'College Acceptance',
