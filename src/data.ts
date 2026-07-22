@@ -18,6 +18,40 @@ export const spotlights = [
   },
 ];
 
+// Class of 2026 college commitments — scholarship totals as self-reported by each scholar.
+export const commitments = [
+  {
+    name: 'Makayla',
+    school: 'SUNY Albany',
+    major: 'Political Science',
+    scholarship: 241314,
+    photo: '/commitments/makayla.jpg',
+  },
+  {
+    name: 'Destiny',
+    school: 'SUNY Albany',
+    major: 'Undeclared',
+    scholarship: 368900,
+    photo: '/commitments/destiny.jpg',
+  },
+  {
+    name: 'Jade',
+    school: "St. John's University",
+    major: 'Bio/Pre-Med Track',
+    scholarship: 278012,
+    photo: '/commitments/jade.jpg',
+  },
+  {
+    name: 'Davone',
+    school: 'University at Buffalo',
+    major: 'Business Administration',
+    scholarship: 472188,
+    photo: '/commitments/davone.jpg',
+  },
+];
+
+export const totalScholarshipsEarned = commitments.reduce((sum, c) => sum + c.scholarship, 0);
+
 export const outcomes = [
   {
     title: 'College Acceptance',

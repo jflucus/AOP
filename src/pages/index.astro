@@ -1,7 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
-import { outcomes, successModel, spotlights } from '../data';
+import { outcomes, successModel, spotlights, commitments, totalScholarshipsEarned } from '../data';
 import { site } from '../config';
+
+const formattedScholarships = `$${totalScholarshipsEarned.toLocaleString('en-US')}`;
+const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toFixed(2)}M+`;
 ---
 
 <Base>
@@ -34,7 +37,7 @@ import { site } from '../config';
     <div class="container center">
       <p class="eyebrow">Our First Cohort</p>
       <h2>Real results, before we even ask</h2>
-      <div class="grid grid--3 stats" style="margin-top:2rem;">
+      <div class="grid grid--4 stats" style="margin-top:2rem;">
         <div class="stat">
           <span class="stat__num">16</span>
           <p>Seniors in AOP's first cohort</p>
@@ -47,10 +50,14 @@ import { site } from '../config';
           <span class="stat__num">100%</span>
           <p>Accepted to college</p>
         </div>
+        <div class="stat">
+          <span class="stat__num">{formattedScholarshipsShort}</span>
+          <p>In college scholarships earned</p>
+        </div>
       </div>
       <p class="lead" style="margin-top:2rem;">
-        Every senior we mentored graduated and is headed to college. Your support is what makes the next
-        cohort possible.
+        Every senior we mentored graduated and is headed to college, together earning {formattedScholarships} in
+        scholarships. Your support is what makes the next cohort possible.
       </p>
       <a class="btn btn--gold" href="/donate/">Support the next cohort</a>
     </div>
@@ -97,6 +104,32 @@ import { site } from '../config';
             <h3>{o.title}</h3>
             <p>{o.summary}</p>
           </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- College Commitments -->
+  <section class="section">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">Class of 2026</p>
+        <h2>{formattedScholarshipsShort} in college scholarships, and counting</h2>
+        <p class="lead">
+          Four of our scholars just committed to college, together earning {formattedScholarships} in
+          scholarships. This is what's possible when a student gets a mentor, a plan, and someone in
+          their corner.
+        </p>
+      </div>
+      <div class="grid grid--2" style="margin-top:2.5rem;">
+        {commitments.map((c) => (
+          <figure class="commitment">
+            <img class="commitment__photo" src={c.photo} alt={`${c.name} officially committed to ${c.school}`} loading="lazy" />
+            <figcaption>
+              <p class="commitment__name">{c.name} &rarr; {c.school}</p>
+              <p class="commitment__detail">{c.major} · ${c.scholarship.toLocaleString('en-US')} earned</p>
+            </figcaption>
+          </figure>
         ))}
       </div>
     </div>
@@ -281,6 +314,28 @@ import { site } from '../config';
     max-width: none;
   }
 
+  .commitment {
+    margin: 0;
+    text-align: center;
+  }
+  .commitment__photo {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    display: block;
+  }
+  .commitment__name {
+    margin: 1rem 0 0.2rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .commitment__detail {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
   .mission {
     font-family: var(--font-body);
     font-size: clamp(1.25rem, 2.6vw, 1.7rem);
@@ -362,8 +417,12 @@ import { site } from '../config';
     max-width: 30ch;
     margin-inline: auto;
   }
+  .grid--4 {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
   .cohort-results .stat__num {
     color: var(--gold-light);
+    font-size: clamp(2.1rem, 5vw, 3.2rem);
   }
   .cohort-results .stat p {
     color: #c9d6e8;
