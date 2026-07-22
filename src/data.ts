@@ -264,6 +264,12 @@ export const board: {
       'As a member of the AOP Foundation Board of Directors, George brings unparalleled experience in youth development, educational leadership, and athletic excellence. His lifelong commitment to helping young people realize their potential perfectly reflects the Foundation’s mission of empowering student-athletes through education, mentorship, and opportunity. His guidance strengthens AOP Foundation’s ability to inspire future leaders, build character, and create lasting opportunities for the next generation.',
     ],
   },
+  {
+    slug: 'ben-shephard',
+    name: 'Ben Shephard',
+    role: 'Board Member',
+    photo: '/team/ben.jpg',
+  },
 ];
 
 export const values = [
