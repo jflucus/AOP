@@ -206,16 +206,16 @@ export const board: {
     photo: '/team/joe.jpg',
   },
   {
-    slug: 'craig-joseph',
-    name: 'Craig Joseph',
-    role: 'Vice Chair',
-    photo: '/team/craig.jpg',
-  },
-  {
     slug: 'tommy-valerio-board',
     name: 'Tommy Valerio',
     role: 'Board Chair',
     photo: '/team/tommy.jpg',
+  },
+  {
+    slug: 'craig-joseph',
+    name: 'Craig Joseph',
+    role: 'Vice Chair',
+    photo: '/team/craig.jpg',
   },
   {
     slug: 'george-febles',
