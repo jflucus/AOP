@@ -205,6 +205,7 @@ export const board: {
   {
     name: 'Craig Joseph',
     role: 'Board Member',
+    photo: '/team/craig.jpg',
   },
   {
     name: 'Tommy Valerio',
