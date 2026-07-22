@@ -175,6 +175,12 @@ export const mentors: {
     focus:
       'College Planning · Career Exploration · Scholarships & Financial Aid · Resume & Interview Prep · Goal Setting',
     photo: '/team/ibrahima.jpg',
+    bio: [
+      'Ibrahima Badji is an entrepreneur and the Founder & CEO of Good Vibes, an education consulting business dedicated to helping students achieve their college and career goals without unnecessary debt. Through innovative college advising, financial aid strategy, scholarship planning, and career exploration, Good Vibes has helped hundreds of students secure more than $3 million in scholarships while preparing them for success beyond high school.',
+      'Driven by a belief that every student deserves access to opportunity, Ibrahima is building scalable systems that help schools create high-performing college-access and skilled-trade pipelines, ensuring students are equipped with the knowledge, resources, and confidence to pursue the path that best fits their goals.',
+      'As a member of the AOP Foundation, Ibrahima brings an entrepreneurial mindset and deep expertise in college readiness, financial literacy, scholarship strategy, workforce development, and educational innovation. His commitment to expanding opportunities aligns directly with the Foundation’s mission of empowering student-athletes through education, mentorship, leadership, and career preparation.',
+      'Whether developing new technology solutions, mentoring students, or building programs that remove barriers to success, Ibrahima is passionate about creating lasting impact. He believes every young person deserves the opportunity to dream boldly, achieve confidently, and build a future without limits.',
+    ],
   },
   {
     slug: 'andre-cohen',
