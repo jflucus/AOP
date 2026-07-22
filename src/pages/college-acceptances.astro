@@ -5,10 +5,12 @@ import { collegeAcceptances, acceptedSchools, totalScholarshipsEarned } from '..
 
 const formattedTotal = `$${totalScholarshipsEarned.toLocaleString('en-US')}`;
 
-const schools = acceptedSchools.map((school) => ({
-  school,
-  students: collegeAcceptances.filter((c) => c.school === school).map((c) => c.name),
-}));
+const schools = acceptedSchools
+  .map((school) => ({
+    school,
+    students: collegeAcceptances.filter((c) => c.school === school).map((c) => c.name),
+  }))
+  .sort((a, b) => a.school.localeCompare(b.school));
 ---
 
 <Base
@@ -23,14 +25,14 @@ const schools = acceptedSchools.map((school) => ({
 
   <section class="section">
     <div class="container">
-      <div class="grid grid--3">
+      <ul class="school-list">
         {schools.map((s) => (
-          <article class="card school-card">
+          <li class="school-list__item">
             <h3>{s.school}</h3>
-            <p class="school-card__students">{s.students.join(', ')}</p>
-          </article>
+            <p class="school-list__students">{s.students.join(', ')}</p>
+          </li>
         ))}
-      </div>
+      </ul>
 
       <div class="callout">
         <h2>Help us add the next school to this list</h2>
@@ -45,10 +47,23 @@ const schools = acceptedSchools.map((school) => ({
 </Base>
 
 <style>
-  .school-card h3 {
-    margin: 0 0 0.5rem;
+  .school-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 640px;
   }
-  .school-card__students {
+  .school-list__item {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .school-list__item:first-child {
+    padding-top: 0;
+  }
+  .school-list__item h3 {
+    margin: 0 0 0.3rem;
+  }
+  .school-list__students {
     color: var(--text-muted);
     margin: 0;
   }

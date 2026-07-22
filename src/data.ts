@@ -55,8 +55,8 @@ export const totalScholarshipsEarned = commitments.reduce((sum, c) => sum + c.sc
 // Every scholar's college acceptance, for the full list on /college-acceptances/.
 export const collegeAcceptances = [
   ...commitments.map((c) => ({ name: c.name, school: c.school })),
-  { name: 'Davon Sneed', school: 'SUNY Cortland' },
-  { name: 'Jennifer Bonilla', school: 'New York City College of Technology (City Tech)' },
+  { name: 'Davon', school: 'SUNY Cortland' },
+  { name: 'Jennifer', school: 'New York City College of Technology (City Tech)' },
 ];
 
 // Unique schools our scholars have been accepted to, in first-committed order.
