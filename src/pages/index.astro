@@ -121,7 +121,7 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
           their corner.
         </p>
       </div>
-      <div class="grid grid--2" style="margin-top:2.5rem;">
+      <div class="grid commitment-grid" style="margin-top:2.5rem;">
         {commitments.map((c) => (
           <figure class="commitment">
             <img class="commitment__photo" src={c.photo} alt={`${c.name} officially committed to ${c.school}`} loading="lazy" />
@@ -314,6 +314,9 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     max-width: none;
   }
 
+  .commitment-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
   .commitment {
     margin: 0;
     text-align: center;
@@ -458,6 +461,9 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     }
     .spotlight__photo-wrap {
       max-width: 260px;
+    }
+    .commitment-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
