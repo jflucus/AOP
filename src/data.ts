@@ -208,19 +208,19 @@ export const board: {
   {
     slug: 'craig-joseph',
     name: 'Craig Joseph',
-    role: 'Board Member',
+    role: 'Vice Chair',
     photo: '/team/craig.jpg',
   },
   {
     slug: 'tommy-valerio-board',
     name: 'Tommy Valerio',
-    role: 'Board Member',
+    role: 'Board Chair',
     photo: '/team/tommy.jpg',
   },
   {
     slug: 'george-febles',
     name: 'George Febles',
-    role: 'Director, AOP Foundation',
+    role: 'Secretary',
     photo: '/team/george.jpg',
     bio: [
       'George Febles is one of New York City’s most respected educators, coaches, and mentors, dedicating more than three decades to developing young people through education and athletics. As Head Track & Field Coach at Fordham Preparatory School since 1989, he has built one of the nation’s premier high school track and field programs by emphasizing character, teamwork, and long-term athlete development over short-term success.',
