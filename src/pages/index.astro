@@ -29,6 +29,33 @@ import { site } from '../config';
     </div>
   </section>
 
+  <!-- First Cohort Results -->
+  <section class="section section--navy cohort-results">
+    <div class="container center">
+      <p class="eyebrow">Our First Cohort</p>
+      <h2>Real results, before we even ask</h2>
+      <div class="grid grid--3 stats" style="margin-top:2rem;">
+        <div class="stat">
+          <span class="stat__num">16</span>
+          <p>Seniors in AOP's first cohort</p>
+        </div>
+        <div class="stat">
+          <span class="stat__num">100%</span>
+          <p>Graduated on time</p>
+        </div>
+        <div class="stat">
+          <span class="stat__num">100%</span>
+          <p>Accepted to college</p>
+        </div>
+      </div>
+      <p class="lead" style="margin-top:2rem;">
+        Every senior we mentored graduated and is headed to college. Your support is what makes the next
+        cohort possible.
+      </p>
+      <a class="btn btn--gold" href="/donate/">Support the next cohort</a>
+    </div>
+  </section>
+
   <!-- Scholar Spotlight -->
   <section class="section">
     <div class="container">
@@ -334,6 +361,15 @@ import { site } from '../config';
     color: var(--text-muted);
     max-width: 30ch;
     margin-inline: auto;
+  }
+  .cohort-results .stat__num {
+    color: var(--gold-light);
+  }
+  .cohort-results .stat p {
+    color: #c9d6e8;
+  }
+  .cohort-results .btn--gold {
+    margin-top: 0.5rem;
   }
   .disclaimer {
     font-size: 0.85rem;
