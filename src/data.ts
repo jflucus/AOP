@@ -193,29 +193,42 @@ export const mentors: {
 ];
 
 export const board: {
+  slug: string;
   name: string;
   role: string;
   photo?: string;
+  bio?: string[];
 }[] = [
   {
+    slug: 'joseph-flucus-board',
     name: 'Joseph Flucus',
     role: 'Founder & CEO',
     photo: '/team/joe.jpg',
   },
   {
+    slug: 'craig-joseph',
     name: 'Craig Joseph',
     role: 'Board Member',
     photo: '/team/craig.jpg',
   },
   {
+    slug: 'tommy-valerio-board',
     name: 'Tommy Valerio',
     role: 'Board Member',
     photo: '/team/tommy.jpg',
   },
   {
+    slug: 'george-febles',
     name: 'George Febles',
-    role: 'Board Member',
+    role: 'Director, AOP Foundation',
     photo: '/team/george.jpg',
+    bio: [
+      'George Febles is one of New York City’s most respected educators, coaches, and mentors, dedicating more than three decades to developing young people through education and athletics. As Head Track & Field Coach at Fordham Preparatory School since 1989, he has built one of the nation’s premier high school track and field programs by emphasizing character, teamwork, and long-term athlete development over short-term success.',
+      'A graduate of Fordham University, George has spent his career teaching Social Studies, American History, and Economics while mentoring thousands of student-athletes. His philosophy is simple but powerful: every young person deserves the opportunity to grow, compete, and discover their potential. Under his leadership, Fordham Prep has produced 16 National Champions, 88 All-Americans, 11 CHSAA State Catholic Championships, 23 Archdiocesan Championships, 43 Bronx Championships, six New York City Mayor’s Cup titles, and numerous collegiate student-athletes.',
+      'George’s impact extends well beyond championships. He is nationally recognized for building an inclusive program where athletes of every ability are encouraged to develop confidence, resilience, discipline, and leadership. His commitment to developing the whole person has become the hallmark of his coaching career and has influenced generations of students, coaches, and educators.',
+      'His contributions to the sport have earned some of the highest honors in high school athletics, including induction into the CHSAA Hall of Fame, The Armory Coaches Hall of Fame, and recognition as the National Scholastic Athletics Foundation’s Mike Byrnes Coach of the Year, honoring his lifetime of excellence in coaching, mentorship, and service.',
+      'As a member of the AOP Foundation Board of Directors, George brings unparalleled experience in youth development, educational leadership, and athletic excellence. His lifelong commitment to helping young people realize their potential perfectly reflects the Foundation’s mission of empowering student-athletes through education, mentorship, and opportunity. His guidance strengthens AOP Foundation’s ability to inspire future leaders, build character, and create lasting opportunities for the next generation.',
+    ],
   },
 ];
 

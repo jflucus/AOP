@@ -1,10 +1,11 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import { mentors } from '../../data';
+import { mentors, board } from '../../data';
 
 export function getStaticPaths() {
-  return mentors
+  const people = [...mentors, ...board];
+  return people
     .filter((m) => m.bio)
     .map((m) => ({ params: { slug: m.slug }, props: { mentor: m } }));
 }
@@ -35,7 +36,7 @@ function initials(name: string) {
         <div>
           <h2>{mentor.name}</h2>
           <p class="role">{mentor.role}</p>
-          <p class="focus">{mentor.focus}</p>
+          {mentor.focus && <p class="focus">{mentor.focus}</p>}
         </div>
       </div>
       {mentor.bio?.map((para) => <p>{para}</p>)}

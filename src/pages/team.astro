@@ -92,6 +92,9 @@ function initials(name: string) {
                 <div>
                   <p class="board-name">{b.name}</p>
                   <p class="role">{b.role}</p>
+                  {b.bio && (
+                    <a class="mentor-bio-link" href={`/team/${b.slug}/`}>Read full bio &rarr;</a>
+                  )}
                 </div>
               </li>
             ))}
