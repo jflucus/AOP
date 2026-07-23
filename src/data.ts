@@ -216,6 +216,11 @@ export const mentors: {
     role: 'Certified Mental Health Coach',
     focus: 'Mental Wellness · Emotional Resilience · Coping Skills',
     photo: '/team/sabrina.jpg',
+    bio: [
+      'Sabrina Saint Jour is a dedicated professional, mental health coach, and advocate for personal growth and well-being. She earned a Bachelor of Arts in English from Florida International University and a Master of Arts in Executive Management from St. Thomas University, building a strong foundation in communication, leadership, and organizational management.',
+      'In 2026, Sabrina earned her Certificate in Mental Health Coaching from the Headspace Training Institute, where she received training in evidence-based coaching practices that support emotional wellness, resilience, and sustainable behavior change.',
+      'Drawing on her academic background and coaching expertise, Sabrina is committed to empowering individuals to navigate life’s challenges with confidence, develop practical coping strategies, and achieve meaningful personal and professional growth. She brings empathy, active listening, and a strengths-based approach to every interaction, with a mission to help others build healthier, more fulfilling lives.',
+    ],
   },
   {
     slug: 'tommy-valerio',
