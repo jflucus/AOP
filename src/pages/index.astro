@@ -86,34 +86,8 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     </div>
   </section>
 
-  <!-- Outcomes -->
-  <section class="section section--alt">
-    <div class="container">
-      <div class="center">
-        <p class="eyebrow">The Three Promise Outcomes</p>
-        <h2>We measure ourselves on outcomes, not activity</h2>
-        <p class="lead">
-          Everything AOP does is organized around three measurable outcomes, the metrics by which
-          we hold ourselves accountable and report to funders.
-        </p>
-      </div>
-      <div class="grid grid--3" style="margin-top:2.5rem;">
-        {outcomes.map((o) => (
-          <article class="card">
-            <div class="card__icon">{o.icon}</div>
-            <h3>{o.title}</h3>
-            <p>{o.summary}</p>
-            {o.title === 'College Acceptance' && (
-              <a class="outcome-link" href="/college-acceptances/">See every school our scholars got into &rarr;</a>
-            )}
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- College Commitments -->
-  <section class="section">
+  <section class="section section--alt">
     <div class="container">
       <div class="center">
         <p class="eyebrow">Class of 2026</p>
@@ -133,6 +107,32 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
               <p class="commitment__detail">{c.major} · ${c.scholarship.toLocaleString('en-US')} earned</p>
             </figcaption>
           </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="section">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">The Three Promise Outcomes</p>
+        <h2>We measure ourselves on outcomes, not activity</h2>
+        <p class="lead">
+          Everything AOP does is organized around three measurable outcomes, the metrics by which
+          we hold ourselves accountable and report to funders.
+        </p>
+      </div>
+      <div class="grid grid--3" style="margin-top:2.5rem;">
+        {outcomes.map((o) => (
+          <article class="card">
+            <div class="card__icon">{o.icon}</div>
+            <h3>{o.title}</h3>
+            <p>{o.summary}</p>
+            {o.title === 'College Acceptance' && (
+              <a class="outcome-link" href="/college-acceptances/">See every school our scholars got into &rarr;</a>
+            )}
+          </article>
         ))}
       </div>
     </div>
