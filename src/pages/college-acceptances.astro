@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { collegeAcceptances, acceptedSchools, totalScholarshipsEarned } from '../data';
+
+const formattedTotal = `$${totalScholarshipsEarned.toLocaleString('en-US')}`;
+
+const schools = acceptedSchools
+  .map((school) => ({
+    school,
+    students: collegeAcceptances.filter((c) => c.school === school).map((c) => c.name),
+  }))
+  .sort((a, b) => a.school.localeCompare(b.school));
+---
+
+<Base
+  title="College Acceptances"
+  description="Every school AOP Foundation scholars have been accepted to."
+>
+  <PageHero
+    eyebrow="College Acceptances"
+    title="Every school our scholars have gotten into"
+    intro={`So far, our scholars have earned ${formattedTotal} in college scholarships along the way.`}
+  />
+
+  <section class="section">
+    <div class="container">
+      <ul class="school-list">
+        {schools.map((s) => (
+          <li class="school-list__item">
+            <h3>{s.school}</h3>
+            <p class="school-list__students">{s.students.join(', ')}</p>
+          </li>
+        ))}
+      </ul>
+
+      <div class="callout">
+        <h2>Help us add the next school to this list</h2>
+        <p>
+          Every acceptance here started with a mentor, a plan, and consistent support. Your donation funds
+          the advising, test prep, and application help that gets the next scholar on this list.
+        </p>
+        <a class="btn btn--gold" href="/donate/">Donate</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .school-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 640px;
+  }
+  .school-list__item {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .school-list__item:first-child {
+    padding-top: 0;
+  }
+  .school-list__item h3 {
+    margin: 0 0 0.3rem;
+  }
+  .school-list__students {
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .callout {
+    margin-top: 2.5rem;
+    background: var(--sky);
+    border-radius: var(--radius);
+    padding: 2rem;
+    border-left: 5px solid var(--gold);
+  }
+  .callout h2 {
+    margin-top: 0;
+  }
+</style>
