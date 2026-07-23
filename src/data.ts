@@ -265,6 +265,12 @@ export const board: {
     name: 'Tommy Valerio',
     role: 'Board Chair',
     photo: '/team/tommy.jpg',
+    bio: [
+      'Tommy Valerio serves on the Board of Directors for Athlete of Promise with a deep commitment to expanding opportunities for student-athletes. Having benefited from college-access and mentorship programs himself, Tommy knows firsthand how meaningful guidance and exposure can change the trajectory of a young person’s life. Those experiences helped prepare him for college and introduced him to possibilities that once felt out of reach. Today, he is passionate about giving back and helping create those same opportunities for the next generation.',
+      'Professionally, Tommy is a controls engineer specializing in industrial automation, where he programs custom manufacturing equipment and solves complex engineering challenges through PLC programming and STEM. While he enjoys the technical side of engineering, his greatest fulfillment comes from mentoring others.',
+      'Outside of his engineering career, Tommy coaches track and field and teaches Latin dance. As both a coach and instructor, he has seen how discipline, consistency, and resilience can transform confidence both on and off the field. Running taught him that success is rarely about being the most naturally gifted, it comes from showing up, putting in the work, and continuing to improve.',
+      'Tommy believes student-athletes are uniquely positioned for success when they are encouraged to explore interests beyond sports. His goal is to help young people recognize that athletics can open doors, but curiosity, education, and lifelong learning are what allow them to build meaningful careers and fulfilling lives.',
+    ],
   },
   {
     slug: 'craig-joseph',
