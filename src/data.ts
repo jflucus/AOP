@@ -296,7 +296,7 @@ export const board: {
   {
     slug: 'joseph-flucus-board',
     name: 'Joseph Flucus',
-    role: 'Founder & CEO',
+    role: 'Founder/Executive Director',
     photo: '/team/joe.jpg',
   },
   {
