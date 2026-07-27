@@ -57,10 +57,42 @@ export const collegeAcceptances = [
   ...commitments.map((c) => ({ name: c.name, school: c.school })),
   { name: 'Davon', school: 'SUNY Cortland' },
   { name: 'Jennifer', school: 'New York City College of Technology (City Tech)' },
+  { name: 'Houlematu', school: 'Stony Brook University' },
+  { name: 'Rokia', school: 'City College of New York' },
+  { name: 'Soleil', school: 'SUNY Albany' },
+  { name: 'Cloey', school: 'SUNY Plattsburgh' },
 ];
 
 // Unique schools our scholars have been accepted to, in first-committed order.
 export const acceptedSchools = [...new Set(collegeAcceptances.map((c) => c.school))];
+
+// Athletic Excellence Institute in action — girls flag football, for the Programs page gallery.
+export const programGallery = [
+  {
+    name: 'Houlematu',
+    number: 2,
+    school: 'Stony Brook University',
+    photo: '/programs/houlematu-karaga.jpg',
+  },
+  {
+    name: 'Rokia',
+    number: 7,
+    school: 'City College of New York',
+    photo: '/programs/rokia-sacko.jpg',
+  },
+  {
+    name: 'Soleil',
+    number: 30,
+    school: 'SUNY Albany',
+    photo: '/programs/soleil-pinard.jpg',
+  },
+  {
+    name: 'Cloey',
+    number: 23,
+    school: 'SUNY Plattsburgh',
+    photo: '/programs/cloey-quezada.jpg',
+  },
+];
 
 export const outcomes = [
   {
