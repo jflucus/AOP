@@ -29,7 +29,9 @@ const schools = acceptedSchools
         {schools.map((s) => (
           <li class="school-list__item">
             <h3>{s.school}</h3>
-            <p class="school-list__students">{s.students.join(', ')}</p>
+            <ul class="school-list__students">
+              {s.students.map((student) => <li>{student}</li>)}
+            </ul>
           </li>
         ))}
       </ul>
@@ -64,8 +66,13 @@ const schools = acceptedSchools
     margin: 0 0 0.3rem;
   }
   .school-list__students {
+    list-style: none;
     color: var(--text-muted);
     margin: 0;
+    padding: 0;
+  }
+  .school-list__students li {
+    padding: 0.15rem 0;
   }
   .callout {
     margin-top: 2.5rem;
