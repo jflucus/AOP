@@ -177,6 +177,13 @@ export const mentors: {
     role: 'Girls Flag Football Mentor',
     focus: 'Athletic Development · Character · Leadership',
     photo: '/team/najee.jpg',
+    bio: [
+      'Najee Ashbourne is a dedicated educator, mentor, and coach who is committed to empowering young people through education, athletics, and leadership. Born and raised in the Bronx, Najee is passionate about giving back to the community that shaped him by inspiring the next generation to recognize their potential and pursue excellence.',
+      'Entering his eighth year as a high school mathematics teacher, Najee has built a reputation for fostering academic success and creating meaningful relationships with his students. For the past two years, he has served as the Head of the Mathematics Department, where he leads instructional initiatives, supports fellow educators, and works to improve student achievement. He earned a Bachelor of Science in Mathematics from Alabama State University and a Master of Education in Teaching Mathematics for Grades 7–12 from Lehman College.',
+      'In addition to his work in the classroom, Najee is entering his sixth year as the head coach of his school’s girls flag football team. Under his leadership, the program has transformed into one of the premier teams in the Bronx. He has compiled a 35–14 regular-season record while leading the program to its first undefeated regular season with a perfect 10–0 record and its first-ever No. 1 ranking in the PSAL 1A Division.',
+      'For Najee, coaching is about much more than winning games. It is an opportunity to make a lasting impact on the lives of young people. He believes athletics provide a powerful platform to teach lessons that extend far beyond the field. As someone born and raised in the Bronx, he is especially passionate about showing young women that they are more than capable of excelling in a sport that has traditionally been viewed as male-dominated. Through coaching and mentorship, he instills the values of dedication, commitment, teamwork, discipline, resilience, and confidence. These qualities prepare his athletes to succeed not only in competition but also in school, their careers, and life.',
+      'As a mentor, Najee is committed to helping young people build self-confidence, overcome challenges, and realize that their circumstances do not define their future. He believes every young person deserves someone who believes in them, challenges them to grow, and encourages them to pursue their dreams with purpose and determination. Through education, coaching, and mentorship, Najee strives to leave a lasting impact on every life he has the privilege to serve.',
+    ],
   },
   {
     slug: 'ibrahima-badji',
