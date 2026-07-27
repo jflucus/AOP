@@ -53,14 +53,23 @@ const schools = acceptedSchools
     list-style: none;
     margin: 0;
     padding: 0;
-    max-width: 640px;
+    max-width: 900px;
+    columns: 2;
+    column-gap: 3rem;
   }
   .school-list__item {
     padding: 1.2rem 0;
     border-bottom: 1px solid var(--border);
+    break-inside: avoid;
   }
   .school-list__item:first-child {
     padding-top: 0;
+  }
+
+  @media (max-width: 640px) {
+    .school-list {
+      columns: 1;
+    }
   }
   .school-list__item h3 {
     margin: 0 0 0.3rem;
