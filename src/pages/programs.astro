@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { successModel, modelOutcomes } from '../data';
+import { successModel, modelOutcomes, programGallery } from '../data';
 ---
 
 <Base title="Our Program" description="The AOP Scholar-Athlete Success Model: one signature program with seven integrated phases, from school partnership through college and career transition.">
@@ -19,6 +19,31 @@ import { successModel, modelOutcomes } from '../data';
         athletic aspirations, with a particular focus on expanding opportunities for students from
         historically underserved communities who face barriers to educational, athletic, and career success.
       </p>
+    </div>
+  </section>
+
+  <!-- Program in Action -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="center">
+        <p class="eyebrow">Athletic Excellence Institute</p>
+        <h2>The program in action</h2>
+        <p class="lead">
+          Our girls flag football scholars, coached under the Athletic Excellence Institute, on their way to
+          college acceptances of their own.
+        </p>
+      </div>
+      <div class="grid gallery-grid" style="margin-top:2.5rem;">
+        {programGallery.map((p) => (
+          <figure class="gallery-card">
+            <img class="gallery-card__photo" src={p.photo} alt={`${p.name}, #${p.number}, competing in girls flag football`} loading="lazy" />
+            <figcaption>
+              <p class="gallery-card__name">{p.name} <span class="gallery-card__number">#{p.number}</span></p>
+              <p class="gallery-card__school">Headed to {p.school}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -114,6 +139,42 @@ import { successModel, modelOutcomes } from '../data';
 </Base>
 
 <style>
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .gallery-card {
+    margin: 0;
+    text-align: center;
+  }
+  .gallery-card__photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    display: block;
+  }
+  .gallery-card__name {
+    margin: 0.8rem 0 0.2rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .gallery-card__number {
+    color: var(--gold-dark);
+  }
+  .gallery-card__school {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 860px) {
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   .phases {
     margin-top: 2.5rem;
     display: grid;
