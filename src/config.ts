@@ -6,9 +6,8 @@ export const site = {
   tagline:
     'Preparing Students for College, Careers, Leadership, and Life Through Athletics and Education.',
   motto: 'Promise. Preparation. Purpose.',
-  // TODO: swap in the real fiscal-sponsor donation URL when the sponsor is confirmed.
-  // In Year 1, giving routes through the fiscal sponsor for compliance (see FRD §6 / launch plan).
-  donateUrl: '#donate-info',
+  // Stripe Payment Link — donations flow to the org's Mercury account.
+  donateUrl: 'https://buy.stripe.com/14AaEY5Dud6eaMkfFi8so00',
   // TODO: replace with the org's real contact details.
   email: 'info@aopfoundation.org',
   location: 'New York City, NY',
