@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
-import { founder, mentors, board } from '../data';
+import { founder, mentors, board, advisoryCouncil } from '../data';
 
 function initials(name: string) {
   return name
@@ -107,7 +107,24 @@ function initials(name: string) {
             Our advisory council brings expertise in college advising, financial aid, youth protection, and
             employer partnerships to keep AOP's model rigorous and evidence-based.
           </p>
-          <p class="note">Advisory council members will be announced soon.</p>
+          <ul class="board-list">
+            {advisoryCouncil.map((a) => (
+              <li class="board-member">
+                {a.photo ? (
+                  <img class="avatar avatar--photo" src={a.photo} alt={`${a.name}, ${a.role}`} width="600" height="600" loading="lazy" />
+                ) : (
+                  <div class="avatar" aria-hidden="true">{initials(a.name)}</div>
+                )}
+                <div>
+                  <p class="board-name">{a.name}</p>
+                  <p class="role">{a.role}</p>
+                  {a.bio && (
+                    <a class="mentor-bio-link" href={`/team/${a.slug}/`}>Read full bio &rarr;</a>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
