@@ -13,7 +13,7 @@ const supports = [
   ['💼', 'Career exploration'],
 ];
 
-const hasRealDonateUrl = !site.donateUrl.startsWith('#');
+const hasDonateOptions = site.donateOptions.length > 0;
 ---
 
 <Base title="Donate" description="Support tutoring, athletic equipment, leadership workshops, scholarship assistance, college visits, mentoring, and career exploration.">
@@ -42,20 +42,23 @@ const hasRealDonateUrl = !site.donateUrl.startsWith('#');
 
       <aside class="donate-box" id="donate-info">
         <h3>Give to AOP Foundation</h3>
-        {hasRealDonateUrl ? (
+        {hasDonateOptions ? (
           <>
-            <p>Make a secure one-time or monthly gift online.</p>
-            <a class="btn btn--gold btn--block" href={site.donateUrl} target="_blank" rel="noopener">
-              Donate securely
-            </a>
+            <p>Make a secure gift online.</p>
+            <div class="donate-amounts">
+              {site.donateOptions.map((opt) => (
+                <a class="btn btn--gold" href={opt.url} target="_blank" rel="noopener">
+                  ${opt.amount}
+                </a>
+              ))}
+            </div>
           </>
         ) : (
           <>
             <p class="notice">
-              <strong>Our online donation page is being set up.</strong> In Year 1, AOP receives gifts through
-              a fiscal sponsor so your contribution is handled compliantly and is tax-deductible.
+              <strong>Our online donation page is being set up.</strong> To give now or pledge support,
+              email us and we'll send secure giving instructions.
             </p>
-            <p>To give now or pledge support, email us and we'll send secure giving instructions:</p>
             <a class="btn btn--gold btn--block" href={`mailto:${site.email}?subject=I'd like to donate to AOP Foundation`}>
               Email us to give
             </a>
@@ -120,6 +123,17 @@ const hasRealDonateUrl = !site.donateUrl.startsWith('#');
     justify-content: center;
     width: 100%;
     margin: 1rem 0;
+  }
+  .donate-amounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  .donate-amounts .btn {
+    flex: 1 1 auto;
+    min-width: 90px;
+    justify-content: center;
   }
   .notice {
     background: var(--sky);

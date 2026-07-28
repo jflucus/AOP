@@ -6,8 +6,11 @@ export const site = {
   tagline:
     'Preparing Students for College, Careers, Leadership, and Life Through Athletics and Education.',
   motto: 'Promise. Preparation. Purpose.',
-  // Stripe Payment Link — donations flow to the org's Mercury account.
-  donateUrl: 'https://buy.stripe.com/cNicN60jad6e9IgakY8so01',
+  // Stripe Payment Links (one per preset amount) — donations flow to the org's Mercury account.
+  donateOptions: [
+    { amount: 50, url: 'https://buy.stripe.com/cNicN60jad6e9IgakY8so01' },
+    { amount: 100, url: 'https://buy.stripe.com/9B65kEfe49U2aMk0Ko8so02' },
+  ],
   // TODO: replace with the org's real contact details.
   email: 'info@aopfoundation.org',
   location: 'New York City, NY',
