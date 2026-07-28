@@ -44,7 +44,7 @@ const hasRealDonateUrl = !site.donateUrl.startsWith('#');
         <h3>Give to AOP Foundation</h3>
         {hasRealDonateUrl ? (
           <>
-            <p>Make a secure one-time or recurring gift through our fiscal sponsor.</p>
+            <p>Make a secure one-time or monthly gift online.</p>
             <a class="btn btn--gold btn--block" href={site.donateUrl} target="_blank" rel="noopener">
               Donate securely
             </a>
@@ -62,8 +62,8 @@ const hasRealDonateUrl = !site.donateUrl.startsWith('#');
           </>
         )}
         <p class="donate-box__fine">
-          {site.legalName} is launching under fiscal sponsorship; 501(c)(3) status pending. Gifts are
-          tax-deductible to the extent allowed by law once confirmed with the fiscal sponsor.
+          {site.legalName} is a growing nonprofit organization. Please consult your tax advisor regarding
+          the deductibility of your contribution.
         </p>
       </aside>
     </div>

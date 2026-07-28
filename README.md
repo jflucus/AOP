@@ -29,9 +29,9 @@ src/
 
 ## Things to update before / after launch
 
-- **Donate button** — `src/config.ts` → `donateUrl`. Currently a placeholder that shows an
-  "email us to give" fallback. Paste the fiscal sponsor's secure donation URL to switch it live.
-  (Year 1 giving routes through the fiscal sponsor for compliance — see the FRD.)
+- **Donate button** — `src/config.ts` → `donateUrl`. Set to a Stripe Payment Link; donations flow to
+  the org's Mercury account. If `donateUrl` starts with `#`, the Donate page falls back to an
+  "email us to give" notice instead.
 - **Contact email** — `src/config.ts` → `email` (used by the mailto links *and* the form endpoint).
 - **Forms** — Get Involved and Contact forms post to [FormSubmit](https://formsubmit.co/) using the
   contact email. On first submission FormSubmit sends a one-time confirmation email to activate.
