@@ -1,10 +1,10 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import { mentors, board } from '../../data';
+import { mentors, board, advisoryCouncil } from '../../data';
 
 export function getStaticPaths() {
-  const people = [...mentors, ...board];
+  const people = [...mentors, ...board, ...advisoryCouncil];
   return people
     .filter((m) => m.bio)
     .map((m) => ({ params: { slug: m.slug }, props: { mentor: m } }));

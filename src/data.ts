@@ -338,6 +338,21 @@ export const board: {
   },
 ];
 
+export const advisoryCouncil: {
+  slug: string;
+  name: string;
+  role: string;
+  photo?: string;
+  bio?: string[];
+}[] = [
+  {
+    slug: 'natalie-edwards',
+    name: 'Natalie Edwards',
+    role: 'Finance',
+    photo: '/team/natalie.jpg',
+  },
+];
+
 export const values = [
   ['Promise', 'We see and invest in the potential of every young person.'],
   ['Preparation', 'Effort, dosage, and multi-year commitment drive outcomes.'],
