@@ -16,7 +16,7 @@ export const site = {
   ],
   // TODO: replace with the org's real contact details.
   email: 'info@aopfoundation.org',
-  location: 'New York City, NY',
+  location: 'New York, NY',
   serviceArea: 'Under-resourced NYC neighborhoods',
   // Optional social links — leave blank to hide.
   social: {
