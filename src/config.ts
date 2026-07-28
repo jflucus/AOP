@@ -10,6 +10,9 @@ export const site = {
   donateOptions: [
     { amount: 50, url: 'https://buy.stripe.com/cNicN60jad6e9IgakY8so01' },
     { amount: 100, url: 'https://buy.stripe.com/9B65kEfe49U2aMk0Ko8so02' },
+    { amount: 250, url: 'https://buy.stripe.com/cNi6oIea04zI8Ec2Sw8so03' },
+    { amount: 500, url: 'https://buy.stripe.com/bJe8wQgi8femcUs9gU8so04' },
+    { amount: 1000, url: 'https://buy.stripe.com/00waEY8PG9U26w4gJm8so05' },
   ],
   // TODO: replace with the org's real contact details.
   email: 'info@aopfoundation.org',
