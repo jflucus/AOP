@@ -15,6 +15,26 @@ const {
 } = Astro.props;
 
 const fullTitle = title ? `${title}, ${site.publicName}` : `${site.publicName}: ${site.tagline}`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const sameAs = Object.values(site.social).filter(Boolean);
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: site.legalName,
+  alternateName: site.publicName,
+  url: Astro.site?.toString(),
+  logo: new URL('/brand/logo-master.png', Astro.site).toString(),
+  description,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'New York',
+    addressRegion: 'NY',
+    addressCountry: 'US',
+  },
+  areaServed: site.serviceArea,
+  ...(sameAs.length > 0 && { sameAs }),
+};
 ---
 
 <!doctype html>
@@ -30,13 +50,18 @@ const fullTitle = title ? `${title}, ${site.publicName}` : `${site.publicName}: 
 
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/brand/logo-master.png" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Structured data: helps search engines disambiguate this org from similarly-named ones elsewhere -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
