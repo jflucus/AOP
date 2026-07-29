@@ -4,7 +4,7 @@ export const site = {
   publicName: 'AOP Foundation',
   legalName: 'Athletes of Promise Foundation',
   tagline:
-    'Preparing Students for College, Careers, Leadership, and Life Through Athletics and Education.',
+    'Preparing NYC Student-Athletes for College, Careers, Leadership, and Life Through Athletics and Education.',
   motto: 'Promise. Preparation. Purpose.',
   // Stripe Payment Links (one per preset amount) — donations flow to the org's Mercury account.
   donateOptions: [
