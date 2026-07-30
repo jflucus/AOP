@@ -202,6 +202,9 @@ export const mentors: {
   focus: string;
   photo?: string;
   bio?: string[];
+  highlight?: string;
+  video?: string;
+  videoPoster?: string;
 }[] = [
   {
     slug: 'najee-ashbourne',
@@ -224,6 +227,10 @@ export const mentors: {
     focus:
       'College Planning · Career Exploration · Scholarships & Financial Aid · Resume & Interview Prep · Goal Setting',
     photo: '/team/ibrahima.jpg',
+    highlight:
+      'We are lucky to have Good Vibes founder Ibrahima Badji as a partner and mentor to our student-athletes. He is a wealth of knowledge for families as they navigate post-secondary opportunities.',
+    video: '/videos/ibrahima-badji.mp4',
+    videoPoster: '/videos/ibrahima-badji-poster.jpg',
     bio: [
       'Ibrahima Badji is an entrepreneur, educator, and the Founder & CEO of Good Vibes, an education consulting business dedicated to helping students achieve their college and career goals without unnecessary debt. Through innovative college advising, financial aid strategy, scholarship planning, and career exploration, Good Vibes has helped hundreds of students secure more than $3 million in scholarships while preparing them for success beyond high school.',
       'Driven by a belief that every student deserves access to opportunity, Ibrahima is building scalable systems that help schools create high-performing college-access and skilled-trade pipelines, ensuring students are equipped with the knowledge, resources, and confidence to pursue the path that best fits their goals.',
