@@ -10,6 +10,28 @@ import PageHero from '../components/PageHero.astro';
     intro="We tell families the truth about athletic recruiting odds, college costs, and financial aid, and we build the plan on facts. Guides will be available in English and Spanish."
   />
 
+  <section class="section section--alt">
+    <div class="container expert">
+      <video
+        class="expert__video"
+        src="/videos/ibrahima-badji.mp4"
+        poster="/videos/ibrahima-badji-poster.jpg"
+        controls
+        preload="metadata"
+      />
+      <div>
+        <p class="eyebrow">Meet Your Guide</p>
+        <h2>Ibrahima Badji, Career & College Readiness Coach</h2>
+        <blockquote class="expert__quote">
+          We are lucky to have Good Vibes founder Ibrahima Badji as a partner and mentor to our
+          student-athletes. He is a wealth of knowledge for families as they navigate post-secondary
+          opportunities.
+        </blockquote>
+        <a class="btn btn--navy" href="/team/ibrahima-badji/">More about Ibrahima &rarr;</a>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="grid grid--2">
@@ -57,6 +79,41 @@ import PageHero from '../components/PageHero.astro';
 </Base>
 
 <style>
+  .expert {
+    display: grid;
+    grid-template-columns: minmax(200px, 260px) 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .expert__video {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    display: block;
+  }
+  .expert__quote {
+    margin: 1rem 0 1.5rem;
+    padding: 1rem 0 1rem 1.5rem;
+    border-left: 4px solid var(--gold);
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  @media (max-width: 700px) {
+    .expert {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .expert__video {
+      max-width: 280px;
+      margin-inline: auto;
+    }
+    .expert__quote {
+      text-align: left;
+    }
+  }
   .soon {
     color: var(--gold-dark);
     font-weight: 700;
