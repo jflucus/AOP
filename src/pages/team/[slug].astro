@@ -39,6 +39,18 @@ function initials(name: string) {
           {mentor.focus && <p class="focus">{mentor.focus}</p>}
         </div>
       </div>
+      {mentor.highlight && (
+        <blockquote class="mentor-highlight">{mentor.highlight}</blockquote>
+      )}
+      {mentor.video && (
+        <video
+          class="mentor-video"
+          src={mentor.video}
+          poster={mentor.videoPoster}
+          controls
+          preload="metadata"
+        />
+      )}
       {mentor.bio?.map((para) => <p>{para}</p>)}
     </div>
   </section>
@@ -95,6 +107,24 @@ function initials(name: string) {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin: 0;
+  }
+  .mentor-highlight {
+    margin: 0 0 1.5rem;
+    padding: 1rem 0 1rem 1.5rem;
+    border-left: 4px solid var(--gold);
+    font-size: 1.15rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.4;
+  }
+  .mentor-video {
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
   }
   @media (max-width: 560px) {
     .mentor-header {
