@@ -351,8 +351,14 @@ export const advisoryCouncil: {
   {
     slug: 'natalie-edwards',
     name: 'Natalie Edwards',
-    role: 'Finance',
+    role: 'Manager of Finance & Accounting',
     photo: '/team/natalie.jpg',
+    bio: [
+      'Natalie P. Edwards serves as the manager of Finance & Accounting for the Athletes of Promise Foundation, where she oversees the organization’s financial operations, accounting systems, budgeting, internal controls, and fiscal stewardship. She is committed to ensuring that every donated dollar is managed with transparency, accountability, and strategic purpose to maximize the Foundation’s impact on student-athletes.',
+      'With more than 14 years of progressive leadership in finance and accounting, Natalie brings extensive expertise in financial planning and analysis (FP&A), budgeting, forecasting, financial reporting, audit coordination, cash flow management, and operational finance. In her corporate career, she has provided executive financial leadership for organizations with annual operating budgets exceeding $113 million, partnering directly with executive leadership to drive sound financial decision-making and long-term sustainability.',
+      'Throughout her career, Natalie has successfully led finance transformations, strengthened internal controls, improved financial reporting processes, implemented enterprise resource planning (ERP) systems, and optimized cash flow through strategic financial management. Her ability to combine operational excellence with strategic planning enables the Foundation to build a strong financial infrastructure while preparing for long-term growth and expanded community impact.',
+      'At Athletes of Promise Foundation, Natalie plays a critical role in establishing sound financial policies, maintaining compliance with nonprofit best practices, supporting grant management and reporting, and ensuring the organization remains a trusted steward of donor investments. Her leadership helps position the Foundation for sustainable growth while advancing its mission of preparing student-athletes for success in college and beyond.',
+    ],
   },
 ];
 
