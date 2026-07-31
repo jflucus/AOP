@@ -1,0 +1,286 @@
+---
+import { founder, mentors, board, advisoryCouncil, successModel, outcomes } from '../data';
+import { nav } from '../config';
+
+// Extra keywords per page beyond its nav label, so searches for concepts
+// (not just exact page names) still surface the right page.
+const pageKeywords: Record<string, string> = {
+  Home: 'home first cohort results scholarships earned class of 2026',
+  About: 'about mission vision evidence outcomes college acceptance scholarship attainment career readiness',
+  Programs: 'programs scholar-athlete success model seven phases mentor advantage athletic excellence institute',
+  'Our Team': 'team founder joseph flucus mentors coaches board of directors advisory council',
+  Resources: 'resources FAFSA financial aid NY aid stack recruiting reality family guides ibrahima badji',
+  'Get Involved': 'get involved volunteer become a mentor mentor application community partner join the board',
+  Partners: 'partners schools employers colleges community programs',
+  'News & Events': 'news events milestones scholar spotlight',
+  Contact: 'contact email phone location reach us',
+  Donate: 'donate give donation scholarship fund tax deductible 501c3 stripe payment amount',
+  'Apply to AOP': 'apply student application become an AOP scholar',
+  'College Acceptances': 'college acceptances schools scholarships earned accepted university',
+};
+
+const pages = [
+  ...nav,
+  { label: 'Donate', href: '/donate/' },
+  { label: 'Apply to AOP', href: '/apply/' },
+  { label: 'College Acceptances', href: '/college-acceptances/' },
+];
+
+// Everyone on the team is searchable, whether or not they have their own bio page.
+const people = [...mentors, ...board, ...advisoryCouncil];
+
+const searchIndex = [
+  ...pages.map((p) => ({
+    title: p.label,
+    url: p.href,
+    type: 'Page',
+    keywords: `${p.label} ${pageKeywords[p.label] ?? ''}`,
+  })),
+  {
+    title: founder.name,
+    url: '/team/',
+    type: 'Team',
+    keywords: `${founder.name} ${founder.role} founder`,
+  },
+  ...people.map((p) => ({
+    title: p.name,
+    url: p.bio ? `/team/${p.slug}/` : '/team/',
+    type: 'Team',
+    keywords: `${p.name} ${p.role} ${'focus' in p ? p.focus ?? '' : ''}`,
+  })),
+  ...successModel.map((phase) => ({
+    title: phase.name,
+    url: `/programs/#${phase.slug}`,
+    type: 'Program',
+    keywords: `${phase.name} ${phase.summary}`,
+  })),
+  ...outcomes.map((o) => ({
+    title: o.title,
+    url: '/about/#outcomes',
+    type: 'Outcome',
+    keywords: `${o.title} ${o.summary}`,
+  })),
+];
+---
+
+<button type="button" class="search-trigger" aria-haspopup="dialog" data-search-trigger>
+  <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+    <circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="2" />
+    <line x1="13.8" y1="13.8" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+  </svg>
+  <span class="sr-only">Search the site</span>
+</button>
+
+<dialog class="search-dialog" data-search-dialog>
+  <div class="search-dialog__inner">
+    <div class="search-dialog__field">
+      <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true">
+        <circle cx="9" cy="9" r="6.5" fill="none" stroke="currentColor" stroke-width="2" />
+        <line x1="13.8" y1="13.8" x2="18" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+      <label class="sr-only" for="site-search-input">Search the site</label>
+      <input
+        id="site-search-input"
+        type="search"
+        placeholder="Search mentors, programs, donate, apply…"
+        autocomplete="off"
+        data-search-input
+      />
+      <button type="button" class="search-dialog__close" data-search-close aria-label="Close search">&times;</button>
+    </div>
+    <ul class="search-dialog__results" data-search-results hidden></ul>
+    <p class="search-dialog__hint" data-search-hint>Start typing to search the site.</p>
+  </div>
+</dialog>
+
+<script type="application/json" id="site-search-index" set:html={JSON.stringify(searchIndex)} />
+
+<script>
+  function initSiteSearch() {
+    const trigger = document.querySelector<HTMLButtonElement>('[data-search-trigger]');
+    const dialog = document.querySelector<HTMLDialogElement>('[data-search-dialog]');
+    const closeBtn = document.querySelector<HTMLButtonElement>('[data-search-close]');
+    const input = document.querySelector<HTMLInputElement>('[data-search-input]');
+    const results = document.querySelector<HTMLUListElement>('[data-search-results]');
+    const hint = document.querySelector<HTMLParagraphElement>('[data-search-hint]');
+    const indexEl = document.getElementById('site-search-index');
+    if (!trigger || !dialog || !closeBtn || !input || !results || !hint || !indexEl) return;
+
+    const index: { title: string; url: string; type: string; keywords: string }[] = JSON.parse(
+      indexEl.textContent || '[]'
+    );
+
+    function render(matches: typeof index) {
+      if (!results || !hint) return;
+      results.innerHTML = '';
+      if (matches.length === 0) {
+        results.hidden = true;
+        hint.hidden = false;
+        hint.textContent = input?.value ? 'No matches. Try a different word.' : 'Start typing to search the site.';
+        return;
+      }
+      hint.hidden = true;
+      matches.slice(0, 8).forEach((m) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = m.url;
+        a.innerHTML = `<span class="search-dialog__result-title">${m.title}</span><span class="search-dialog__result-type">${m.type}</span>`;
+        li.appendChild(a);
+        results.appendChild(li);
+      });
+      results.hidden = false;
+    }
+
+    function open() {
+      dialog?.showModal();
+      input?.focus();
+    }
+
+    function close() {
+      dialog?.close();
+      if (input) input.value = '';
+      render([]);
+    }
+
+    trigger.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) close();
+    });
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) {
+        render([]);
+        return;
+      }
+      const matches = index.filter((item) => item.keywords.toLowerCase().includes(q));
+      render(matches);
+    });
+
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const first = results?.querySelector('a');
+        if (first) window.location.href = (first as HTMLAnchorElement).href;
+      }
+    });
+  }
+
+  initSiteSearch();
+</script>
+
+<style>
+  .search-trigger {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin-left: 0.3rem;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--navy);
+    cursor: pointer;
+  }
+  .search-trigger:hover {
+    background: var(--sky);
+  }
+
+  .search-dialog {
+    padding: 0;
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    width: min(560px, 92vw);
+    max-height: min(70vh, 480px);
+  }
+  .search-dialog::backdrop {
+    background: rgba(10, 34, 69, 0.55);
+  }
+  .search-dialog__inner {
+    display: flex;
+    flex-direction: column;
+    max-height: min(70vh, 480px);
+  }
+  .search-dialog__field {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+    flex: 0 0 auto;
+  }
+  .search-dialog__field input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.05rem;
+    font-family: inherit;
+    color: var(--navy);
+    background: transparent;
+  }
+  .search-dialog__close {
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.2rem 0.4rem;
+  }
+  .search-dialog__close:hover {
+    color: var(--navy);
+  }
+  .search-dialog__results {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+    overflow-y: auto;
+  }
+  .search-dialog__results li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.7rem 0.8rem;
+    border-radius: 8px;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .search-dialog__results li a:hover,
+  .search-dialog__results li a:focus {
+    background: var(--sky);
+  }
+  .search-dialog__result-title {
+    font-weight: 600;
+  }
+  .search-dialog__result-type {
+    flex: 0 0 auto;
+    font-size: 0.78rem;
+    color: var(--gold-dark);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .search-dialog__hint {
+    margin: 0;
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
