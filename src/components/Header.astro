@@ -93,8 +93,8 @@ const isActive = (href: string) =>
     background: var(--gold-dark);
   }
   .nav-menu__search {
-    width: 200px;
-    margin-left: 0.6rem;
+    display: flex;
+    align-items: center;
   }
   .nav-toggle {
     display: none;
@@ -150,7 +150,7 @@ const isActive = (href: string) =>
       justify-content: center;
     }
     .nav-menu__search {
-      width: 100%;
+      justify-content: center;
       margin: 0.8rem 0 0;
     }
     .nav-toggle[aria-expanded='true'] .nav-toggle__bar:nth-child(2) {
