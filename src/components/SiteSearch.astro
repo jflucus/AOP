@@ -1,6 +1,23 @@
 ---
-import { mentors, board, advisoryCouncil, successModel, outcomes } from '../data';
+import { founder, mentors, board, advisoryCouncil, successModel, outcomes } from '../data';
 import { nav } from '../config';
+
+// Extra keywords per page beyond its nav label, so searches for concepts
+// (not just exact page names) still surface the right page.
+const pageKeywords: Record<string, string> = {
+  Home: 'home first cohort results scholarships earned class of 2026',
+  About: 'about mission vision evidence outcomes college acceptance scholarship attainment career readiness',
+  Programs: 'programs scholar-athlete success model seven phases mentor advantage athletic excellence institute',
+  'Our Team': 'team founder joseph flucus mentors coaches board of directors advisory council',
+  Resources: 'resources FAFSA financial aid NY aid stack recruiting reality family guides ibrahima badji',
+  'Get Involved': 'get involved volunteer become a mentor mentor application community partner join the board',
+  Partners: 'partners schools employers colleges community programs',
+  'News & Events': 'news events milestones scholar spotlight',
+  Contact: 'contact email phone location reach us',
+  Donate: 'donate give donation scholarship fund tax deductible 501c3 stripe payment amount',
+  'Apply to AOP': 'apply student application become an AOP scholar',
+  'College Acceptances': 'college acceptances schools scholarships earned accepted university',
+};
 
 const pages = [
   ...nav,
@@ -9,18 +26,25 @@ const pages = [
   { label: 'College Acceptances', href: '/college-acceptances/' },
 ];
 
-const people = [...mentors, ...board, ...advisoryCouncil].filter((p) => p.bio);
+// Everyone on the team is searchable, whether or not they have their own bio page.
+const people = [...mentors, ...board, ...advisoryCouncil];
 
 const searchIndex = [
   ...pages.map((p) => ({
     title: p.label,
     url: p.href,
     type: 'Page',
-    keywords: p.label,
+    keywords: `${p.label} ${pageKeywords[p.label] ?? ''}`,
   })),
+  {
+    title: founder.name,
+    url: '/team/',
+    type: 'Team',
+    keywords: `${founder.name} ${founder.role} founder`,
+  },
   ...people.map((p) => ({
     title: p.name,
-    url: `/team/${p.slug}/`,
+    url: p.bio ? `/team/${p.slug}/` : '/team/',
     type: 'Team',
     keywords: `${p.name} ${p.role} ${'focus' in p ? p.focus ?? '' : ''}`,
   })),
