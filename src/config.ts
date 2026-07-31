@@ -6,6 +6,8 @@ export const site = {
   tagline:
     'Preparing NYC Student-Athletes for College, Careers, Leadership, and Life Through Athletics and Education.',
   motto: 'Promise. Preparation. Purpose.',
+  // Stripe Payment Link where the donor picks their own amount.
+  donateCustomUrl: 'https://buy.stripe.com/14A6oI0ja1nwf2A3WA8so06',
   // Stripe Payment Links (one per preset amount) — donations flow to the org's Mercury account.
   donateOptions: [
     { amount: 50, url: 'https://buy.stripe.com/cNicN60jad6e9IgakY8so01' },
