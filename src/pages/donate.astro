@@ -45,9 +45,13 @@ const hasDonateOptions = site.donateOptions.length > 0;
         {hasDonateOptions ? (
           <>
             <p>Make a secure gift online.</p>
+            <a class="btn btn--gold btn--block" href={site.donateCustomUrl} target="_blank" rel="noopener">
+              Donate any amount
+            </a>
+            <p class="donate-or">or choose an amount</p>
             <div class="donate-amounts">
               {site.donateOptions.map((opt) => (
-                <a class="btn btn--gold" href={opt.url} target="_blank" rel="noopener">
+                <a class="btn btn--ghost" href={opt.url} target="_blank" rel="noopener">
                   ${opt.amount}
                 </a>
               ))}
@@ -126,11 +130,17 @@ const hasDonateOptions = site.donateOptions.length > 0;
     width: 100%;
     margin: 1rem 0;
   }
+  .donate-or {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin: 0.75rem 0 0.5rem;
+  }
   .donate-amounts {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin: 1rem 0;
+    margin: 0 0 1rem;
   }
   .donate-amounts .btn {
     flex: 1 1 auto;
