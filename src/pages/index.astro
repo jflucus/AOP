@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import SiteSearch from '../components/SiteSearch.astro';
 import { outcomes, successModel, spotlights, commitments, totalScholarshipsEarned } from '../data';
 import { site } from '../config';
 
@@ -22,6 +23,9 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
         <div class="hero__cta">
           <a class="btn btn--gold" href="/donate/">Donate</a>
           <a class="btn btn--ghost" href="/get-involved/">Get Involved</a>
+        </div>
+        <div class="hero__search">
+          <SiteSearch />
         </div>
       </div>
       <div class="hero__art" aria-hidden="true">
@@ -256,6 +260,9 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     gap: 1rem;
     margin-top: 1.8rem;
   }
+  .hero__search {
+    margin-top: 1.5rem;
+  }
   .hero__art {
     display: grid;
     place-items: center;
@@ -462,6 +469,9 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     }
     .hero__cta {
       justify-content: center;
+    }
+    .hero__search {
+      margin-inline: auto;
     }
     .hero__art {
       order: -1;
