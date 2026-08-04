@@ -1,5 +1,5 @@
 ---
-import { founder, mentors, board, advisoryCouncil, successModel, outcomes } from '../data';
+import { founder, mentors, board, advisoryCouncil, successModel, outcomes, foundingDonors } from '../data';
 import { nav } from '../config';
 
 // Extra keywords per page beyond its nav label, so searches for concepts
@@ -17,6 +17,7 @@ const pageKeywords: Record<string, string> = {
   Donate: 'donate give donation scholarship fund tax deductible 501c3 stripe payment amount',
   'Apply to AOP': 'apply student application become an AOP scholar',
   'College Acceptances': 'college acceptances schools scholarships earned accepted university',
+  'Founding Donors': 'donors founding donors supporters thank you contributors',
 };
 
 const pages = [
@@ -24,6 +25,7 @@ const pages = [
   { label: 'Donate', href: '/donate/' },
   { label: 'Apply to AOP', href: '/apply/' },
   { label: 'College Acceptances', href: '/college-acceptances/' },
+  { label: 'Founding Donors', href: '/donors/' },
 ];
 
 // Everyone on the team is searchable, whether or not they have their own bio page.
@@ -59,6 +61,12 @@ const searchIndex = [
     url: '/about/#outcomes',
     type: 'Outcome',
     keywords: `${o.title} ${o.summary}`,
+  })),
+  ...foundingDonors.map((name) => ({
+    title: name,
+    url: '/donors/',
+    type: 'Donor',
+    keywords: `${name} founding donor`,
   })),
 ];
 ---

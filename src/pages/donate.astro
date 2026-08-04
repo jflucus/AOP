@@ -82,12 +82,22 @@ const hasDonateOptions = site.donateOptions.length > 0;
     <div class="container center">
       <h2>Other ways to give</h2>
       <p class="lead">Equipment, in-kind services, employer sponsorships, and volunteer time all move scholars forward.</p>
-      <a class="btn btn--ghost" href="/get-involved/">See ways to get involved</a>
+      <div class="cta-row">
+        <a class="btn btn--ghost" href="/get-involved/">See ways to get involved</a>
+        <a class="btn btn--ghost" href="/donors/">Meet our founding donors</a>
+      </div>
     </div>
   </section>
 </Base>
 
 <style>
+  .cta-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
   .support-list {
     list-style: none;
     padding: 0;
