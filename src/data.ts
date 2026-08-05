@@ -362,7 +362,7 @@ export const advisoryCouncil: {
   },
 ];
 
-export const foundingDonors = ['Roger Nani', 'Michael Sangobowale', 'Isabel Benros'];
+export const foundingDonors = ['Roger Nani', 'Michael Sangobowale', 'Isabel Benros', 'Belge Labaze'];
 
 export const values = [
   ['Promise', 'We see and invest in the potential of every young person.'],
