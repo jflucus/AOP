@@ -360,6 +360,11 @@ export const advisoryCouncil: {
       'At Athletes of Promise Foundation, Natalie plays a critical role in establishing sound financial policies, maintaining compliance with nonprofit best practices, supporting grant management and reporting, and ensuring the organization remains a trusted steward of donor investments. Her leadership helps position the Foundation for sustainable growth while advancing its mission of preparing student-athletes for success in college and beyond.',
     ],
   },
+  {
+    slug: 'carlissa-prettyman',
+    name: 'Carlissa Prettyman',
+    role: 'Attorney',
+  },
 ];
 
 export const foundingDonors = ['Roger Nani', 'Michael Sangobowale', 'Isabel Benros', 'Belge Labaze'];
