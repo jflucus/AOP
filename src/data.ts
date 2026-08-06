@@ -373,6 +373,7 @@ export const foundingDonors = [
   'Isabel Benros',
   'Belge Labaze',
   'Luis Siri Martinez',
+  'Farid Haruna',
 ];
 
 export const values = [
