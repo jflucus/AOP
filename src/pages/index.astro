@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
 import {
   outcomes,
   successModel,
@@ -41,19 +42,19 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
       <div class="container event-banner__infobar-inner">
         <div class="event-banner__facts">
           <div class="event-banner__fact">
-            <span aria-hidden="true">📅</span>
+            <Icon name="calendar" size={22} />
             <div><small>Date</small><strong>Aug 31, 2026</strong></div>
           </div>
           <div class="event-banner__fact">
-            <span aria-hidden="true">📍</span>
+            <Icon name="pin" size={22} />
             <div><small>Location</small><strong>{backToSchoolEvent.venue}</strong></div>
           </div>
           <div class="event-banner__fact">
-            <span aria-hidden="true">⏰</span>
+            <Icon name="clock" size={22} />
             <div><small>Time</small><strong>{backToSchoolEvent.time}</strong></div>
           </div>
           <div class="event-banner__fact">
-            <span aria-hidden="true">🎉</span>
+            <Icon name="check" size={22} />
             <div><small>Admission</small><strong>Free</strong></div>
           </div>
         </div>
@@ -64,7 +65,7 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
       <div class="event-banner__expect">
         {backToSchoolExpect.map(([icon, label]) => (
           <div class="event-banner__expect-item">
-            <span aria-hidden="true">{icon}</span>
+            <Icon name={icon as any} size={26} />
             <span>{label}</span>
           </div>
         ))}
@@ -190,7 +191,7 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
       <div class="grid grid--3" style="margin-top:2.5rem;">
         {outcomes.map((o) => (
           <article class="card">
-            <div class="card__icon">{o.icon}</div>
+            <div class="card__icon"><Icon name={o.icon as any} size={24} /></div>
             <h3>{o.title}</h3>
             <p>{o.summary}</p>
             {o.title === 'College Acceptance' && (
@@ -362,8 +363,9 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     align-items: center;
     gap: 0.6rem;
   }
-  .event-banner__fact span {
-    font-size: 1.5rem;
+  .event-banner__fact svg {
+    color: var(--gold-dark);
+    flex-shrink: 0;
   }
   .event-banner__fact div {
     display: flex;
@@ -396,8 +398,8 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     color: var(--navy);
     max-width: 90px;
   }
-  .event-banner__expect-item span:first-child {
-    font-size: 1.8rem;
+  .event-banner__expect-item svg {
+    color: var(--gold-dark);
   }
 
   @media (max-width: 780px) {
