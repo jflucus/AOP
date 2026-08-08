@@ -30,7 +30,7 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
           <h2>Back to School Community Kickoff</h2>
           <p class="event-banner__by">By AOP Foundation &amp; Bronx Burners</p>
           <div class="event-banner__cta-row">
-            <a class="btn btn--gold" href="/back-to-school/">Register Your Interest</a>
+            <a class="btn btn--gold" href="/back-to-school/">Register</a>
             <a class="btn btn--dark" href="/back-to-school/">Become a Partner</a>
           </div>
         </div>
@@ -56,10 +56,6 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
             <span aria-hidden="true">🎉</span>
             <div><small>Admission</small><strong>Free</strong></div>
           </div>
-        </div>
-        <div class="event-banner__infobar-cta">
-          <a class="btn btn--gold" href="/back-to-school/">Register Your Interest</a>
-          <a class="btn btn--dark" href="/back-to-school/">Become a Partner</a>
         </div>
       </div>
     </div>
@@ -353,14 +349,12 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
   }
   .event-banner__infobar-inner {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.25rem;
+    justify-content: center;
   }
   .event-banner__facts {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem 2rem;
   }
   .event-banner__fact {
@@ -383,11 +377,6 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     color: var(--navy);
     font-size: 0.95rem;
   }
-  .event-banner__infobar-cta {
-    display: flex;
-    gap: 0.75rem;
-  }
-
   .event-banner__expect {
     display: flex;
     flex-wrap: wrap;
@@ -431,17 +420,6 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     }
     .event-banner__cta-row {
       justify-content: center;
-    }
-    .event-banner__infobar-inner {
-      justify-content: center;
-      text-align: center;
-    }
-    .event-banner__facts {
-      justify-content: center;
-    }
-    .event-banner__infobar-cta {
-      justify-content: center;
-      width: 100%;
     }
   }
 
