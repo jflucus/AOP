@@ -8,7 +8,6 @@ import {
   commitments,
   totalScholarshipsEarned,
   backToSchoolEvent,
-  backToSchoolExpect,
 } from '../data';
 import { site } from '../config';
 
@@ -36,39 +35,27 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="event-banner__infobar">
-      <div class="container event-banner__infobar-inner">
-        <div class="event-banner__facts">
-          <div class="event-banner__fact">
-            <Icon name="calendar" size={22} />
-            <div><small>Date</small><strong>Aug 31, 2026</strong></div>
-          </div>
-          <div class="event-banner__fact">
-            <Icon name="pin" size={22} />
-            <div><small>Location</small><strong>{backToSchoolEvent.venue}</strong></div>
-          </div>
-          <div class="event-banner__fact">
-            <Icon name="clock" size={22} />
-            <div><small>Time</small><strong>{backToSchoolEvent.time}</strong></div>
-          </div>
-          <div class="event-banner__fact">
-            <Icon name="check" size={22} />
-            <div><small>Admission</small><strong>Free</strong></div>
+      <div class="event-banner__facts-layer">
+        <div class="container">
+          <div class="event-banner__facts">
+            <div class="event-banner__fact">
+              <Icon name="calendar" size={22} />
+              <div><small>Date</small><strong>Aug 31, 2026</strong></div>
+            </div>
+            <div class="event-banner__fact">
+              <Icon name="pin" size={22} />
+              <div><small>Location</small><strong>{backToSchoolEvent.venue}</strong></div>
+            </div>
+            <div class="event-banner__fact">
+              <Icon name="clock" size={22} />
+              <div><small>Time</small><strong>{backToSchoolEvent.time}</strong></div>
+            </div>
+            <div class="event-banner__fact">
+              <Icon name="check" size={22} />
+              <div><small>Admission</small><strong>Free</strong></div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="event-banner__expect">
-        {backToSchoolExpect.map(([icon, label]) => (
-          <div class="event-banner__expect-item">
-            <Icon name={icon as any} size={26} />
-            <span>{label}</span>
-          </div>
-        ))}
       </div>
     </div>
   </section>
@@ -316,6 +303,7 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     inset: 0;
     display: flex;
     align-items: center;
+    padding-bottom: 6rem;
   }
   .event-banner__overlay h2 {
     color: #fff;
@@ -343,21 +331,25 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     background: #071a37;
   }
 
-  /* Info bar below the photo */
-  .event-banner__infobar {
-    background: #fff;
-    padding-block: 1.25rem;
-  }
-  .event-banner__infobar-inner {
-    display: flex;
-    justify-content: center;
+  /* Facts layer, overlaid on the bottom of the photo */
+  .event-banner__facts-layer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(8, 27, 56, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-block: 1rem;
   }
   .event-banner__facts {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1.5rem 2.5rem;
+    gap: 1rem 2rem;
     width: 100%;
     max-width: 880px;
+    margin-inline: auto;
   }
   .event-banner__fact {
     display: flex;
@@ -366,7 +358,7 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     justify-content: center;
   }
   .event-banner__fact svg {
-    color: var(--gold-dark);
+    color: var(--gold-light);
     flex-shrink: 0;
   }
   .event-banner__fact div {
@@ -374,34 +366,12 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     flex-direction: column;
   }
   .event-banner__fact small {
-    color: var(--text-muted);
-    font-size: 0.78rem;
+    color: #c9d6e8;
+    font-size: 0.72rem;
   }
   .event-banner__fact strong {
-    color: var(--navy);
-    font-size: 0.95rem;
-  }
-  .event-banner__expect {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem 2rem;
-    max-width: 780px;
-    margin: 0 auto;
-    padding-block: 1.75rem;
-  }
-  .event-banner__expect-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.3rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--navy);
-    max-width: 90px;
-  }
-  .event-banner__expect-item svg {
-    color: var(--gold-dark);
+    color: #fff;
+    font-size: 0.92rem;
   }
 
   @media (max-width: 780px) {
@@ -413,7 +383,7 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     }
     .event-banner__overlay {
       align-items: flex-end;
-      padding-bottom: 1.5rem;
+      padding-bottom: 9.5rem;
     }
     .event-banner__overlay .container {
       text-align: center;
