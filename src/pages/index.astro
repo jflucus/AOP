@@ -18,32 +18,52 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
 <Base>
   <!-- Back-to-School Event Banner -->
   <section class="event-banner">
-    <div class="container event-banner__inner">
-      <div class="event-banner__copy">
-        <p class="eyebrow">Back-to-School Community Kickoff</p>
-        <h2>Start Strong. Show Up. Be Ready.</h2>
-        <p class="lead">
-          Join AOP Foundation for a free community event designed to help Bronx students start the school
-          year prepared, healthy, and excited to attend.
-        </p>
-        <ul class="event-banner__facts">
-          <li>📅 {backToSchoolEvent.date}</li>
-          <li>📍 {backToSchoolEvent.venue}</li>
-          <li>⏰ {backToSchoolEvent.time}</li>
-        </ul>
-        <p class="event-banner__free">Free for students and families</p>
-        <a class="btn btn--gold" href="/back-to-school/">Register Your Interest &rarr;</a>
-      </div>
-      <div class="event-banner__photo-wrap">
-        <img
-          class="event-banner__photo"
-          src="/events/back-to-school-hero.jpg"
-          alt="Three smiling Bronx students holding a sign that reads: Before Day One, let's make attendance a priority."
-          width="400"
-          height="620"
-        />
+    <div class="event-banner__photo-strip">
+      <img
+        class="event-banner__bg-photo"
+        src="/events/back-to-school-hero.jpg"
+        alt="Three smiling Bronx students holding a sign that reads: Before Day One, let's make attendance a priority."
+      />
+      <div class="event-banner__scrim"></div>
+      <div class="event-banner__overlay">
+        <div class="container">
+          <h2>Back to School Community Kickoff</h2>
+          <p class="event-banner__by">By AOP Foundation &amp; Bronx Burners</p>
+          <div class="event-banner__cta-row">
+            <a class="btn btn--gold" href="/back-to-school/">Register Your Interest</a>
+            <a class="btn btn--dark" href="/back-to-school/">Become a Partner</a>
+          </div>
+        </div>
       </div>
     </div>
+
+    <div class="event-banner__infobar">
+      <div class="container event-banner__infobar-inner">
+        <div class="event-banner__facts">
+          <div class="event-banner__fact">
+            <span aria-hidden="true">📅</span>
+            <div><small>Date</small><strong>Aug 31, 2026</strong></div>
+          </div>
+          <div class="event-banner__fact">
+            <span aria-hidden="true">📍</span>
+            <div><small>Location</small><strong>{backToSchoolEvent.venue}</strong></div>
+          </div>
+          <div class="event-banner__fact">
+            <span aria-hidden="true">⏰</span>
+            <div><small>Time</small><strong>{backToSchoolEvent.time}</strong></div>
+          </div>
+          <div class="event-banner__fact">
+            <span aria-hidden="true">🎉</span>
+            <div><small>Admission</small><strong>Free</strong></div>
+          </div>
+        </div>
+        <div class="event-banner__infobar-cta">
+          <a class="btn btn--gold" href="/back-to-school/">Register Your Interest</a>
+          <a class="btn btn--dark" href="/back-to-school/">Become a Partner</a>
+        </div>
+      </div>
+    </div>
+
     <div class="container">
       <div class="event-banner__expect">
         {backToSchoolExpect.map(([icon, label]) => (
@@ -272,79 +292,110 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
 
 <style>
   .event-banner {
-    background: linear-gradient(135deg, var(--navy) 0%, #071a37 100%);
-    color: #fff;
-    padding-block: clamp(2rem, 5vw, 3rem);
-    border-bottom: 6px solid var(--gold);
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* Full-bleed photo strip */
+  .event-banner__photo-strip {
     position: relative;
+    height: clamp(260px, 34vw, 320px);
     overflow: hidden;
   }
-  .event-banner::before {
-    content: '';
+  .event-banner__bg-photo {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 15% 15%, rgba(198, 139, 33, 0.25), transparent 45%);
-    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 12%;
   }
-  .event-banner__inner {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 2.5rem;
+  .event-banner__scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10, 34, 69, 0.88) 0%, rgba(10, 34, 69, 0.55) 55%, rgba(10, 34, 69, 0.15) 100%);
+  }
+  .event-banner__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
     align-items: center;
-    position: relative;
   }
-  .event-banner .eyebrow {
-    color: var(--gold-light);
-    font-size: 0.95rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-  }
-  .event-banner__copy h2 {
+  .event-banner__overlay h2 {
     color: #fff;
-    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
     line-height: 1.1;
-    margin: 0.3rem 0 0.8rem;
+    margin: 0 0 0.4rem;
+    max-width: 14ch;
   }
-  .event-banner__copy .lead {
-    color: #c9d6e8;
-    max-width: 46ch;
+  .event-banner__by {
+    color: #dbe4f0;
+    font-weight: 600;
+    margin: 0 0 1.3rem;
   }
-  .event-banner__facts {
-    list-style: none;
+  .event-banner__cta-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1.5rem;
-    margin: 1.5rem 0 0.5rem;
-    padding: 0;
-    font-weight: 700;
+    gap: 0.75rem;
   }
-  .event-banner__free {
-    color: var(--gold-light);
-    font-weight: 700;
-    margin: 0 0 1.2rem;
+  .btn--dark {
+    background: var(--navy);
+    color: #fff;
+    border: 1px solid var(--navy);
   }
-  .event-banner__photo-wrap {
-    justify-self: center;
+  .btn--dark:hover {
+    background: #071a37;
   }
-  .event-banner__photo {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    border-radius: var(--radius);
-    border: 4px solid #fff;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-    transform: rotate(2deg);
+
+  /* Info bar below the photo */
+  .event-banner__infobar {
+    background: #fff;
+    padding-block: 1.25rem;
   }
+  .event-banner__infobar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+  .event-banner__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+  }
+  .event-banner__fact {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .event-banner__fact span {
+    font-size: 1.5rem;
+  }
+  .event-banner__fact div {
+    display: flex;
+    flex-direction: column;
+  }
+  .event-banner__fact small {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+  }
+  .event-banner__fact strong {
+    color: var(--navy);
+    font-size: 0.95rem;
+  }
+  .event-banner__infobar-cta {
+    display: flex;
+    gap: 0.75rem;
+  }
+
   .event-banner__expect {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1.5rem 2rem;
     max-width: 780px;
-    margin: 2.5rem auto 0;
-    position: relative;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    margin: 0 auto;
+    padding-block: 1.75rem;
   }
   .event-banner__expect-item {
     display: flex;
@@ -353,7 +404,7 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     gap: 0.3rem;
     font-size: 0.85rem;
     font-weight: 700;
-    color: #c9d6e8;
+    color: var(--navy);
     max-width: 90px;
   }
   .event-banner__expect-item span:first-child {
@@ -361,22 +412,36 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
   }
 
   @media (max-width: 780px) {
-    .event-banner__inner {
-      grid-template-columns: 1fr;
+    .event-banner__photo-strip {
+      height: clamp(320px, 70vw, 420px);
+    }
+    .event-banner__scrim {
+      background: linear-gradient(180deg, rgba(10, 34, 69, 0.35) 0%, rgba(10, 34, 69, 0.9) 75%);
+    }
+    .event-banner__overlay {
+      align-items: flex-end;
+      padding-bottom: 1.5rem;
+    }
+    .event-banner__overlay .container {
       text-align: center;
     }
-    .event-banner__copy .lead {
+    .event-banner__overlay h2 {
+      max-width: none;
       margin-inline: auto;
+    }
+    .event-banner__cta-row {
+      justify-content: center;
+    }
+    .event-banner__infobar-inner {
+      justify-content: center;
+      text-align: center;
     }
     .event-banner__facts {
       justify-content: center;
     }
-    .event-banner__photo {
-      max-width: 240px;
-      margin-inline: auto;
-    }
-    .event-banner__photo-wrap {
-      order: -1;
+    .event-banner__infobar-cta {
+      justify-content: center;
+      width: 100%;
     }
   }
 
