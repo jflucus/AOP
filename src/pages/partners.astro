@@ -57,7 +57,7 @@ const types = [
       <div class="logo-row">
         {foundingPartners.map((p) => (
           <div class="logo-card">
-            <img src={p.logo} alt={p.name} loading="lazy" />
+            <img src={p.logo} alt={p.name} width="400" height="400" loading="lazy" />
           </div>
         ))}
         {Array.from({ length: placeholderCount }).map(() => (
@@ -91,15 +91,13 @@ const types = [
     height: 90px;
     display: grid;
     place-items: center;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 0.75rem;
   }
   .logo-card img {
+    display: block;
+    width: auto;
+    height: auto;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 80px;
     object-fit: contain;
   }
 </style>
