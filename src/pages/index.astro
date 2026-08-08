@@ -353,15 +353,17 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     justify-content: center;
   }
   .event-banner__facts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem 2.5rem;
+    width: 100%;
+    max-width: 880px;
   }
   .event-banner__fact {
     display: flex;
     align-items: center;
     gap: 0.6rem;
+    justify-content: center;
   }
   .event-banner__fact svg {
     color: var(--gold-dark);
@@ -422,6 +424,12 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     }
     .event-banner__cta-row {
       justify-content: center;
+    }
+    .event-banner__facts {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .event-banner__fact {
+      justify-content: flex-start;
     }
   }
 
