@@ -172,6 +172,7 @@ p {
   cursor: pointer;
   transition: transform 0.12s ease, background 0.15s ease, color 0.15s ease;
   text-decoration: none;
+  white-space: nowrap;
 }
 .btn:hover {
   text-decoration: none;
