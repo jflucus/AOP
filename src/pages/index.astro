@@ -1,6 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
-import { outcomes, successModel, spotlights, commitments, totalScholarshipsEarned } from '../data';
+import {
+  outcomes,
+  successModel,
+  spotlights,
+  commitments,
+  totalScholarshipsEarned,
+  backToSchoolEvent,
+  backToSchoolExpect,
+} from '../data';
 import { site } from '../config';
 
 const formattedScholarships = `$${totalScholarshipsEarned.toLocaleString('en-US')}`;
@@ -8,6 +16,33 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
 ---
 
 <Base>
+  <!-- Back-to-School Event Banner -->
+  <section class="event-banner">
+    <div class="container event-banner__inner">
+      <p class="eyebrow">Back-to-School Community Kickoff</p>
+      <h2>Start Strong. Show Up. Be Ready.</h2>
+      <p class="lead">
+        Join AOP Foundation for a free community event designed to help Bronx students start the school
+        year prepared, healthy, and excited to attend.
+      </p>
+      <ul class="event-banner__facts">
+        <li>📅 {backToSchoolEvent.date}</li>
+        <li>📍 {backToSchoolEvent.venue}</li>
+        <li>⏰ {backToSchoolEvent.time}</li>
+      </ul>
+      <p class="event-banner__free">Free for students and families</p>
+      <a class="btn btn--gold" href="/back-to-school/">Register Your Interest &rarr;</a>
+      <div class="event-banner__expect">
+        {backToSchoolExpect.map(([icon, label]) => (
+          <div class="event-banner__expect-item">
+            <span aria-hidden="true">{icon}</span>
+            <span>{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Hero -->
   <section class="hero">
     <div class="container hero__inner">
@@ -223,6 +258,64 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
 </Base>
 
 <style>
+  .event-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, #071a37 100%);
+    color: #fff;
+    padding-block: clamp(2rem, 5vw, 3rem);
+    text-align: center;
+  }
+  .event-banner .eyebrow {
+    color: var(--gold-light);
+    font-size: 0.95rem;
+    letter-spacing: 0.06em;
+  }
+  .event-banner__inner h2 {
+    color: #fff;
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    margin: 0.3rem 0 0.8rem;
+  }
+  .event-banner__inner .lead {
+    color: #c9d6e8;
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  .event-banner__facts {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin: 1.5rem 0 0.5rem;
+    padding: 0;
+    font-weight: 700;
+  }
+  .event-banner__free {
+    color: var(--gold-light);
+    font-weight: 700;
+    margin: 0 0 1.2rem;
+  }
+  .event-banner__expect {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem 2rem;
+    max-width: 780px;
+    margin: 2rem auto 0;
+  }
+  .event-banner__expect-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #c9d6e8;
+    max-width: 90px;
+  }
+  .event-banner__expect-item span:first-child {
+    font-size: 1.8rem;
+  }
+
   .hero {
     background: linear-gradient(160deg, var(--navy) 0%, #071a37 100%);
     color: #fff;

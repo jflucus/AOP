@@ -486,3 +486,34 @@ export const modelOutcomes = [
   { area: 'Career', items: ['Summer employment', 'Internships', 'Certifications'] },
   { area: 'Leadership', items: ['Community service', 'Leadership roles', 'Public speaking'] },
 ];
+
+// Back-to-School Community Kickoff — 2026 event.
+export const backToSchoolEvent = {
+  name: 'Back-to-School Community Kickoff',
+  presentedWith: 'Bronx Burners',
+  date: 'Monday, August 31, 2026',
+  time: '2:00 – 6:00 PM',
+  venue: 'Mott Haven Educational Campus Gym',
+  address: '730 Concourse Village West, Bronx, NY 10451',
+  registerUrl: 'https://docs.google.com/forms/d/1i0hTveris-Dm2-ntjqmIvQVZcPO_FcwswOySXN9eCqE/viewform',
+  partnerUrl: 'https://docs.google.com/forms/d/1hGLd0ndOx-YsjKvWugpcEJ2dt1CrJDo-QVjTKEncioc/viewform',
+  flyer: '/events/back-to-school-flyer.jpg',
+};
+
+export const backToSchoolExpect = [
+  ['🎒', 'School Supplies'],
+  ['🎽', 'Free Backpacks'],
+  ['✂️', 'Free Haircuts'],
+  ['🩺', 'Health Resources'],
+  ['🍕', 'Food & Music'],
+  ['🎁', 'Giveaways & Prizes'],
+];
+
+export const backToSchoolWhyItMatters = [
+  'Increase school attendance',
+  'Improve youth wellness',
+  'Support families before crises develop',
+  'Promote public health',
+  'Build stronger neighborhoods',
+  'Connect residents to local resources',
+];
