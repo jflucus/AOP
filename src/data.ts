@@ -97,7 +97,7 @@ export const programGallery = [
 export const outcomes = [
   {
     title: 'College Acceptance',
-    icon: '🎓',
+    icon: 'cap',
     summary:
       'Every AOP senior applies to a balanced list of best-fit colleges and is accepted to at least one affordable option.',
     detail:
@@ -105,7 +105,7 @@ export const outcomes = [
   },
   {
     title: 'Scholarship Attainment',
-    icon: '💵',
+    icon: 'dollar',
     summary:
       'Every family completes the FAFSA and the full New York aid stack, and every scholar builds a scholarship pipeline beyond athletics.',
     detail:
@@ -113,7 +113,7 @@ export const outcomes = [
   },
   {
     title: 'Career Readiness',
-    icon: '💼',
+    icon: 'briefcase',
     summary:
       'Every scholar progresses through a structured work-based learning continuum: awareness, exploration, and preparation.',
     detail:
@@ -501,12 +501,12 @@ export const backToSchoolEvent = {
 };
 
 export const backToSchoolExpect = [
-  ['🎒', 'School Supplies'],
-  ['🎽', 'Free Backpacks'],
-  ['✂️', 'Free Haircuts'],
-  ['🩺', 'Health Resources'],
-  ['🍕', 'Food & Music'],
-  ['🎁', 'Giveaways & Prizes'],
+  ['notebook', 'School Supplies'],
+  ['backpack', 'Free Backpacks'],
+  ['scissors', 'Free Haircuts'],
+  ['health', 'Health Resources'],
+  ['food', 'Food & Music'],
+  ['gift', 'Giveaways & Prizes'],
 ];
 
 export const backToSchoolWhyItMatters = [

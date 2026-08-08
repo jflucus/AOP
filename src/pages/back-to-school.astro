@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
+import Icon from '../components/Icon.astro';
 import { backToSchoolEvent, backToSchoolExpect, backToSchoolWhyItMatters } from '../data';
 
 const participation = [
@@ -63,7 +64,7 @@ const impactExamples = [
         <div class="event-hero__expect">
           {backToSchoolExpect.map(([icon, label]) => (
             <div class="event-hero__expect-item">
-              <span aria-hidden="true">{icon}</span>
+              <Icon name={icon as any} size={26} />
               <span>{label}</span>
             </div>
           ))}
@@ -180,8 +181,8 @@ const impactExamples = [
     max-width: 90px;
     text-align: center;
   }
-  .event-hero__expect-item span:first-child {
-    font-size: 1.8rem;
+  .event-hero__expect-item svg {
+    color: var(--gold-dark);
   }
   .why-list {
     list-style: none;
