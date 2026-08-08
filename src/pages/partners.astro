@@ -1,6 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
+import { foundingPartners } from '../data';
+
+const placeholderCount = Math.max(4 - foundingPartners.length, 1);
 
 const types = [
   {
@@ -51,11 +54,15 @@ const types = [
         Founding partners receive recognition on our website, annual impact reports, and at signature
         events while directly investing in the next generation of leaders.
       </p>
-      <div class="logo-row" aria-hidden="true">
-        <div class="logo-placeholder">Your organization</div>
-        <div class="logo-placeholder">Partner</div>
-        <div class="logo-placeholder">Partner</div>
-        <div class="logo-placeholder">Partner</div>
+      <div class="logo-row">
+        {foundingPartners.map((p) => (
+          <div class="logo-card">
+            <img src={p.logo} alt={p.name} loading="lazy" />
+          </div>
+        ))}
+        {Array.from({ length: placeholderCount }).map(() => (
+          <div class="logo-placeholder" aria-hidden="true">Your organization</div>
+        ))}
       </div>
       <a class="btn btn--navy" href="/get-involved/">Become a founding partner</a>
     </div>
@@ -79,5 +86,20 @@ const types = [
     color: var(--gray-blue);
     font-weight: 600;
     font-size: 0.9rem;
+  }
+  .logo-card {
+    height: 90px;
+    display: grid;
+    place-items: center;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 0.75rem;
+  }
+  .logo-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
   }
 </style>

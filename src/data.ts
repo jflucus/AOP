@@ -384,6 +384,8 @@ export const foundingDonors = [
   'Pierre Thevenot',
 ];
 
+export const foundingPartners = [{ name: 'Good Vibes', logo: '/partners/good-vibes.png' }];
+
 export const values = [
   ['Promise', 'We see and invest in the potential of every young person.'],
   ['Preparation', 'Effort, dosage, and multi-year commitment drive outcomes.'],
