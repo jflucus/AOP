@@ -365,6 +365,12 @@ export const advisoryCouncil: {
     name: 'Carlissa Prettyman',
     role: 'Attorney',
   },
+  {
+    slug: 'rashaad-leverett',
+    name: 'Rashaad Leverett',
+    role: 'Advisory Council Member',
+    photo: '/team/rashaad.jpg',
+  },
 ];
 
 export const foundingDonors = [
