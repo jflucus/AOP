@@ -382,6 +382,7 @@ export const foundingDonors = [
   'Farid Haruna',
   'Christine Leon',
   'Pierre Thevenot',
+  'Martine Showers',
 ];
 
 export const foundingPartners = [{ name: 'Good Vibes', logo: '/partners/good-vibes.png' }];
