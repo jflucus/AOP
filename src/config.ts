@@ -49,7 +49,13 @@ export const nav = [
       { label: 'Resources', href: '/resources/' },
     ],
   },
-  { label: 'Get Involved', href: '/get-involved/' },
-  { label: 'News & Events', href: '/news/' },
+  {
+    label: 'Get Involved',
+    href: '/get-involved/',
+    children: [
+      { label: 'Ways to Get Involved', href: '/get-involved/' },
+      { label: 'News & Events', href: '/news/' },
+    ],
+  },
   { label: 'Contact', href: '/contact/' },
 ];
