@@ -10,7 +10,19 @@ const posts: {
   meta?: string[];
   body: string[];
   photo?: string;
+  cta?: { label: string; href: string };
 }[] = [
+  {
+    date: 'August 31, 2026',
+    tag: 'Upcoming Event',
+    title: 'Back-to-School Community Kickoff',
+    body: [
+      "AOP Foundation is teaming up with Bronx Burners for a free Back-to-School Community Kickoff — school supplies, free backpacks, free haircuts, health and community resources, food, music, and giveaways, all before the first day of school.",
+      '2:00 – 6:00 PM at Mott Haven Educational Campus Gym, 730 Concourse Village West, Bronx, NY 10451. Free and open to the community.',
+    ],
+    photo: '/events/back-to-school-flyer.jpg',
+    cta: { label: 'See full details & register', href: '/back-to-school/' },
+  },
   {
     date: 'September 1, 2026',
     tag: 'Milestone',
@@ -75,6 +87,9 @@ const posts: {
                 </div>
               )}
               {p.body.map((para) => <p>{para}</p>)}
+              {p.cta && (
+                <a class="btn btn--gold post__cta" href={p.cta.href}>{p.cta.label}</a>
+              )}
             </article>
           ))}
         </div>
@@ -99,6 +114,9 @@ const posts: {
   }
   .post__details {
     margin: 0.6rem 0 1rem;
+  }
+  .post__cta {
+    margin-top: 0.5rem;
   }
   .post__details p {
     color: var(--gold-dark);
