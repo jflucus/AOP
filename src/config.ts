@@ -16,6 +16,9 @@ export const site = {
     { amount: 500, url: 'https://buy.stripe.com/bJe8wQgi8femcUs9gU8so04' },
     { amount: 1000, url: 'https://buy.stripe.com/00waEY8PG9U26w4gJm8so05' },
   ],
+  // Stripe Payment Link for the AOP Foundation Signature Tee. Leave blank to show
+  // the "ordering is being set up" fallback on /shop/ instead of a Buy Now button.
+  shopTeeUrl: '',
   // TODO: replace with the org's real contact details.
   email: 'info@aopfoundation.org',
   location: 'New York, NY',
