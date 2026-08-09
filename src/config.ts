@@ -39,12 +39,12 @@ export const nav = [
     children: [
       { label: 'Mission, Vision, Core Beliefs', href: '/about/' },
       { label: 'Our Team', href: '/team/' },
+      { label: 'Partners', href: '/partners/' },
     ],
   },
   { label: 'Programs', href: '/programs/' },
   { label: 'Resources', href: '/resources/' },
   { label: 'Get Involved', href: '/get-involved/' },
-  { label: 'Partners', href: '/partners/' },
   { label: 'News & Events', href: '/news/' },
   { label: 'Contact', href: '/contact/' },
 ];
