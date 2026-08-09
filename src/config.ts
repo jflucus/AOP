@@ -32,7 +32,6 @@ export const site = {
 };
 
 export const nav = [
-  { label: 'Home', href: '/' },
   {
     label: 'About',
     href: '/about/',
