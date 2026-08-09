@@ -33,9 +33,15 @@ export const site = {
 
 export const nav = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about/' },
+  {
+    label: 'About',
+    href: '/about/',
+    children: [
+      { label: 'Mission, Vision, Core Beliefs', href: '/about/' },
+      { label: 'Our Team', href: '/team/' },
+    ],
+  },
   { label: 'Programs', href: '/programs/' },
-  { label: 'Our Team', href: '/team/' },
   { label: 'Resources', href: '/resources/' },
   { label: 'Get Involved', href: '/get-involved/' },
   { label: 'Partners', href: '/partners/' },

@@ -32,11 +32,33 @@ const isActive = (href: string) =>
 
       <ul id="nav-menu" class="nav-menu">
         {nav.map((item) => (
-          <li>
-            <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
-              {item.label}
-            </a>
-          </li>
+          item.children ? (
+            <li class="nav-dropdown">
+              <details class="nav-dropdown__details">
+                <summary aria-current={isActive(item.href) ? 'page' : undefined}>
+                  {item.label}
+                  <svg class="nav-dropdown__caret" viewBox="0 0 12 8" width="10" height="7" aria-hidden="true">
+                    <path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </summary>
+                <ul class="nav-dropdown__menu">
+                  {item.children.map((child) => (
+                    <li>
+                      <a href={child.href} aria-current={isActive(child.href) ? 'page' : undefined}>
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+          ) : (
+            <li>
+              <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          )
         ))}
         <li class="nav-menu__cta">
           {/* TEMPORARY: swapped from Donate for the Aug 31, 2026 event campaign — revert to Donate after the event. */}
@@ -111,6 +133,64 @@ const isActive = (href: string) =>
   .nav-menu a[aria-current='page'] {
     color: var(--gold-dark);
   }
+  .nav-dropdown {
+    position: relative;
+  }
+  .nav-dropdown__details summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.7rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--navy);
+    border-radius: 8px;
+    cursor: pointer;
+    list-style: none;
+  }
+  .nav-dropdown__details summary::-webkit-details-marker {
+    display: none;
+  }
+  .nav-dropdown__details summary:hover {
+    background: var(--sky);
+  }
+  .nav-dropdown__details summary[aria-current='page'] {
+    color: var(--gold-dark);
+  }
+  .nav-dropdown__caret {
+    transition: transform 0.15s ease;
+  }
+  .nav-dropdown__details[open] .nav-dropdown__caret {
+    transform: rotate(180deg);
+  }
+  .nav-dropdown__menu {
+    list-style: none;
+    margin: 0.4rem 0 0;
+    padding: 0.4rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+  }
+  .nav-dropdown__menu a {
+    display: block;
+    padding: 0.6rem 0.7rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--navy);
+    border-radius: 8px;
+  }
+  .nav-dropdown__menu a:hover {
+    background: var(--sky);
+    text-decoration: none;
+  }
+  .nav-dropdown__menu a[aria-current='page'] {
+    color: var(--gold-dark);
+  }
   .nav-menu__cta a {
     margin-left: 0.4rem;
   }
@@ -166,6 +246,28 @@ const isActive = (href: string) =>
       border-bottom: 1px solid var(--border);
       border-radius: 0;
     }
+    .nav-dropdown__details summary {
+      padding: 0.85rem 0.5rem;
+      font-size: 1.05rem;
+      border-bottom: 1px solid var(--border);
+      border-radius: 0;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav-dropdown__menu {
+      position: static;
+      box-shadow: none;
+      border: none;
+      border-radius: 0;
+      background: var(--sky);
+      margin: 0;
+      padding: 0.3rem;
+    }
+    .nav-dropdown__menu a {
+      padding: 0.7rem 0.5rem 0.7rem 1.25rem;
+      border-bottom: none;
+      font-size: 1rem;
+    }
     .nav-menu__cta {
       margin-top: 0.8rem;
     }
@@ -204,4 +306,23 @@ const isActive = (href: string) =>
       toggle?.setAttribute('aria-expanded', 'false');
     })
   );
+
+  // Nav dropdowns: close others when one opens, and close on outside click.
+  const dropdowns = document.querySelectorAll<HTMLDetailsElement>('.nav-dropdown__details');
+  dropdowns.forEach((details) => {
+    details.addEventListener('toggle', () => {
+      if (details.open) {
+        dropdowns.forEach((other) => {
+          if (other !== details) other.open = false;
+        });
+      }
+    });
+  });
+  document.addEventListener('click', (e) => {
+    dropdowns.forEach((details) => {
+      if (details.open && !details.contains(e.target as Node)) {
+        details.open = false;
+      }
+    });
+  });
 </script>
