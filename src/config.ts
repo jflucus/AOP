@@ -57,5 +57,6 @@ export const nav = [
       { label: 'News & Events', href: '/news/' },
     ],
   },
+  { label: 'Shop', href: '/shop/' },
   { label: 'Contact', href: '/contact/' },
 ];

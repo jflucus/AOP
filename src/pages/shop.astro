@@ -13,8 +13,8 @@ const sizes = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
 >
   <PageHero
     eyebrow="AOP Shop"
-    title="Wear your support"
-    intro="Every tee helps fund mentoring, academic support, athletic development, and college and career preparation for NYC student-athletes."
+    title="Wear the Mission. Support the Future."
+    intro="Every purchase supports Athletes of Promise Foundation's work helping student-athletes succeed academically, athletically, and beyond high school."
   />
 
   <section class="section">
@@ -27,11 +27,6 @@ const sizes = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
         <p class="eyebrow">Promise &bull; Preparation &bull; Purpose</p>
         <h2>AOP Foundation Signature Tee</h2>
         <p class="product__price">$30.00 <span>+ $5.00 flat-rate shipping</span></p>
-        <p class="lead">
-          Your purchase supports Athletes of Promise Foundation programs serving student-athletes
-          through mentoring, academic support, athletic development, and college and career
-          preparation.
-        </p>
 
         <dl class="product__specs">
           <div>
@@ -64,9 +59,18 @@ const sizes = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
         )}
 
         <p class="product__note">
-          Size selection and shipping address are collected at checkout. Please choose carefully —
-          all sales are final.
+          Size, quantity, and shipping address are all selected at checkout. Please choose
+          carefully — all sales are final.
         </p>
+
+        <div class="product__purpose">
+          <h3>Your Purchase Has Purpose</h3>
+          <p>
+            Proceeds from AOP merchandise help support student-athlete programming, academic
+            resources, athletic development, college and career readiness, community events, and
+            other mission-driven initiatives.
+          </p>
+        </div>
 
         <div class="product__disclosure">
           <p>
@@ -146,6 +150,23 @@ const sizes = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
     font-size: 0.82rem;
     color: var(--text-muted);
     margin-top: 0.8rem;
+  }
+  .product__purpose {
+    margin-top: 1.75rem;
+    background: var(--sky);
+    border-left: 5px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 1.4rem 1.6rem;
+  }
+  .product__purpose h3 {
+    margin: 0 0 0.5rem;
+    color: var(--navy);
+    font-size: 1.05rem;
+  }
+  .product__purpose p {
+    margin: 0;
+    color: var(--navy);
+    font-size: 0.92rem;
   }
   .product__disclosure {
     margin-top: 1.5rem;
