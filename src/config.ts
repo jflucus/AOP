@@ -41,8 +41,14 @@ export const nav = [
       { label: 'Partners', href: '/partners/' },
     ],
   },
-  { label: 'Programs', href: '/programs/' },
-  { label: 'Resources', href: '/resources/' },
+  {
+    label: 'Programs',
+    href: '/programs/',
+    children: [
+      { label: 'Scholar-Athlete Success Model', href: '/programs/' },
+      { label: 'Resources', href: '/resources/' },
+    ],
+  },
   { label: 'Get Involved', href: '/get-involved/' },
   { label: 'News & Events', href: '/news/' },
   { label: 'Contact', href: '/contact/' },
