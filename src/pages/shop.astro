@@ -1,0 +1,171 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { site } from '../config';
+
+const hasBuyLink = site.shopTeeUrl.length > 0;
+const sizes = ['S', 'M', 'L', 'XL', '2XL', '3XL'];
+---
+
+<Base
+  title="AOP Shop"
+  description="Shop AOP Foundation gear. The AOP Foundation Signature Tee — $30 plus shipping — supports our mentoring, academic, and college-readiness programs for NYC student-athletes."
+>
+  <PageHero
+    eyebrow="AOP Shop"
+    title="Wear your support"
+    intro="Every tee helps fund mentoring, academic support, athletic development, and college and career preparation for NYC student-athletes."
+  />
+
+  <section class="section">
+    <div class="container product">
+      <div class="product__photo-wrap">
+        <img class="product__photo" src="/shop/aop-tee-navy.jpg" alt="Navy AOP Foundation Signature Tee with gold and white logo" loading="eager" />
+      </div>
+
+      <div class="product__info">
+        <p class="eyebrow">Promise &bull; Preparation &bull; Purpose</p>
+        <h2>AOP Foundation Signature Tee</h2>
+        <p class="product__price">$30.00 <span>+ $5.00 flat-rate shipping</span></p>
+        <p class="lead">
+          Your purchase supports Athletes of Promise Foundation programs serving student-athletes
+          through mentoring, academic support, athletic development, and college and career
+          preparation.
+        </p>
+
+        <dl class="product__specs">
+          <div>
+            <dt>Color</dt>
+            <dd>Navy</dd>
+          </div>
+          <div>
+            <dt>Sizes</dt>
+            <dd>{sizes.join(' • ')}</dd>
+          </div>
+        </dl>
+
+        {hasBuyLink ? (
+          <a class="btn btn--gold btn--buy" href={site.shopTeeUrl} target="_blank" rel="noopener">
+            Buy Now &mdash; $30
+          </a>
+        ) : (
+          <>
+            <p class="notice">
+              <strong>Online ordering is being set up.</strong> To order a shirt now, email us with
+              your size and we'll send you a secure payment link.
+            </p>
+            <a
+              class="btn btn--gold btn--buy"
+              href={`mailto:${site.email}?subject=AOP Tee order&body=I'd like to order an AOP Foundation Signature Tee. My size: `}
+            >
+              Email us to order
+            </a>
+          </>
+        )}
+
+        <p class="product__note">
+          Size selection and shipping address are collected at checkout. Please choose carefully —
+          all sales are final.
+        </p>
+
+        <div class="product__disclosure">
+          <p>
+            <strong>This is a merchandise purchase, not a tax-deductible donation.</strong> Because
+            you're receiving a shirt in exchange for your payment, it doesn't qualify as a
+            charitable contribution. If you'd like to make a tax-deductible gift instead, visit our
+            <a href="/donate/">Donate page</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .product {
+    display: grid;
+    grid-template-columns: minmax(280px, 460px) 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .product__photo-wrap {
+    position: sticky;
+    top: 96px;
+  }
+  .product__photo {
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-lg);
+  }
+  .product__price {
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    color: var(--navy);
+    margin: 0.3rem 0 1rem;
+  }
+  .product__price span {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .product__specs {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 0.5rem 2.5rem;
+    margin: 1.5rem 0;
+    padding: 1rem 1.2rem;
+    background: var(--sky);
+    border-radius: 10px;
+  }
+  .product__specs dt {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+  .product__specs dd {
+    margin: 0.2rem 0 0;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .btn--buy {
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+  }
+  .notice {
+    background: var(--sky);
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  .product__note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.8rem;
+  }
+  .product__disclosure {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .product__disclosure a {
+    font-weight: 700;
+  }
+
+  @media (max-width: 780px) {
+    .product {
+      grid-template-columns: 1fr;
+    }
+    .product__photo-wrap {
+      position: static;
+      max-width: 400px;
+      margin-inline: auto;
+    }
+  }
+</style>
