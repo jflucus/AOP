@@ -375,8 +375,15 @@ export const advisoryCouncil: {
   {
     slug: 'rashaad-leverett',
     name: 'Rashaad Leverett',
-    role: 'Advisory Council Member',
+    role: 'Youth Engagement & Creative Programs Advisor',
     photo: '/team/rashaad.jpg',
+    bio: [
+      'Rashaad Leverett is a New York-based creative, filmmaker, entrepreneur, educator, and community advocate whose work bridges storytelling, youth development, and community empowerment. A graduate of Morgan State University, where he studied theater, Rashaad has built a diverse career centered on creativity, mentorship, and creating meaningful opportunities for young people.',
+      'As a filmmaker, Rashaad has written and directed several projects, including Good Deeds, The Wrong Bodega, and Truck It, which was selected for the 2020 American Black Film Festival virtual festival. His creative work reflects his commitment to authentic storytelling and highlighting the people, culture, and experiences of urban communities.',
+      'Rashaad brings significant youth-development experience to his work. He serves as a Director of an afterschool program with MMCC, supporting students at Equality Charter School in the Bronx. In this role, he helps middle school students build confidence, develop new skills, express their creativity, and grow within a positive and supportive environment.',
+      'He is also the founder of Imavision, a nonprofit initiative focused on empowering young people through creativity, mentorship, and community engagement. His entrepreneurial work includes Groovy Prints LLC, an apparel company for youth and adults centered on positivity, creativity, and self-expression.',
+      'Known creatively as Boomshard, Rashaad continues to use filmmaking, education, entrepreneurship, and community service to inspire young people and strengthen his community. As a member of the Athletes of Promise Foundation Advisory Council, he brings valuable expertise in youth engagement, creative programming, entrepreneurship, and community-based leadership to AOP’s mission of preparing student-athletes for success in college and beyond.',
+    ],
   },
 ];
 
