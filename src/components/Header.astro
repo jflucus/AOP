@@ -113,7 +113,7 @@ const isActive = (href: string) =>
   .nav-menu {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: clamp(0.75rem, 2vw, 1.75rem);
     list-style: none;
     margin: 0;
     padding: 0;
@@ -190,9 +190,6 @@ const isActive = (href: string) =>
   }
   .nav-dropdown__menu a[aria-current='page'] {
     color: var(--gold-dark);
-  }
-  .nav-menu__cta a {
-    margin-left: 0.4rem;
   }
   .nav-menu__cta a:hover {
     background: var(--gold-dark);
