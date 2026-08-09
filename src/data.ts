@@ -319,6 +319,13 @@ export const board: {
     name: 'Craig Joseph',
     role: 'Vice Chair',
     photo: '/team/craig.jpg',
+    bio: [
+      'A dedicated educator, mentor, and community leader, Craig Joseph brings more than 20 years of experience serving young people across New York City. The son of immigrants, he was raised with a deep appreciation for sacrifice, resilience, faith, and service—values that have guided his career and commitment to expanding opportunities for young people.',
+      'As Vice President of Student Life at Cardinal Hayes High School, he helped lead academics, admissions, student development, and school culture while supporting hundreds of young men. He also served as Head Track & Field Coach, using athletics to develop discipline, accountability, perseverance, leadership, and character.',
+      'Today, he serves as Director of Mentorship at Student Sponsor Partners, supporting mentorship programming for more than 1,200 students, including young people from foster care and under-resourced communities. Throughout his career, he has mentored young people who have gone on to become collegiate athletes, educators, business professionals, leaders, and engaged members of their communities. His commitment to service and mentorship has also been recognized with the nonprofit Trailblazer Award.',
+      'As Vice Chair of Athletes of Promise Foundation, he brings extensive experience in education, athletics, mentorship, and youth development to AOP’s mission of preparing student-athletes for success in college and beyond. He believes lasting change begins with investing time, guidance, opportunity, and genuine care in young people so they have the confidence and support to reach their full potential.',
+      'Above all, he is a proud husband and father of three whose commitment to faith, family, service, and community continues to shape his leadership and life’s work.',
+    ],
   },
   {
     slug: 'george-febles',
