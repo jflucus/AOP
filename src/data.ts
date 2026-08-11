@@ -385,6 +385,16 @@ export const advisoryCouncil: {
       'Known creatively as Boomshard, Rashaad continues to use filmmaking, education, entrepreneurship, and community service to inspire young people and strengthen his community. As a member of the Athletes of Promise Foundation Advisory Council, he brings valuable expertise in youth engagement, creative programming, entrepreneurship, and community-based leadership to AOP’s mission of preparing student-athletes for success in college and beyond.',
     ],
   },
+  {
+    slug: 'tamesha-singleton',
+    name: 'Tamesha Singleton, LCSW',
+    role: 'Mental Health & Student Wellness Advisor',
+    bio: [
+      'Tamesha Singleton is a Licensed Clinical Social Worker, therapist, and school social worker with 15 years of experience supporting individuals and families across diverse communities. A graduate of Lehman College, Tamesha has extensive experience working with youth and adolescents, individuals with mental health needs and disabilities, families experiencing housing instability, and other populations in school, residential, clinical, and home-based settings.',
+      'Tamesha believes that prioritizing mental health is essential to personal growth, confidence, and overall well-being. Throughout her career, she has focused on helping individuals recognize their potential, overcome challenges, achieve personal goals, and become versions of themselves they can be proud of.',
+      'As a member of the Athletes of Promise Foundation Advisory Council, Tamesha brings valuable expertise in mental health, social-emotional wellness, youth development, and student support. She helps inform AOP’s approach to supporting the whole student-athlete—recognizing that success in academics, athletics, leadership, and life begins with young people having the emotional support and resources they need to thrive.',
+    ],
+  },
 ];
 
 export const foundingDonors = [
