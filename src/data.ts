@@ -292,6 +292,7 @@ export const mentors: {
     name: 'Tamesha Singleton, LCSW',
     role: 'Mental Health & Student Wellness Coach',
     focus: 'Clinical Social Work · Mental Health · Family Support',
+    photo: '/team/tamesha.jpg',
     bio: [
       'Tamesha Singleton is a Licensed Clinical Social Worker, therapist, and school social worker with 15 years of experience supporting individuals and families across diverse communities. A graduate of Lehman College, Tamesha has extensive experience working with youth and adolescents, individuals with mental health needs and disabilities, families experiencing housing instability, and other populations in school, residential, clinical, and home-based settings.',
       'Tamesha believes that prioritizing mental health is essential to personal growth, confidence, and overall well-being. Throughout her career, she has focused on helping individuals recognize their potential, overcome challenges, achieve personal goals, and become versions of themselves they can be proud of.',
