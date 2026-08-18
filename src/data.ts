@@ -400,15 +400,20 @@ export const advisoryCouncil: {
 ];
 
 export const foundingDonors = [
-  'Roger Nani',
-  'Michael Sangobowale',
-  'Isabel Benros',
   'Belge Labaze',
-  'Luis Siri Martinez',
-  'Farid Haruna',
   'Christine Leon',
-  'Pierre Thevenot',
+  'Dailee Louis',
+  'Dalen Romelien',
+  'Farid Haruna',
+  'George Ovkovic',
+  'Isabel Benros',
+  'Leslie Green',
+  'Luis Siri Martinez',
   'Martine Showers',
+  'Michael Sangobowale',
+  'Niara Wright',
+  'Pierre Thevenot',
+  'Roger Nani',
 ];
 
 export const foundingPartners = [{ name: 'Good Vibes', logo: '/partners/good-vibes.png' }];
