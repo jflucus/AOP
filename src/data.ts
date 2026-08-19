@@ -400,20 +400,24 @@ export const advisoryCouncil: {
 ];
 
 export const foundingDonors = [
+  'Andrea Williams',
   'Belge Labaze',
   'Christine Leon',
   'Dailee Louis',
   'Dalen Romelien',
   'Farid Haruna',
   'George Ovkovic',
+  'Ibrahima Badji',
   'Isabel Benros',
   'Leslie Green',
   'Luis Siri Martinez',
   'Martine Showers',
   'Michael Sangobowale',
+  'Michele Howell',
   'Niara Wright',
   'Pierre Thevenot',
   'Roger Nani',
+  'Tranae Mckinney',
 ];
 
 export const foundingPartners = [{ name: 'Good Vibes', logo: '/partners/good-vibes.png' }];
