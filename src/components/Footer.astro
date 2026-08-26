@@ -28,17 +28,21 @@ const year = new Date().getFullYear();
         {site.location}
       </p>
       <a class="btn btn--gold" href="/donate/">Donate</a>
+      <p class="footer__trust-badge">501(c)(3) Public Charity</p>
     </div>
   </div>
 
   <div class="footer__legal">
     <div class="container">
+      <!-- TODO: add the org's EIN once provided, e.g. "| EIN: 12-3456789" before "| Bronx, New York" -->
+      <p class="footer__ein-line">
+        {site.legalName} | IRS-recognized 501(c)(3) public charity | {site.location}
+      </p>
       <p>
         &copy; {year} {site.legalName} ({site.publicName}). {site.tagline}
       </p>
       <p class="footer__fineprint">
-        AOP Foundation is launching under fiscal sponsorship; 501(c)(3) status pending.
-        Contributions are tax-deductible to the extent allowed by law once confirmed with the fiscal sponsor.
+        Your contribution is tax-deductible to the extent permitted by law.
       </p>
     </div>
   </div>
@@ -99,11 +103,28 @@ const year = new Date().getFullYear();
     margin-top: 0.6rem;
     color: #fff;
   }
+  .footer__trust-badge {
+    display: inline-block;
+    margin-top: 0.6rem;
+    margin-left: 0.6rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--gold-light);
+  }
   .footer__legal {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     padding-block: 1.5rem;
     font-size: 0.85rem;
     color: #9aa8b6;
+  }
+  .footer__ein-line {
+    font-weight: 700;
+    color: #c3d0e2;
+    margin: 0 0 0.6rem;
   }
   .footer__fineprint {
     margin-top: 0.5rem;
