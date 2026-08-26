@@ -3,41 +3,67 @@ import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import { site } from '../config';
 
-const supports = [
-  ['📚', 'Tutoring & academic support'],
-  ['🏈', 'Athletic equipment'],
-  ['⭐', 'Leadership workshops'],
-  ['🎓', 'Scholarship assistance'],
-  ['🚌', 'College visits'],
-  ['🧑‍🏫', 'Mentoring'],
-  ['💼', 'Career exploration'],
+const giftImpact: [string, string][] = [
+  ['$25', 'Helps provide program materials and supplies for student-athletes.'],
+  ['$50', 'Helps provide academic support, tutoring resources, and student workshops.'],
+  ['$150', 'Helps fund one month of mentorship for one AOP student-athlete.'],
+  ['$450', 'Helps fund three months of mentorship for one AOP student-athlete.'],
+  ['$900', 'Helps fund six months of mentorship for one AOP student-athlete.'],
+  [
+    '$1,000',
+    'Founding Donor — provides significant support toward mentoring, academic programming, workshops, and student opportunities.',
+  ],
+  ['$1,800', 'Helps fund one full year of mentorship for one AOP student-athlete.'],
 ];
 
 const hasDonateOptions = site.donateOptions.length > 0;
 ---
 
-<Base title="Donate" description="Support tutoring, athletic equipment, leadership workshops, scholarship assistance, college visits, mentoring, and career exploration for NYC student-athletes.">
+<Base title="Donate" description="Invest in a student-athlete's future. Your gift funds mentorship, academic support, college and career preparation, leadership development, and community programming for NYC student-athletes.">
   <PageHero
     eyebrow="Donate"
-    title="Invest in a young person's promise"
-    intro="Your gift funds the tutoring, mentoring, equipment, and college guidance that turn talent and drive into college acceptance, financial aid, and a career of purpose."
+    title="Invest in a Student-Athlete's Future"
+    intro="Your gift helps Athletes of Promise Foundation provide student-athletes with consistent mentorship, academic support, college and career preparation, leadership development, community programming, and access to educational opportunities."
   />
 
   <section class="section">
+    <div class="container center">
+      <p class="eyebrow">Gift Impact</p>
+      <h2>See What Your Gift Can Help Make Possible</h2>
+    </div>
+    <div class="container table-wrap">
+      <table class="gift-table">
+        <thead>
+          <tr>
+            <th>Your Gift</th>
+            <th>Your Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          {giftImpact.map(([amount, impact]) => (
+            <tr>
+              <td class="gift-table__amount">{amount}</td>
+              <td>{impact}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section section--alt">
     <div class="container grid grid--2" style="gap:3rem; align-items:start;">
       <div>
-        <p class="eyebrow">Where your gift goes</p>
-        <h2>Every dollar is stewarded transparently</h2>
-        <ul class="support-list">
-          {supports.map(([icon, label]) => (
-            <li><span aria-hidden="true">{icon}</span> {label}</li>
-          ))}
-        </ul>
-        <p class="benchmark">
-          For reference, the intensive one-on-one advising model AOP is built on runs about
-          <strong>$4,000 per student per year</strong>, and independent research ties it to higher college
-          completion. We track cost-per-scholar and report it to our supporters.
+        <p class="eyebrow">Every Gift Builds Opportunity</p>
+        <h2>A financial plan built around student-athletes</h2>
+        <p class="lead">
+          AOP's financial plan directs resources toward the services young people need most:
+          mentoring, academic support and tutoring, student programs and workshops, community
+          resource events, and the Scholarship &amp; Opportunity Fund, which provides charitable
+          assistance to students for educational, athletic, leadership, and career-development
+          purposes.
         </p>
+        <p class="lead"><strong>Make a one-time gift or become a monthly supporter today.</strong></p>
       </div>
 
       <aside class="donate-box" id="donate-info">
@@ -77,6 +103,20 @@ const hasDonateOptions = site.donateOptions.length > 0;
     </div>
   </section>
 
+  <section class="section">
+    <div class="container narrow center">
+      <h2>Your Gift Is Tax-Deductible</h2>
+      <p class="lead">
+        Athletes of Promise Foundation, Inc. is recognized by the Internal Revenue Service as a
+        tax-exempt organization under Section 501(c)(3) and is classified as a public charity.
+        Contributions are tax-deductible to the extent permitted by law.
+      </p>
+      <p class="fine-note">
+        No goods or services are provided in exchange for contributions unless otherwise stated.
+      </p>
+    </div>
+  </section>
+
   <section class="section section--navy cta-band">
     <div class="container center">
       <h2>Other ways to give</h2>
@@ -98,28 +138,49 @@ const hasDonateOptions = site.donateOptions.length > 0;
     flex-wrap: wrap;
     margin-top: 0.5rem;
   }
-  .support-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-    display: grid;
-    gap: 0.6rem;
+  .narrow {
+    max-width: 700px;
   }
-  .support-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    font-weight: 600;
+  .table-wrap {
+    margin-top: 2rem;
+    overflow-x: auto;
+  }
+  .gift-table {
+    width: 100%;
+    max-width: 860px;
+    margin-inline: auto;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .gift-table th {
+    background: var(--navy);
+    color: #fff;
+    text-align: left;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .gift-table td {
+    padding: 1rem 1.2rem;
+    border-bottom: 1px solid var(--border);
     color: var(--navy);
   }
-  .support-list span {
-    font-size: 1.3rem;
+  .gift-table tr:last-child td {
+    border-bottom: none;
   }
-  .benchmark {
+  .gift-table__amount {
+    font-weight: 800;
+    color: var(--gold-dark);
+    white-space: nowrap;
+    width: 1%;
+  }
+  .fine-note {
     color: var(--text-muted);
-    font-size: 0.95rem;
-    border-left: 3px solid var(--gold);
-    padding-left: 1rem;
+    font-size: 0.85rem;
   }
   .donate-box {
     background: #fff;
@@ -180,5 +241,11 @@ const hasDonateOptions = site.donateOptions.length > 0;
     font-size: 0.78rem;
     color: var(--text-muted);
     margin: 0;
+  }
+
+  @media (max-width: 700px) {
+    .gift-table {
+      min-width: 560px;
+    }
   }
 </style>
