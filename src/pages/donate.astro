@@ -42,6 +42,7 @@ const hasDonateOptions = site.donateOptions.length > 0;
 
       <aside class="donate-box" id="donate-info">
         <h3>Give to AOP Foundation</h3>
+        <p class="trust-badge">501(c)(3) Public Charity</p>
         {hasDonateOptions ? (
           <>
             <p>Make a secure gift online.</p>
@@ -69,10 +70,8 @@ const hasDonateOptions = site.donateOptions.length > 0;
           </>
         )}
         <p class="donate-box__fine">
-          Athletes of Promise Foundation, Inc. has applied to the IRS for recognition as a tax-exempt
-          organization under Section 501(c)(3). If approved, its exemption is expected to be effective
-          retroactively to its date of incorporation. Donors should consult their tax advisers regarding
-          deductibility while the application remains pending.
+          Athletes of Promise Foundation, Inc. is an IRS-recognized 501(c)(3) public charity. Your
+          contribution is tax-deductible to the extent permitted by law.
         </p>
       </aside>
     </div>
@@ -134,6 +133,19 @@ const hasDonateOptions = site.donateOptions.length > 0;
   }
   .donate-box h3 {
     margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  .trust-badge {
+    display: inline-block;
+    margin: 0 0 1rem;
+    padding: 0.3rem 0.7rem;
+    background: var(--sky);
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--gold-dark);
   }
   .btn--block {
     display: flex;
