@@ -34,9 +34,8 @@ const year = new Date().getFullYear();
 
   <div class="footer__legal">
     <div class="container">
-      <!-- TODO: add the org's EIN once provided, e.g. "| EIN: 12-3456789" before "| Bronx, New York" -->
       <p class="footer__ein-line">
-        {site.legalName} | IRS-recognized 501(c)(3) public charity | {site.location}
+        {site.legalName} | IRS-recognized 501(c)(3) public charity | EIN: {site.ein} | Bronx, New York
       </p>
       <p>
         &copy; {year} {site.legalName} ({site.publicName}). {site.tagline}
