@@ -21,7 +21,7 @@ export const site = {
   shopTeeUrl: 'https://buy.stripe.com/4gMfZi2ri8PYcUsdxa8so07',
   ein: '42-3955045',
   // Google Analytics 4 Measurement ID (format "G-XXXXXXXXXX"). Leave blank to disable GA4.
-  gaMeasurementId: '',
+  gaMeasurementId: 'G-HPE6175QXX',
   // TODO: replace with the org's real contact details.
   email: 'info@aopfoundation.org',
   location: 'New York, NY',
