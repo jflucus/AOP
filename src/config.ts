@@ -20,6 +20,8 @@ export const site = {
   // the "ordering is being set up" fallback on /shop/ instead of a Buy Now button.
   shopTeeUrl: 'https://buy.stripe.com/4gMfZi2ri8PYcUsdxa8so07',
   ein: '42-3955045',
+  // Google Analytics 4 Measurement ID (format "G-XXXXXXXXXX"). Leave blank to disable GA4.
+  gaMeasurementId: '',
   // TODO: replace with the org's real contact details.
   email: 'info@aopfoundation.org',
   location: 'New York, NY',
