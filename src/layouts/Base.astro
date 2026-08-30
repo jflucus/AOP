@@ -47,6 +47,9 @@ const structuredData = {
     <link rel="icon" type="image/svg+xml" href="/brand/icon.svg" />
     <link rel="apple-touch-icon" href="/brand/icon-192.png" />
     <meta name="generator" content={Astro.generator} />
+    {site.searchConsoleVerification && (
+      <meta name="google-site-verification" content={site.searchConsoleVerification} />
+    )}
 
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
