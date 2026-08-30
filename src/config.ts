@@ -22,6 +22,9 @@ export const site = {
   ein: '42-3955045',
   // Google Analytics 4 Measurement ID (format "G-XXXXXXXXXX"). Leave blank to disable GA4.
   gaMeasurementId: 'G-HPE6175QXX',
+  // Google Search Console HTML-tag verification code (the "content" value from the
+  // meta tag Search Console gives you, not the whole tag). Leave blank to omit.
+  searchConsoleVerification: 'KsdkRjkid_dk8VeMTwXX6VeN7r_UBpyFwfubzRbRtgg',
   // TODO: replace with the org's real contact details.
   email: 'info@aopfoundation.org',
   location: 'New York, NY',
