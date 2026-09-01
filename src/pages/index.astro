@@ -52,11 +52,14 @@ const bannerSlides = [
       <div class="event-banner__scrim"></div>
       <div class="event-banner__overlay">
         <div class="container">
-          <h2>Back to School Community Kickoff</h2>
-          <p class="event-banner__by">By AOP Foundation &amp; Bronx Burners</p>
+          <h2>Backpacks Delivered. Promises Kept.</h2>
+          <p class="event-banner__by">
+            Thanks to AOP Foundation, Bronx Burners, and our sponsors, Bronx families started the
+            school year strong.
+          </p>
           <div class="event-banner__cta-row">
-            <a class="btn btn--gold" href="/back-to-school/">Register</a>
-            <a class="btn btn--dark" href="/back-to-school/">Become a Partner</a>
+            <a class="btn btn--gold" href="/donate/">Fund the Next One</a>
+            <a class="btn btn--dark" href="/partners/">Partner With Us</a>
           </div>
         </div>
       </div>
@@ -385,6 +388,7 @@ const bannerSlides = [
     color: #dbe4f0;
     font-weight: 600;
     margin: 0 0 1.3rem;
+    max-width: 40ch;
   }
   .event-banner__cta-row {
     display: flex;
@@ -459,6 +463,9 @@ const bannerSlides = [
     }
     .event-banner__overlay h2 {
       max-width: none;
+      margin-inline: auto;
+    }
+    .event-banner__by {
       margin-inline: auto;
     }
     .event-banner__cta-row {
