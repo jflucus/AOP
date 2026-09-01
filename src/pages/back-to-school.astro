@@ -4,88 +4,94 @@ import PageHero from '../components/PageHero.astro';
 import Icon from '../components/Icon.astro';
 import { backToSchoolEvent, backToSchoolExpect, backToSchoolWhyItMatters } from '../data';
 
-const participation = [
+const galleryPhotos = [
   {
-    title: 'Families',
-    body: 'Attend the event and connect with free resources.',
-    cta: 'Register',
-    href: backToSchoolEvent.registerUrl,
+    src: '/events/backpack-giveaway-1.jpg',
+    alt: 'AOP staff member and two students with new backpacks at the Back-to-School Community Kickoff.',
   },
   {
-    title: 'Community Organizations & Vendors',
-    body: 'Provide resources, services, information, or activities for Bronx families.',
-    cta: 'Become a Partner',
-    href: backToSchoolEvent.partnerUrl,
+    src: '/events/backpack-giveaway-2.jpg',
+    alt: 'A family holding new clothing and backpacks at the Back-to-School Community Kickoff.',
   },
   {
-    title: 'Supporters',
-    body: 'Help AOP provide supplies, food, incentives, and student resources.',
-    cta: 'Donate',
-    href: '/donate/',
+    src: '/events/backpack-giveaway-3.jpg',
+    alt: 'AOP coaches and students holding gift cards at the Back-to-School Community Kickoff.',
   },
 ];
 
-const impactExamples = [
-  ['$25', 'helps provide student supplies'],
-  ['$50', 'supports event resources'],
-  ['$100', 'helps equip multiple students'],
+const nextSteps = [
+  {
+    title: 'Supporters',
+    body: 'Help fund the next community event and year-round programming.',
+    cta: 'Donate',
+    href: '/donate/',
+  },
+  {
+    title: 'Community Organizations & Vendors',
+    body: 'Bring resources, services, or activities to our next community event.',
+    cta: 'Partner With Us',
+    href: '/partners/',
+  },
+  {
+    title: 'Families & Community',
+    body: 'Get notified about our next community event and program updates.',
+    cta: 'See News & Events',
+    href: '/news/',
+  },
 ];
 ---
 
 <Base
-  title="Back-to-School Community Kickoff"
-  description={`${backToSchoolEvent.name} — ${backToSchoolEvent.date}, ${backToSchoolEvent.venue}. A free event helping Bronx students start the school year prepared, healthy, and ready to attend.`}
+  title="Back-to-School Community Kickoff — Event Recap"
+  description={`See how AOP Foundation and ${backToSchoolEvent.presentedWith} helped Bronx families start the school year strong at the Back-to-School Community Kickoff on ${backToSchoolEvent.date}.`}
 >
   <PageHero
-    eyebrow="Back-to-School Community Kickoff"
-    title="A day of resources. A lifetime of impact."
-    intro={`Presented with ${backToSchoolEvent.presentedWith}. ${backToSchoolEvent.date} · ${backToSchoolEvent.time} · ${backToSchoolEvent.venue}, ${backToSchoolEvent.address}`}
+    eyebrow="Event Recap"
+    title="Backpacks Delivered. Promises Kept."
+    intro={`On ${backToSchoolEvent.date}, AOP Foundation teamed up with ${backToSchoolEvent.presentedWith} at ${backToSchoolEvent.venue} to help Bronx families start the school year strong.`}
   />
 
   <section class="section">
-    <div class="container event-hero">
-      <div>
-        <img class="event-hero__flyer" src={backToSchoolEvent.flyer} alt={`${backToSchoolEvent.name} flyer`} loading="eager" />
-        <p class="event-hero__partner">
-          <img src="/events/bronx-burners-logo.jpg" alt={`${backToSchoolEvent.presentedWith} logo`} width="40" height="40" />
-          Presented with {backToSchoolEvent.presentedWith}
-        </p>
+    <div class="container">
+      <div class="event-gallery">
+        {galleryPhotos.map((photo) => (
+          <img class="event-gallery__photo" src={photo.src} alt={photo.alt} loading="lazy" />
+        ))}
       </div>
-      <div>
-        <p class="eyebrow">Free for students and families</p>
-        <h2>Before Day One, let's make attendance a priority.</h2>
-        <p class="lead">
-          This isn't just a giveaway — it's an attendance initiative. Every student leaves knowing school
-          matters, their community supports them, and they're expected in class.
-        </p>
-        <a class="btn btn--gold" href={backToSchoolEvent.registerUrl} target="_blank" rel="noopener">
-          Register Your Interest &rarr;
-        </a>
-        <div class="event-hero__expect">
-          {backToSchoolExpect.map(([icon, label]) => (
-            <div class="event-hero__expect-item">
-              <Icon name={icon as any} size={26} />
-              <span>{label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <p class="event-gallery__partner">
+        <img src="/events/bronx-burners-logo.jpg" alt={`${backToSchoolEvent.presentedWith} logo`} width="40" height="40" />
+        Presented with {backToSchoolEvent.presentedWith}
+      </p>
     </div>
   </section>
 
   <section class="section section--alt">
+    <div class="container center">
+      <p class="eyebrow">What We Provided</p>
+      <h2>Everything Families Needed to Start the Year Strong</h2>
+    </div>
+    <div class="container">
+      <div class="event-hero__expect event-hero__expect--center">
+        {backToSchoolExpect.map(([icon, label]) => (
+          <div class="event-hero__expect-item">
+            <Icon name={icon as any} size={26} />
+            <span>{label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container">
       <div class="center">
-        <p class="eyebrow">Why This Matters</p>
+        <p class="eyebrow">Why This Mattered</p>
         <h2>More Than a Giveaway</h2>
         <p class="lead">
-          AOP Foundation's Back-to-School Community Kickoff is an attendance and student-engagement
-          initiative. We're bringing students, families, schools, and community partners together to
-          remove barriers that can prevent students from starting the school year strong.
-        </p>
-        <p class="lead">
-          Our goal is simple: help students arrive prepared, connected, and ready to attend school from
-          Day One.
+          AOP Foundation's Back-to-School Community Kickoff was an attendance and
+          student-engagement initiative. We brought students, families, schools, and community
+          partners together to remove barriers that can keep students from starting the school
+          year strong.
         </p>
       </div>
       <ul class="why-list">
@@ -98,7 +104,7 @@ const impactExamples = [
 
   <section class="section section--navy cohort-band">
     <div class="container center">
-      <p class="eyebrow">Our Impact</p>
+      <p class="eyebrow">Our Track Record</p>
       <div class="stat">
         <span class="stat__num">16</span>
         <p>Bronx seniors mentored in our volunteer pilot last year — 100% graduated, 100% completed
@@ -114,54 +120,47 @@ const impactExamples = [
   <section class="section">
     <div class="container">
       <div class="center">
-        <p class="eyebrow">Get Involved</p>
-        <h2>Help Us Start the School Year Strong</h2>
+        <p class="eyebrow">Help Us Do This Again</p>
+        <h2>Support Our Next Community Event</h2>
       </div>
       <div class="grid grid--3" style="margin-top:2.5rem;">
-        {participation.map((p) => (
+        {nextSteps.map((p) => (
           <article class="card participation-card">
             <h3>{p.title}</h3>
             <p>{p.body}</p>
-            <a class="btn btn--navy" href={p.href} target="_blank" rel="noopener">{p.cta} &rarr;</a>
+            <a class="btn btn--navy" href={p.href}>{p.cta} &rarr;</a>
           </article>
         ))}
-      </div>
-
-      <div class="callout">
-        <h2>What your gift can do</h2>
-        <div class="impact-row">
-          {impactExamples.map(([amount, desc]) => (
-            <p><strong>{amount}</strong> {desc}</p>
-          ))}
-        </div>
-        <a class="btn btn--gold" href="/donate/">Donate</a>
       </div>
     </div>
   </section>
 </Base>
 
 <style>
-  .event-hero {
+  .event-gallery {
     display: grid;
-    grid-template-columns: minmax(240px, 320px) 1fr;
-    gap: 2.5rem;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
-  .event-hero__flyer {
+  .event-gallery__photo {
+    display: block;
     width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
     border-radius: var(--radius);
     box-shadow: var(--shadow-lg);
   }
-  .event-hero__partner {
+  .event-gallery__partner {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.6rem;
-    margin: 0.8rem 0 0;
+    margin: 1.5rem 0 0;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--text-muted);
   }
-  .event-hero__partner img {
+  .event-gallery__partner img {
     border-radius: 50%;
   }
   .event-hero__expect {
@@ -169,6 +168,9 @@ const impactExamples = [
     flex-wrap: wrap;
     gap: 1.25rem 1.75rem;
     margin-top: 1.75rem;
+  }
+  .event-hero__expect--center {
+    justify-content: center;
   }
   .event-hero__expect-item {
     display: flex;
@@ -234,40 +236,12 @@ const impactExamples = [
     margin-top: auto;
     align-self: flex-start;
   }
-  .callout {
-    margin-top: 2.5rem;
-    background: var(--sky);
-    border-radius: var(--radius);
-    padding: 2rem;
-    border-left: 5px solid var(--gold);
-    text-align: center;
-  }
-  .callout h2 {
-    margin-top: 0;
-  }
-  .impact-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem 2rem;
-    margin: 1rem 0 1.5rem;
-    color: var(--text-muted);
-  }
-  .impact-row strong {
-    color: var(--gold-dark);
-  }
 
   @media (max-width: 700px) {
-    .event-hero {
+    .event-gallery {
       grid-template-columns: 1fr;
-      text-align: center;
-    }
-    .event-hero__flyer {
-      max-width: 320px;
+      max-width: 340px;
       margin-inline: auto;
-    }
-    .event-hero__expect {
-      justify-content: center;
     }
   }
 </style>
