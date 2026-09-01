@@ -13,25 +13,53 @@ import { site } from '../config';
 
 const formattedScholarships = `$${totalScholarshipsEarned.toLocaleString('en-US')}`;
 const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toFixed(2)}M+`;
+
+const bannerSlides = [
+  {
+    src: '/events/backpack-giveaway-1.jpg',
+    alt: 'AOP staff member and two students with new backpacks at the Back-to-School Community Kickoff.',
+    position: 'center 25%',
+  },
+  {
+    src: '/events/backpack-giveaway-2.jpg',
+    alt: 'A family holding new clothing and backpacks at the Back-to-School Community Kickoff.',
+    position: 'center 28%',
+  },
+  {
+    src: '/events/backpack-giveaway-3.jpg',
+    alt: 'AOP coaches and students holding gift cards at the Back-to-School Community Kickoff.',
+    position: 'center 32%',
+  },
+];
 ---
 
 <Base>
   <!-- Back-to-School Event Banner -->
   <section class="event-banner">
     <div class="event-banner__photo-strip">
-      <img
-        class="event-banner__bg-photo"
-        src="/events/back-to-school-classroom.jpg"
-        alt="Bronx students working together on a robotics project in the classroom."
-      />
+      <div class="event-banner__slideshow">
+        {bannerSlides.map((slide, i) => (
+          <img
+            class="event-banner__slide"
+            class:list={[{ 'is-active': i === 0 }]}
+            src={slide.src}
+            alt={slide.alt}
+            style={`object-position: ${slide.position};`}
+            loading={i === 0 ? 'eager' : 'lazy'}
+          />
+        ))}
+      </div>
       <div class="event-banner__scrim"></div>
       <div class="event-banner__overlay">
         <div class="container">
-          <h2>Back to School Community Kickoff</h2>
-          <p class="event-banner__by">By AOP Foundation &amp; Bronx Burners</p>
+          <h2>Backpacks Delivered. Promises Kept.</h2>
+          <p class="event-banner__by">
+            Thanks to AOP Foundation, Bronx Burners, and our sponsors, Bronx families started the
+            school year strong.
+          </p>
           <div class="event-banner__cta-row">
-            <a class="btn btn--gold" href="/back-to-school/">Register</a>
-            <a class="btn btn--dark" href="/back-to-school/">Become a Partner</a>
+            <a class="btn btn--gold" href="/donate/">Fund the Next One</a>
+            <a class="btn btn--dark" href="/partners/">Partner With Us</a>
           </div>
         </div>
       </div>
@@ -56,6 +84,16 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
             </div>
           </div>
         </div>
+      </div>
+      <div class="event-banner__dots" role="tablist" aria-label="Event photos">
+        {bannerSlides.map((slide, i) => (
+          <button
+            type="button"
+            class="event-banner__dot"
+            class:list={[{ 'is-active': i === 0 }]}
+            aria-label={`Show photo ${i + 1} of ${bannerSlides.length}`}
+          ></button>
+        ))}
       </div>
     </div>
   </section>
@@ -290,13 +328,42 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     height: clamp(420px, 48vw, 560px);
     overflow: hidden;
   }
-  .event-banner__bg-photo {
+  .event-banner__slideshow {
+    position: absolute;
+    inset: 0;
+  }
+  .event-banner__slide {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 18%;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+  }
+  .event-banner__slide.is-active {
+    opacity: 1;
+  }
+  .event-banner__dots {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 3;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .event-banner__dot {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+  }
+  .event-banner__dot.is-active {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
   }
   .event-banner__scrim {
     position: absolute;
@@ -321,6 +388,7 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     color: #dbe4f0;
     font-weight: 600;
     margin: 0 0 1.3rem;
+    max-width: 40ch;
   }
   .event-banner__cta-row {
     display: flex;
@@ -395,6 +463,9 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     }
     .event-banner__overlay h2 {
       max-width: none;
+      margin-inline: auto;
+    }
+    .event-banner__by {
       margin-inline: auto;
     }
     .event-banner__cta-row {
@@ -681,3 +752,36 @@ const formattedScholarshipsShort = `$${(totalScholarshipsEarned / 1_000_000).toF
     }
   }
 </style>
+
+<script>
+  const slideshow = document.querySelector('.event-banner__slideshow');
+  const slides = slideshow ? Array.from(slideshow.querySelectorAll<HTMLImageElement>('.event-banner__slide')) : [];
+  const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('.event-banner__dot'));
+
+  if (slides.length > 1) {
+    let current = 0;
+    let timer: ReturnType<typeof setInterval>;
+
+    function show(index: number) {
+      slides[current].classList.remove('is-active');
+      dots[current]?.classList.remove('is-active');
+      current = index;
+      slides[current].classList.add('is-active');
+      dots[current]?.classList.add('is-active');
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => show((current + 1) % slides.length), 5000);
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        show(i);
+        startTimer();
+      });
+    });
+
+    startTimer();
+  }
+</script>
