@@ -7,7 +7,6 @@ import {
   spotlights,
   commitments,
   totalScholarshipsEarned,
-  backToSchoolEvent,
 } from '../data';
 import { site } from '../config';
 
@@ -49,42 +48,6 @@ const bannerSlides = [
           />
         ))}
       </div>
-      <div class="event-banner__scrim"></div>
-      <div class="event-banner__overlay">
-        <div class="container">
-          <h2>Backpacks Delivered. Promises Kept.</h2>
-          <p class="event-banner__by">
-            Thanks to AOP Foundation, Bronx Burners, and our sponsors, Bronx families started the
-            school year strong.
-          </p>
-          <div class="event-banner__cta-row">
-            <a class="btn btn--gold" href="/donate/">Fund the Next One</a>
-            <a class="btn btn--dark" href="/partners/">Partner With Us</a>
-          </div>
-        </div>
-      </div>
-      <div class="event-banner__facts-layer">
-        <div class="container">
-          <div class="event-banner__facts">
-            <div class="event-banner__fact">
-              <Icon name="calendar" size={22} />
-              <div><small>Date</small><strong>Aug 31, 2026</strong></div>
-            </div>
-            <div class="event-banner__fact">
-              <Icon name="pin" size={22} />
-              <div><small>Location</small><strong>{backToSchoolEvent.venue}</strong></div>
-            </div>
-            <div class="event-banner__fact">
-              <Icon name="clock" size={22} />
-              <div><small>Time</small><strong>{backToSchoolEvent.time}</strong></div>
-            </div>
-            <div class="event-banner__fact">
-              <Icon name="check" size={22} />
-              <div><small>Admission</small><strong>Free</strong></div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="event-banner__dots" role="tablist" aria-label="Event photos">
         {bannerSlides.map((slide, i) => (
           <button
@@ -94,6 +57,19 @@ const bannerSlides = [
             aria-label={`Show photo ${i + 1} of ${bannerSlides.length}`}
           ></button>
         ))}
+      </div>
+    </div>
+    <div class="event-banner__copy">
+      <div class="container center">
+        <h2>Backpacks Delivered. Promises Kept.</h2>
+        <p class="lead">
+          Thanks to AOP Foundation, Bronx Burners, and our sponsors, Bronx families started the
+          school year strong.
+        </p>
+        <div class="event-banner__cta-row">
+          <a class="btn btn--gold" href="/donate/">Fund the Next One</a>
+          <a class="btn btn--dark" href="/partners/">Partner With Us</a>
+        </div>
       </div>
     </div>
   </section>
@@ -325,7 +301,7 @@ const bannerSlides = [
   /* Full-bleed photo strip */
   .event-banner__photo-strip {
     position: relative;
-    height: clamp(420px, 48vw, 560px);
+    height: clamp(260px, 36vw, 420px);
     overflow: hidden;
   }
   .event-banner__slideshow {
@@ -346,15 +322,18 @@ const bannerSlides = [
   }
   .event-banner__dots {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    bottom: 0.75rem;
+    right: 0.75rem;
     z-index: 3;
     display: flex;
     gap: 0.5rem;
+    padding: 0.4rem 0.5rem;
+    background: rgba(8, 27, 56, 0.45);
+    border-radius: 999px;
   }
   .event-banner__dot {
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     padding: 0;
     border-radius: 50%;
     border: 1.5px solid rgba(255, 255, 255, 0.85);
@@ -365,35 +344,23 @@ const bannerSlides = [
     background: var(--gold-light);
     border-color: var(--gold-light);
   }
-  .event-banner__scrim {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, rgba(10, 34, 69, 0.88) 0%, rgba(10, 34, 69, 0.55) 55%, rgba(10, 34, 69, 0.15) 100%);
+  .event-banner__copy {
+    background: #fff;
+    padding-block: clamp(2rem, 5vw, 3rem);
   }
-  .event-banner__overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    padding-bottom: 6rem;
+  .event-banner__copy h2 {
+    margin-bottom: 0.5rem;
   }
-  .event-banner__overlay h2 {
-    color: #fff;
-    font-size: clamp(1.7rem, 4vw, 2.6rem);
-    line-height: 1.1;
-    margin: 0 0 0.4rem;
-    max-width: 14ch;
-  }
-  .event-banner__by {
-    color: #dbe4f0;
-    font-weight: 600;
-    margin: 0 0 1.3rem;
-    max-width: 40ch;
+  .event-banner__copy .lead {
+    max-width: 46ch;
+    margin-inline: auto;
   }
   .event-banner__cta-row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.75rem;
+    margin-top: 1.3rem;
   }
   .btn--dark {
     background: var(--navy);
@@ -404,78 +371,9 @@ const bannerSlides = [
     background: #071a37;
   }
 
-  /* Facts layer, overlaid on the bottom of the photo */
-  .event-banner__facts-layer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(8, 27, 56, 0.82);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    padding-block: 1rem;
-  }
-  .event-banner__facts {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 1rem 2rem;
-    width: 100%;
-    max-width: 880px;
-    margin-inline: auto;
-  }
-  .event-banner__fact {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    justify-content: center;
-  }
-  .event-banner__fact svg {
-    color: var(--gold-light);
-    flex-shrink: 0;
-  }
-  .event-banner__fact div {
-    display: flex;
-    flex-direction: column;
-  }
-  .event-banner__fact small {
-    color: #c9d6e8;
-    font-size: 0.72rem;
-  }
-  .event-banner__fact strong {
-    color: #fff;
-    font-size: 0.92rem;
-  }
-
   @media (max-width: 780px) {
     .event-banner__photo-strip {
-      height: clamp(500px, 90vw, 580px);
-    }
-    .event-banner__scrim {
-      background: linear-gradient(180deg, rgba(10, 34, 69, 0.35) 0%, rgba(10, 34, 69, 0.9) 75%);
-    }
-    .event-banner__overlay {
-      align-items: flex-end;
-      padding-bottom: 13rem;
-    }
-    .event-banner__overlay .container {
-      text-align: center;
-    }
-    .event-banner__overlay h2 {
-      max-width: none;
-      margin-inline: auto;
-    }
-    .event-banner__by {
-      margin-inline: auto;
-    }
-    .event-banner__cta-row {
-      justify-content: center;
-    }
-    .event-banner__facts {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .event-banner__fact {
-      justify-content: flex-start;
+      height: clamp(220px, 60vw, 320px);
     }
   }
 
